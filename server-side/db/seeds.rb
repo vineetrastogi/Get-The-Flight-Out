@@ -5,20 +5,23 @@ require 'awesome_print'
 require 'date'
 
 
-# airline_codes =
-# ["ATL","PEK","LHR","ORD","HND","LAX","CDG","DFW","FRA","HKG","DEN","DXB","CGK","AMS","MAD","BKK","JFK","SIN","CAN","LAS","PVG","SFO","PHX","IAH","CLT","MIA","MUC","KUL","FCO","IST","SYD","MCO","ICN","DEL","BCN","LGW","EWR","YYZ","SHA","MSP","SEA","DTW","PHL","BOM","GRU","MNL","CTU","BOS","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","LGA","FLL","IAD","PMI","CPH","SVO","BWI","KMG","VIE","OSL","JED","BNE","SLC","DUS","BOG","MXP","JNB","ARN","MAN","MDW","DCA","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","SAN","TPA","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL"]
+airline_codes =
+["ATL","PEK","LHR","ORD","HND","LAX","CDG","DFW","FRA","HKG","DEN","DXB","CGK","AMS","MAD","BKK","JFK","SIN","CAN","LAS","PVG","PHX","IAH","CLT","MIA","MUC","KUL","FCO","IST","SYD","MCO","ICN","DEL","BCN","LGW","EWR","YYZ","SHA","MSP","SEA","DTW","PHL","BOM","GRU","MNL","CTU","BOS","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","LGA","FLL","IAD","PMI","CPH","SVO","BWI","KMG","VIE","OSL","JED","BNE","SLC","DUS","BOG","MXP","JNB","ARN","MAN","MDW","DCA","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","SAN","TPA","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL"]
 
-# use one element of the array to test if api is displaying origin/destination properly
+# This statement is for later on, once the user types in their origin. It will take their input, and if it matches a string inside of the array, then we cut out the string in the array and continue with the API Call.
 
-# airline_codes.each do |airline_code|
+# if airline_codes.include?(response['trips']['data']['city'][-1]['name'])
+
+# end
+
+airline_codes.each do |airline_code|
 
 request = {
   "request" => {
     "slice"=> [
       {
         "origin" => "SFO",
-        "destination"=> "ATL",
-        # airline_code,
+        "destination"=> airline_code,
         "date"=> "2015-03-13"
       }
       ],
@@ -76,43 +79,11 @@ end
 
 Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: convert_date_to_time(departure_time), arrival_time: convert_date_to_time(arrival_time), duration: total_travel_time, mileage: total_distance_traveled, origin: origin, destination: destination)
 
-ap response
-puts '*' * 100
-p response
+# ap response
+# puts '*' * 100
+# p response
 
-# end
+end
 
-
-# [{
-#  "kind" => "qpxexpress#legInfo",
-#  "id" => "LAPMILwXUc6y4kke",
-#  "aircraft" => "321",
-#  "arrivalTime" => "2015-03-13T07:55-07:00",
-#  "departureTime" => "2015-03-13T06:00-07:00",
-#  "origin" => "SFO",
-#  "destination" => "PHX",
-#  "originTerminal" => "1",
-#  "destinationTerminal" => "4",
-#  "duration" => 115,
-#  "onTimePerformance" => 97,
-#  "mileage" => 650,
-#  "secure" => true,
-#  "connectionDuration" => 64
-#  },
-#  {
-#    "kind" => "qpxexpress#legInfo",
-#    "id" => "LvgmyCBcIRh6CIQp",
-#    "aircraft" => "321",
-#    "arrivalTime" => "2015-03-13T15:38-04:00",
-#    "departureTime" => "2015-03-13T08:59-07:00",
-#    "origin" => "PHX",
-#    "destination" => "ATL",
-#    "originTerminal" => "4",
-#    "destinationTerminal" => "N",
-#    "duration" => 219,
-#    "mileage" => 1583,
-#    "meal" => "Food for Purchase",
-#    "secure" => true
-#  }]
 
 
