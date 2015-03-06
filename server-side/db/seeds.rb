@@ -29,7 +29,7 @@ response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?
 body: request,
 headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
-saleTotal = response['trips']['tripOption'][0]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+sale_total = response['trips']['tripOption'][0]['saleTotal'].reverse.chomp('DSU').reverse.to_f
 
 carrier = response['trips']['data']['carrier'][0]['name']
 
@@ -44,6 +44,10 @@ arrival_time = response['trips']['tripOption'][0]['slice'][0]['segment'][0]['leg
 duration = response['trips']['tripOption'][0]['slice'][0]['segment'][0]['leg'][0]['duration']
 
 mileage = response['trips']['tripOption'][0]['slice'][0]['segment'][0]['leg'][0]['mileage']
+
+origin = response['trips']['data']['city'][1]['name']
+
+destination = response['trips']['data']['city'][0]['name']
 
 Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: departure_time, arrival_time: arrival_time, duration: duration, mileage: mileage)
 

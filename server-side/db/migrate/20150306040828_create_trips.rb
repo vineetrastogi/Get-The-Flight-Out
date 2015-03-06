@@ -9,6 +9,8 @@ class CreateTrips < ActiveRecord::Migration
       t.string :arrival_time
       t.integer :duration
       t.integer :mileage
+      # t.string :origin
+      # t.string :destination
 
       t.timestamps null: false
     end
