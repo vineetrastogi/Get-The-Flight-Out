@@ -20,3 +20,4 @@ Email push notifications telling you when the location you like has a price whic
 User Authentication and WishList - super basic - no bcrypt
 optional OAuth with Google only (After MVP - monday)
 
+**DO NOT PUSH TOKENS TO GITHUB. SAVE IN ".env" FILE**
