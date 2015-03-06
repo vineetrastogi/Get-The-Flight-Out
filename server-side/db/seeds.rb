@@ -51,7 +51,7 @@ all_leg_durations = []
 total_duration.each do |leg|
   all_leg_durations << leg['duration']
 end
-p total_travel_time = all_leg_durations.reduce(:+)
+total_travel_time = all_leg_durations.reduce(:+)
 
 # CALCULATING TOTAL MILEAGE TRAVELED
 total_mileage = response['trips']['tripOption'][0]['slice'][0]['segment'][0]['leg']
@@ -59,7 +59,7 @@ all_leg_mileages = []
 total_mileage.each do |leg|
   all_leg_mileages << leg['mileage']
 end
-p total_distance_traveled = all_leg_mileages.reduce(:+)
+total_distance_traveled = all_leg_mileages.reduce(:+)
 
 
 origin = response['trips']['data']['city'][-1]['name']
