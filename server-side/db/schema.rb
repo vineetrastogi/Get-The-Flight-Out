@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20150306040828) do
     t.string   "arrival_time"
     t.integer  "duration"
     t.integer  "mileage"
+    t.string   "origin"
+    t.string   "destination"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
