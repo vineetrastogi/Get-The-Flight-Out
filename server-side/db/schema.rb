@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20150306040828) do
   create_table "trips", force: :cascade do |t|
     t.integer  "sale_total"
     t.string   "carrier"
-    t.integer  "flight_number"
+    t.string   "carrier_code"
+    t.string   "flight_number"
     t.string   "depart_time"
     t.string   "arrival_time"
     t.integer  "duration"

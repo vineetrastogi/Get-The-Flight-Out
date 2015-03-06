@@ -3,7 +3,8 @@ class CreateTrips < ActiveRecord::Migration
     create_table :trips do |t|
       t.integer :sale_total
       t.string :carrier
-      t.integer :flight_number
+      t.string :carrier_code
+      t.string :flight_number
       t.string :depart_time
       t.string :arrival_time
       t.integer :duration
