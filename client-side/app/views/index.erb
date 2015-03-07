@@ -33,5 +33,14 @@
 </div>
 
 <div class="results-wrapper">
-<%= erb :_result %>
+<!-- <#%= erb :_result %> -->
 </div>
+
+<script id="results-template" type="text/x-handlebars-template">
+    {{#each this}}
+      <p>Budget: {{budget}}</p>
+      <p>Carrier: {{carrier}}</p>
+    {{/each}}
+
+</script>
+
