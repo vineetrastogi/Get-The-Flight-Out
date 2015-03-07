@@ -7,6 +7,11 @@
   margin-left: 20px;
 }
 
+body {
+  background-color: #ececec;
+  font-family: 'Lato', sans-serif;
+}
+
 img {
 max-width: 800px;
 }
@@ -14,23 +19,21 @@ max-width: 800px;
 .image-wrapper {
   background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");
   width: 100%;
-  height: 500px;
+  height: 550px;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center top;
+  padding-top: 190px;
 }
 
 .container {
-  padding-top: 170px;
+ /* see responsive.gs.12col.css */
 }
 
-.search-bar-wrapper {
+.search-bar-shadow {
   height: 150px;
   opacity: 0.6;
   background-color: black;
-  padding-top: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
 }
 
 .search-bar {
@@ -53,3 +56,27 @@ max-width: 800px;
   margin-left: 10px;
 }
 
+/**** RESULTS TEMPLATE CSS ****/
+
+.container.results {
+  margin-top: 50px;
+  border: 1px solid gray;
+}
+
+.flight {
+  display: inline-block;
+/*  margin-left: 50px;
+  margin-right: 50px;*/
+}
+
+.flight.price {
+  margin-left: 70px;
+  margin-right: 100px;
+  position: relative;
+  bottom: 15px;
+}
+
+.flight.duration {
+  color: #767676;
+  margin-left: 70px;
+}
