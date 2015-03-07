@@ -30,7 +30,7 @@ function submitRequest(origin, budget, depDate) {
     url: "http://localhost:3000/index",
     type: "POST",
     dataType: "json",
-    data: {"origin": origin, "date": depDate, "maxPrice": budget}.serialize()
+    data: {"origin": origin, "date": depDate, "maxPrice": budget}
   })
   .done(function(data) {
     console.log("success");
