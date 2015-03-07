@@ -18,10 +18,10 @@ function eventListeners() {
     var budget = $("#budget").val();
     var depDate = $("#dep-date").val();
 
-    // submitRequest(origin, budget, depDate);
+    submitRequest(origin, budget, depDate);
 
     // to test fade in and fade out
-    replaceSearchBox();
+    // replaceSearchBox();
   });
 
 }
@@ -33,12 +33,15 @@ function submitRequest(origin, budget, depDate) {
     url: "http://localhost:3000/index",
     type: "POST",
     dataType: "json",
-    data: {"origin": origin, "date": depDate, "maxPrice": budget}
+    data: {"origin": origin, "depart_time": depDate, "sale_total": budget}
   })
   .done(function(data) {
     console.log("success");
     console.log(data);
     replaceSearchBox();
+    data.forEach(function (object) {
+      $('.results-wrapper').append(buildResultsTemplate(object.sale_total, object.carrier, object.carrier_code, object.flight_number, object.depart_time, object.origin, object.arrival_time, object.destination))
+    });
   })
   .fail(function() {
     console.log("error");
@@ -59,5 +62,28 @@ function replaceSearchBox() {
     $('.result-text').fadeIn("4000");
   } //fadein
 
+}
+
+function buildResultsTemplate(budget, carrier, carrierCode, flightNumber, departingTime, origin, arrivalTime, destination) {
+  var template = $.trim($('.container.results').html());
+  var $displayTemplate = $(template);
+  $replacePrice = $($displayTemplate.children($('.flight.price'))[0]);
+  $replacePrice.text(budget);
+  $replaceCarrier = $($displayTemplate.children($('.flight.price'))[1]);
+  $replaceCarrier.text(carrier);
+  $replaceCarrierCode = $($displayTemplate.children($('.flight.price')).children()[0]);
+  $replaceCarrierCode.text(carrierCode);
+  $replaceFlightNumber = $($displayTemplate.children($('.flight.price')).children()[1]);
+  $replaceFlightNumber.text(flightNumber);
+  $replaceDepartureTime = $($displayTemplate.children($('.flight.price'))[2]);
+  $replaceDepartureTime.text(departingTime);
+  $replaceOrigin = $($($displayTemplate.children($('.flight.price'))[2]).children()[0]);
+  $replaceOrigin.text(origin);
+  $replaceArrivalTime = $($($displayTemplate.children($('.flight.price'))[2]).children()[1]);
+  $replaceArrivalTime.text(arrivalTime);
+  $replaceDestination = $($($displayTemplate.children($('.flight.price'))[2]).children()[2]);
+  $replaceDestination.text(destination);
+
+  return $displayTemplate;
 }
 
