@@ -52,10 +52,11 @@ function submitRequest(origin, budget, depDate) {
 function replaceSearchBox() {
   console.log('replaceSearchBox');
 
-  $(".search-bar-wrapper").fadeOut(300, fadeInTextBox());
+  $(".search-bar-wrapper").animate({ opacity:0 }, fadeInTextBox());
+  // fadeOut("slow", fadeInTextBox());
 
   function fadeInTextBox() {
-    $('.result-text').fadeIn("slow");
+    $('.result-text').fadeIn("4000");
   } //fadein
 
 }
