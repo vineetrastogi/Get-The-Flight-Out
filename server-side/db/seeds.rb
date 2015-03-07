@@ -50,49 +50,49 @@ airline_codes.each do |airline_code|
       elsif response['trips']['tripOption'][responses_counter] == nil
         @error
       else
-          p sale_total = response['trips']['tripOption'][responses_counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+        sale_total = response['trips']['tripOption'][responses_counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
 
-          # carrier = response['trips']['data']['carrier'][responses_counter]['name']
+        # carrier = response['trips']['data']['carrier'][responses_counter]['name']
 
-          carrier_code = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['flight']['carrier']
+        carrier_code = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['flight']['carrier']
 
-          flight_number = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['flight']['number']
+        flight_number = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['flight']['number']
 
-          departure_time = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg'][0]['departureTime']
+        departure_time = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg'][0]['departureTime']
 
-          arrival_time = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg'][-1]['arrivalTime']
+        arrival_time = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg'][-1]['arrivalTime']
 
-          # CALCULATING TOTAL DURATION OF FLIGHT
-          total_duration = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg']
-          all_leg_durations = []
-          total_duration.each do |leg|
-            all_leg_durations << leg['duration']
-          end
-          total_travel_time = all_leg_durations.reduce(:+)
+        # CALCULATING TOTAL DURATION OF FLIGHT
+        total_duration = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg']
+        all_leg_durations = []
+        total_duration.each do |leg|
+          all_leg_durations << leg['duration']
+        end
+        total_travel_time = all_leg_durations.reduce(:+)
 
-          # CALCULATING TOTAL MILEAGE TRAVELED
-          total_mileage = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg']
-          all_leg_mileages = []
-          total_mileage.each do |leg|
-            all_leg_mileages << leg['mileage']
-          end
-          total_distance_traveled = all_leg_mileages.reduce(:+)
+        # CALCULATING TOTAL MILEAGE TRAVELED
+        total_mileage = response['trips']['tripOption'][responses_counter]['slice'][0]['segment'][0]['leg']
+        all_leg_mileages = []
+        total_mileage.each do |leg|
+          all_leg_mileages << leg['mileage']
+        end
+        total_distance_traveled = all_leg_mileages.reduce(:+)
 
 
-          origin = response['trips']['data']['city'][-1]['name']
+        origin = response['trips']['data']['city'][-1]['name']
 
-          destination = response['trips']['data']['city'][0]['name']
+        destination = response['trips']['data']['city'][0]['name']
 
-          def convert_date_to_time(date_time)
-            date = Date.parse(date_time)
-            date = date.to_s
-            time = date_time[11..15]
-            date + " at " + time
-          end
+        def convert_date_to_time(date_time)
+          date = Date.parse(date_time)
+          date = date.to_s
+          time = date_time[11..15]
+          date + " at " + time
+        end
 
-          Trip.create(sale_total: sale_total, carrier_code: carrier_code, flight_number: flight_number, depart_time: convert_date_to_time(departure_time), arrival_time: convert_date_to_time(arrival_time), duration: total_travel_time, mileage: total_distance_traveled, origin: origin, destination: destination)
+        Trip.create(sale_total: sale_total, carrier_code: carrier_code, flight_number: flight_number, depart_time: convert_date_to_time(departure_time), arrival_time: convert_date_to_time(arrival_time), duration: total_travel_time, mileage: total_distance_traveled, origin: origin, destination: destination)
 
-          p responses_counter += 1
+        responses_counter += 1
       end
   end
 end
