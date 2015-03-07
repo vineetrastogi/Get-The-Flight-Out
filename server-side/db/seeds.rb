@@ -6,9 +6,10 @@ require 'date'
 
 
 airline_codes =
-["ATL","PEK","LHR","ORD","HND","LAX","CDG","DFW","FRA","HKG","DEN","DXB","CGK","AMS","MAD","BKK","JFK","SIN","CAN","LAS","PVG","PHX","IAH","CLT","MIA","MUC","KUL","FCO","IST","SYD","MCO","ICN","DEL","BCN","LGW","EWR","YYZ","SHA","MSP","SEA","DTW","PHL","BOM","GRU","MNL","CTU","BOS","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","LGA","FLL","IAD","PMI","CPH","SVO","BWI","KMG","VIE","OSL","JED","BNE","SLC","DUS","BOG","MXP","JNB","ARN","MAN","MDW","DCA","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","SAN","TPA","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL"]
+["PEK","LHR","HND","CDG","FRA","HKG","DXB","CGK","AMS","MAD","BKK","SIN","CAN","PVG","MUC","KUL","FCO","IST","SYD","ICN","DEL","BCN","LGW","YYZ","SHA","BOM","GRU","MNL","CTU","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","PMI","CPH","SVO","KMG","VIE","OSL","JED","BNE","DUS","BOG","MXP","JNB","ARN","MAN","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL"]
 
-
+# US AIRPORTS
+ # %w(ATL ANC AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
 
 # This statement is for later on, once the user types in their origin. It will take their input, and if it matches a string inside of the array, then we cut out the string in the array and continue with the API Call.
 
@@ -19,7 +20,7 @@ airline_codes.each do |airline_code|
 
   request = {
     "request" => {
-      "maxPrice" => "USD500",
+      "maxPrice" => "USD2000",
       "slice" => [
         {
           "origin" => "SFO",
@@ -30,7 +31,7 @@ airline_codes.each do |airline_code|
         "passengers"=> {
           "adultCount"=> 1
           },
-          "solutions"=> 10,
+          "solutions"=> 5,
           "refundable"=> false
         }
   }.to_json
@@ -40,7 +41,7 @@ airline_codes.each do |airline_code|
       headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
     responses_counter = 0
-    10.times do
+    5.times do
       # p '=' * 100
       # p response
       # p '=' * 100
@@ -49,7 +50,7 @@ airline_codes.each do |airline_code|
       elsif response['trips']['tripOption'][responses_counter] == nil
         @error
       else
-          sale_total = response['trips']['tripOption'][responses_counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+          p sale_total = response['trips']['tripOption'][responses_counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
 
           # carrier = response['trips']['data']['carrier'][responses_counter]['name']
 
@@ -91,7 +92,7 @@ airline_codes.each do |airline_code|
 
           Trip.create(sale_total: sale_total, carrier_code: carrier_code, flight_number: flight_number, depart_time: convert_date_to_time(departure_time), arrival_time: convert_date_to_time(arrival_time), duration: total_travel_time, mileage: total_distance_traveled, origin: origin, destination: destination)
 
-          responses_counter += 1
+          p responses_counter += 1
       end
   end
 end
