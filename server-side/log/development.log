@@ -1,0 +1,349 @@
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTrips (20150306040828)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "sale_total" integer, "carrier" varchar, "flight_number" integer, "depart_time" varchar, "arrival_time" varchar, "duration" integer, "mileage" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150306040828"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mTrip Load (1.3ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+  [1m[36mTrip Load (0.8ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+PG::UndefinedTable: ERROR:  relation "trips" does not exist
+LINE 1: SELECT "trips".* FROM "trips"
+                              ^
+: SELECT "trips".* FROM "trips"
+  [1m[36m (50.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "flight_number" integer, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150306040828"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'trips'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mTrip Load (0.7ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (34.5ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150306040828"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'trips'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (35.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 331], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-13T06:00-07:00"], ["arrival_time", "2015-03-13T07:55-07:00"], ["duration", 115], ["mileage", 650], ["created_at", "2015-03-06 06:10:08.021651"], ["updated_at", "2015-03-06 06:10:08.021651"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 594], ["carrier", "China Eastern Airlines"], ["carrier_code", "MU"], ["flight_number", "590"], ["depart_time", "2015-03-13T12:00-07:00"], ["arrival_time", "2015-03-14T17:30+08:00"], ["duration", 870], ["mileage", 6134], ["created_at", "2015-03-06 06:10:11.458518"], ["updated_at", "2015-03-06 06:10:11.458518"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 1033], ["carrier", "Alaska Airlines Inc."], ["carrier_code", "AS"], ["flight_number", "1873"], ["depart_time", "2015-03-13T12:50-07:00"], ["arrival_time", "2015-03-13T14:22-07:00"], ["duration", 92], ["mileage", 337], ["created_at", "2015-03-06 06:10:14.818950"], ["updated_at", "2015-03-06 06:10:14.818950"]]
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 323], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "204"], ["depart_time", "2015-03-13T11:25-07:00"], ["arrival_time", "2015-03-13T17:35-05:00"], ["duration", 250], ["mileage", 1841], ["created_at", "2015-03-06 06:10:17.856200"], ["updated_at", "2015-03-06 06:10:17.856200"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 860], ["carrier", "Korean Air Lines Co. Ltd."], ["carrier_code", "SQ"], ["flight_number", "15"], ["depart_time", "2015-03-13T13:45-07:00"], ["arrival_time", "2015-03-14T18:35+09:00"], ["duration", 770], ["mileage", 5642], ["created_at", "2015-03-06 06:10:21.748337"], ["updated_at", "2015-03-06 06:10:21.748337"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 76], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "1250"], ["depart_time", "2015-03-13T07:00-07:00"], ["arrival_time", "2015-03-13T08:34-07:00"], ["duration", 94], ["mileage", 337], ["created_at", "2015-03-06 06:10:24.201149"], ["updated_at", "2015-03-06 06:10:24.201149"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 2222], ["carrier", "Air Canada"], ["carrier_code", "AC"], ["flight_number", "758"], ["depart_time", "2015-03-13T07:35-07:00"], ["arrival_time", "2015-03-13T15:30-04:00"], ["duration", 295], ["mileage", 2253], ["created_at", "2015-03-06 06:10:28.837488"], ["updated_at", "2015-03-06 06:10:28.837488"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 318], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "710"], ["depart_time", "2015-03-13T07:20-07:00"], ["arrival_time", "2015-03-13T12:35-05:00"], ["duration", 195], ["mileage", 1473], ["created_at", "2015-03-06 06:10:31.701557"], ["updated_at", "2015-03-06 06:10:31.701557"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 1918], ["carrier", "Air Berlin PLC & Co. Luftverkehrs KG"], ["carrier_code", "UA"], ["flight_number", "930"], ["depart_time", "2015-03-13T20:25-07:00"], ["arrival_time", "2015-03-14T14:05+00:00"], ["duration", 640], ["mileage", 5351], ["created_at", "2015-03-06 06:10:38.254721"], ["updated_at", "2015-03-06 06:10:38.254721"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 709], ["carrier", "Cathay Pacific Airways Ltd."], ["carrier_code", "CX"], ["flight_number", "879"], ["depart_time", "2015-03-13T13:05-07:00"], ["arrival_time", "2015-03-14T18:55+08:00"], ["duration", 890], ["mileage", 6911], ["created_at", "2015-03-06 06:10:42.272001"], ["updated_at", "2015-03-06 06:10:42.272001"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 262], ["carrier", "Frontier Airlines, Inc."], ["carrier_code", "F9"], ["flight_number", "660"], ["depart_time", "2015-03-13T06:00-07:00"], ["arrival_time", "2015-03-13T09:29-06:00"], ["duration", 149], ["mileage", 965], ["created_at", "2015-03-06 06:10:44.946986"], ["updated_at", "2015-03-06 06:10:44.946986"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 793], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "727"], ["depart_time", "2015-03-13T13:05-07:00"], ["arrival_time", "2015-03-13T21:01-04:00"], ["duration", 296], ["mileage", 2412], ["created_at", "2015-03-06 06:10:50.510057"], ["updated_at", "2015-03-06 06:10:50.510057"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 576], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-13T01:15-07:00"], ["arrival_time", "2015-03-14T06:05+08:00"], ["duration", 830], ["mileage", 6453], ["created_at", "2015-03-06 06:10:54.950109"], ["updated_at", "2015-03-06 06:10:54.950109"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 1619], ["carrier", "Aer Lingus Limited"], ["carrier_code", "UA"], ["flight_number", "302"], ["depart_time", "2015-03-13T11:00-07:00"], ["arrival_time", "2015-03-13T17:03-05:00"], ["duration", 243], ["mileage", 1841], ["created_at", "2015-03-06 06:10:59.987099"], ["updated_at", "2015-03-06 06:10:59.987099"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 1996], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "68"], ["depart_time", "2015-03-13T07:00-07:00"], ["arrival_time", "2015-03-13T15:19-04:00"], ["duration", 319], ["mileage", 2580], ["created_at", "2015-03-06 06:11:03.422294"], ["updated_at", "2015-03-06 06:11:03.422294"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 670], ["carrier", "China Airlines"], ["carrier_code", "CI"], ["flight_number", "3"], ["depart_time", "2015-03-13T01:05-07:00"], ["arrival_time", "2015-03-14T06:00+08:00"], ["duration", 835], ["mileage", 6453], ["created_at", "2015-03-06 06:11:07.499948"], ["updated_at", "2015-03-06 06:11:07.499948"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 303], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "20"], ["depart_time", "2015-03-13T15:05-07:00"], ["arrival_time", "2015-03-13T23:27-04:00"], ["duration", 322], ["mileage", 2579], ["created_at", "2015-03-06 06:11:11.343795"], ["updated_at", "2015-03-06 06:11:11.343795"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 554], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-13T01:15-07:00"], ["arrival_time", "2015-03-14T06:05+08:00"], ["duration", 830], ["mileage", 6453], ["created_at", "2015-03-06 06:11:15.073310"], ["updated_at", "2015-03-06 06:11:15.073310"]]
+  [1m[36m (17.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 594], ["carrier", "China Eastern Airlines"], ["carrier_code", "MU"], ["flight_number", "590"], ["depart_time", "2015-03-13T12:00-07:00"], ["arrival_time", "2015-03-14T17:30+08:00"], ["duration", 870], ["mileage", 6134], ["created_at", "2015-03-06 06:11:19.509417"], ["updated_at", "2015-03-06 06:11:19.509417"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["sale_total", 120], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "1118"], ["depart_time", "2015-03-13T22:59-07:00"], ["arrival_time", "2015-03-14T00:31-07:00"], ["duration", 92], ["mileage", 413], ["created_at", "2015-03-06 06:11:22.771424"], ["updated_at", "2015-03-06 06:11:22.771424"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["sale_total", 636], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "857"], ["depart_time", "2015-03-13T14:35-07:00"], ["arrival_time", "2015-03-14T18:45+08:00"], ["duration", 790], ["mileage", 6134], ["created_at", "2015-03-06 06:11:27.637749"], ["updated_at", "2015-03-06 06:11:27.637749"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35mTrip Load (38.0ms)[0m  SELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" ASC LIMIT 1
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTrip Load (0.5ms)[0m  SELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", 21]]
+  [1m[36mTrip Load (0.6ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mTrip Load (0.5ms)[0m  SELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mTrip Load (0.5ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mTrip Load (0.4ms)[0m  SELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTrip Load (0.8ms)[0m  [1mSELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" ASC LIMIT 1[0m
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150306040828"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'trips'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 331], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-13T06:00-07:00"], ["arrival_time", "2015-03-13T07:55-07:00"], ["duration", 115], ["mileage", 650], ["origin", "Phoenix"], ["destination", "Atlanta"], ["created_at", "2015-03-06 18:19:50.778817"], ["updated_at", "2015-03-06 18:19:50.778817"]]
+  [1m[35m (8.2ms)[0m  COMMIT
+  [1m[36mTrip Load (0.8ms)[0m  [1mSELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" ASC LIMIT 1[0m
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150306040828"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'trips'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 331], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-13T06:00-07:00"], ["arrival_time", "2015-03-13T07:55-07:00"], ["duration", 115], ["mileage", 650], ["origin", "San Francisco"], ["destination", "Atlanta"], ["created_at", "2015-03-06 18:32:56.190634"], ["updated_at", "2015-03-06 18:32:56.190634"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mTrip Load (1.1ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+  [1m[36m (20.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (9.1ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150306040828"]]
+  [1m[36m (16.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'trips'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 331], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-13 at 06:00"], ["arrival_time", "2015-03-13 at 15:38"], ["duration", 334], ["mileage", 2233], ["origin", "San Francisco"], ["destination", "Atlanta"], ["created_at", "2015-03-06 21:02:12.021395"], ["updated_at", "2015-03-06 21:02:12.021395"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mTrip Load (0.7ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+  [1m[36m (119.2ms)[0m  [1mDROP DATABASE IF EXISTS "db/development"[0m
+  [1m[35m (117.9ms)[0m  DROP DATABASE IF EXISTS "db/test"
+  [1m[36m (444.9ms)[0m  [1mCREATE DATABASE "db/development" ENCODING = 'utf8'[0m
+  [1m[35m (352.9ms)[0m  CREATE DATABASE "db/test" ENCODING = 'utf8'
+  [1m[36mSQL (44.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.3ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (19.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.9ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 331], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-13 at 06:00"], ["arrival_time", "2015-03-13 at 15:38"], ["duration", 334], ["mileage", 2233], ["origin", "San Francisco"], ["destination", "Atlanta"], ["created_at", "2015-03-06 21:56:27.223040"], ["updated_at", "2015-03-06 21:56:27.223040"]]
+  [1m[35m (15.0ms)[0m  COMMIT
+  [1m[36mTrip Load (0.7ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+  [1m[36m (118.3ms)[0m  [1mDROP DATABASE IF EXISTS "db/development"[0m
+  [1m[35m (119.8ms)[0m  DROP DATABASE IF EXISTS "db/test"
+  [1m[36m (367.3ms)[0m  [1mCREATE DATABASE "db/development" ENCODING = 'utf8'[0m
+  [1m[35m (293.8ms)[0m  CREATE DATABASE "db/test" ENCODING = 'utf8'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (117.7ms)[0m  [1mDROP DATABASE IF EXISTS "db/development"[0m
+  [1m[35m (119.1ms)[0m  DROP DATABASE IF EXISTS "db/test"
+  [1m[36m (352.6ms)[0m  [1mCREATE DATABASE "db/development" ENCODING = 'utf8'[0m
+  [1m[35m (321.3ms)[0m  CREATE DATABASE "db/test" ENCODING = 'utf8'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (39.3ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.8ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.6ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 331], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-13 at 06:00"], ["arrival_time", "2015-03-13 at 15:38"], ["duration", 334], ["mileage", 2233], ["origin", "San Francisco"], ["destination", "Atlanta"], ["created_at", "2015-03-06 21:59:34.172664"], ["updated_at", "2015-03-06 21:59:34.172664"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 931], ["carrier", "Air China Limited"], ["carrier_code", "CA"], ["flight_number", "986"], ["depart_time", "2015-03-13 at 14:50"], ["arrival_time", "2015-03-14 at 17:55"], ["duration", 725], ["mileage", 5896], ["origin", "San Francisco"], ["destination", "Beijing"], ["created_at", "2015-03-06 21:59:38.265502"], ["updated_at", "2015-03-06 21:59:38.265502"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 981], ["carrier", "Alaska Airlines Inc."], ["carrier_code", "AS"], ["flight_number", "1873"], ["depart_time", "2015-03-13 at 12:50"], ["arrival_time", "2015-03-13 at 14:22"], ["duration", 92], ["mileage", 337], ["origin", "San Francisco"], ["destination", "Los Angeles"], ["created_at", "2015-03-06 21:59:41.919007"], ["updated_at", "2015-03-06 21:59:41.919007"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 323], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "204"], ["depart_time", "2015-03-13 at 11:25"], ["arrival_time", "2015-03-13 at 17:35"], ["duration", 250], ["mileage", 1841], ["origin", "San Francisco"], ["destination", "Chicago"], ["created_at", "2015-03-06 21:59:44.944957"], ["updated_at", "2015-03-06 21:59:44.944957"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 860], ["carrier", "Korean Air Lines Co. Ltd."], ["carrier_code", "SQ"], ["flight_number", "15"], ["depart_time", "2015-03-13 at 13:45"], ["arrival_time", "2015-03-14 at 18:35"], ["duration", 770], ["mileage", 5642], ["origin", "Tokyo"], ["destination", "Seoul"], ["created_at", "2015-03-06 21:59:48.898130"], ["updated_at", "2015-03-06 21:59:48.898130"]]
+  [1m[35m (15.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 173], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "922"], ["depart_time", "2015-03-13 at 06:45"], ["arrival_time", "2015-03-13 at 08:00"], ["duration", 75], ["mileage", 337], ["origin", "San Francisco"], ["destination", "Los Angeles"], ["created_at", "2015-03-06 21:59:51.131602"], ["updated_at", "2015-03-06 21:59:51.131602"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 2330], ["carrier", "Aeromexico"], ["carrier_code", "AM"], ["flight_number", "669"], ["depart_time", "2015-03-13 at 13:25"], ["arrival_time", "2015-03-13 at 18:46"], ["duration", 261], ["mileage", 1881], ["origin", "San Francisco"], ["destination", "Mexico City"], ["created_at", "2015-03-06 21:59:55.565957"], ["updated_at", "2015-03-06 21:59:55.565957"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 318], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "710"], ["depart_time", "2015-03-13 at 07:20"], ["arrival_time", "2015-03-13 at 12:35"], ["duration", 195], ["mileage", 1473], ["origin", "San Francisco"], ["destination", "Dallas/Fort Worth"], ["created_at", "2015-03-06 21:59:58.132785"], ["updated_at", "2015-03-06 21:59:58.132785"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1630], ["carrier", "Icelandair"], ["carrier_code", "VX"], ["flight_number", "352"], ["depart_time", "2015-03-13 at 09:20"], ["arrival_time", "2015-03-13 at 18:05"], ["duration", 345], ["mileage", 2697], ["origin", "San Francisco"], ["destination", "Boston"], ["created_at", "2015-03-06 22:00:04.726733"], ["updated_at", "2015-03-06 22:00:04.726733"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 502], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-13 at 01:15"], ["arrival_time", "2015-03-14 at 06:05"], ["duration", 830], ["mileage", 6453], ["origin", "Taipei"], ["destination", "Hong Kong"], ["created_at", "2015-03-06 22:00:07.963511"], ["updated_at", "2015-03-06 22:00:07.963511"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 262], ["carrier", "Frontier Airlines, Inc."], ["carrier_code", "F9"], ["flight_number", "660"], ["depart_time", "2015-03-13 at 06:00"], ["arrival_time", "2015-03-13 at 09:29"], ["duration", 149], ["mileage", 965], ["origin", "San Francisco"], ["destination", "Denver"], ["created_at", "2015-03-06 22:00:11.016344"], ["updated_at", "2015-03-06 22:00:11.016344"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 692], ["carrier", "Air France"], ["carrier_code", "AF"], ["flight_number", "83"], ["depart_time", "2015-03-13 at 15:50"], ["arrival_time", "2015-03-14 at 10:35"], ["duration", 645], ["mileage", 5567], ["origin", "San Francisco"], ["destination", "Dubai"], ["created_at", "2015-03-06 22:00:16.195926"], ["updated_at", "2015-03-06 22:00:16.195926"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 576], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-13 at 01:15"], ["arrival_time", "2015-03-14 at 06:05"], ["duration", 830], ["mileage", 6453], ["origin", "Taipei"], ["destination", "Jakarta"], ["created_at", "2015-03-06 22:00:20.815932"], ["updated_at", "2015-03-06 22:00:20.815932"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 1630], ["carrier", "Icelandair"], ["carrier_code", "VX"], ["flight_number", "352"], ["depart_time", "2015-03-13 at 09:20"], ["arrival_time", "2015-03-13 at 18:05"], ["duration", 345], ["mileage", 2697], ["origin", "San Francisco"], ["destination", "Amsterdam"], ["created_at", "2015-03-06 22:00:26.204770"], ["updated_at", "2015-03-06 22:00:26.204770"]]
+  [1m[36m (15.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1996], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "68"], ["depart_time", "2015-03-13 at 07:00"], ["arrival_time", "2015-03-14 at 08:00"], ["duration", 814], ["mileage", 6993], ["origin", "San Francisco"], ["destination", "Madrid"], ["created_at", "2015-03-06 22:00:29.790263"], ["updated_at", "2015-03-06 22:00:29.790263"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 615], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "27"], ["depart_time", "2015-03-13 at 17:30"], ["arrival_time", "2015-03-14 at 22:30"], ["duration", 840], ["mileage", 6453], ["origin", "Taipei"], ["destination", "Bangkok"], ["created_at", "2015-03-06 22:00:34.320197"], ["updated_at", "2015-03-06 22:00:34.320197"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 303], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "20"], ["depart_time", "2015-03-13 at 15:05"], ["arrival_time", "2015-03-13 at 23:27"], ["duration", 322], ["mileage", 2579], ["origin", "San Francisco"], ["destination", "New York"], ["created_at", "2015-03-06 22:00:37.159765"], ["updated_at", "2015-03-06 22:00:37.159765"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 644], ["carrier", "Jetblue Airways Corporation"], ["carrier_code", "B6"], ["flight_number", "5303"], ["depart_time", "2015-03-13 at 13:45"], ["arrival_time", "2015-03-15 at 01:05"], ["duration", 1160], ["mileage", 8515], ["origin", "Singapore"], ["destination", "Seoul"], ["created_at", "2015-03-06 22:00:40.770973"], ["updated_at", "2015-03-06 22:00:40.770973"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 684], ["carrier", "China Eastern Airlines"], ["carrier_code", "MU"], ["flight_number", "590"], ["depart_time", "2015-03-13 at 12:00"], ["arrival_time", "2015-03-14 at 17:30"], ["duration", 870], ["mileage", 6134], ["origin", "Shanghai"], ["destination", "Guangzhou"], ["created_at", "2015-03-06 22:00:44.572353"], ["updated_at", "2015-03-06 22:00:44.572353"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 98], ["carrier", "Jetblue Airways Corporation"], ["carrier_code", "B6"], ["flight_number", "88"], ["depart_time", "2015-03-13 at 12:23"], ["arrival_time", "2015-03-13 at 14:03"], ["duration", 100], ["mileage", 413], ["origin", "San Francisco"], ["destination", "Las Vegas"], ["created_at", "2015-03-06 22:00:47.408456"], ["updated_at", "2015-03-06 22:00:47.408456"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 636], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "857"], ["depart_time", "2015-03-13 at 14:35"], ["arrival_time", "2015-03-14 at 18:45"], ["duration", 790], ["mileage", 6134], ["origin", "Shanghai"], ["destination", "San Francisco"], ["created_at", "2015-03-06 22:00:51.453601"], ["updated_at", "2015-03-06 22:00:51.453601"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "trips"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 202], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "655"], ["depart_time", "2015-03-13 at 20:35"], ["arrival_time", "2015-03-13 at 22:31"], ["duration", 116], ["mileage", 650], ["origin", "San Francisco"], ["destination", "Phoenix"], ["created_at", "2015-03-06 22:05:34.234655"], ["updated_at", "2015-03-06 22:05:34.234655"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 296], ["carrier", "Frontier Airlines, Inc."], ["carrier_code", "F9"], ["flight_number", "1358"], ["depart_time", "2015-03-13 at 16:45"], ["arrival_time", "2015-03-13 at 23:55"], ["duration", 270], ["mileage", 1656], ["origin", "San Francisco"], ["destination", "Houston"], ["created_at", "2015-03-06 22:05:37.371705"], ["updated_at", "2015-03-06 22:05:37.371705"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 383], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "1716"], ["depart_time", "2015-03-13 at 23:39"], ["arrival_time", "2015-03-14 at 07:55"], ["duration", 316], ["mileage", 2558], ["origin", "San Francisco"], ["destination", "Charlotte"], ["created_at", "2015-03-06 22:05:40.728574"], ["updated_at", "2015-03-06 22:05:40.728574"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "mileage", "origin", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 343], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "1954"], ["depart_time", "2015-03-13 at 11:15"], ["arrival_time", "2015-03-13 at 19:06"], ["duration", 291], ["mileage", 2290], ["origin", "San Francisco"], ["destination", "Charlotte"], ["created_at", "2015-03-06 22:05:43.383894"], ["updated_at", "2015-03-06 22:05:43.383894"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35mTrip Load (0.3ms)[0m  SELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTrip Load (0.7ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT 1[0m  [["id", 20]]
