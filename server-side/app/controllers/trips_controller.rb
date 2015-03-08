@@ -48,34 +48,35 @@ class TripsController < ApplicationController
         # 2.times do
 
           # ERROR HANDLING
-          # if @response['trips']['data']['airport'] == nil
-          #   @error = 'No flight found with this search'
-          # elsif @response['trips']['tripOption'][counter] == nil
-          #   @error
-          # else
-          @duration = @response['trips']['tripOption'][counter]['slice'][0]['duration']
-          @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
-          @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
-          @carrier = @response['trips']['data']['carrier'][counter]['name']
-          @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
-          @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
-          @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
-          # # p @mileage =
-          @origin = find_origin_city(params['origin'])
+          if @response['error']['errors'][0].size > 0
+            @origin_desination_same_error = @response['error']['errors'][0]['message']
+          else
+            if @response['trips']['data'].size < 2
+              @no_flight_error = "No flights found."
+            else
+              @duration = @response['trips']['tripOption'][counter]['slice'][0]['duration']
+              @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
+              @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+              @carrier = @response['trips']['data']['carrier'][counter]['name']
+              @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+              @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
+              @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
+              # # p @mileage =
+              @origin = find_origin_city(params['origin'])
+              @destination_code = airport
+              @destination = find_city(airport)
 
+              # counter += 1
+              # end
+            # end
 
-          @destination_code = airport
-          @destination = find_city(airport)
-
-          # counter += 1
-          # end
-        # end
-
-      Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
-
+              Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
+            end
+          end
     end
     @trips = Trip.all
-    render json: @trips
+    @client_side = {trips: @trips, no_flight_error: @no_flight_error, origin_desination_same_error: @origin_desination_same_error}
+    render json: @client_side
   end
 end
 
