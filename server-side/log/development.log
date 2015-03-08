@@ -19981,3 +19981,527 @@ Processing by TripsController#index as HTML
   [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
   [1m[35mTrip Load (0.5ms)[0m  SELECT "trips".* FROM "trips"
 Completed 200 OK in 19263ms (Views: 17.4ms | ActiveRecord: 69.5ms)
+  [1m[36m (119.3ms)[0m  [1mDROP DATABASE IF EXISTS "db/development"[0m
+  [1m[35m (119.1ms)[0m  DROP DATABASE IF EXISTS "db/test"
+  [1m[36m (335.3ms)[0m  [1mCREATE DATABASE "db/development" ENCODING = 'utf8'[0m
+  [1m[35m (280.8ms)[0m  CREATE DATABASE "db/test" ENCODING = 'utf8'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.1ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:27:08 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+Completed 500 Internal Server Error in 4024ms
+
+NameError (undefined local variable or method `counter' for #<TripsController:0x007fa7e4108090>):
+  app/controllers/trips_controller.rb:30:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (41.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:27:34 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "KE"], ["flight_number", "468"], ["created_at", "2015-03-08 06:27:37.685776"], ["updated_at", "2015-03-08 06:27:37.685776"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "AC"], ["flight_number", "480"], ["created_at", "2015-03-08 06:27:40.926393"], ["updated_at", "2015-03-08 06:27:40.926393"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "AS"], ["flight_number", "2024"], ["created_at", "2015-03-08 06:27:44.480514"], ["updated_at", "2015-03-08 06:27:44.480514"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "FI"], ["flight_number", "680"], ["created_at", "2015-03-08 06:27:48.917395"], ["updated_at", "2015-03-08 06:27:48.917395"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "AS"], ["flight_number", "8"], ["created_at", "2015-03-08 06:27:53.818872"], ["updated_at", "2015-03-08 06:27:53.818872"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+Completed 200 OK in 19417ms (Views: 2.9ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:29:25 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "MU"], ["flight_number", "1165"], ["created_at", "2015-03-08 06:29:28.316518"], ["updated_at", "2015-03-08 06:29:28.316518"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "AS"], ["flight_number", "480"], ["created_at", "2015-03-08 06:29:32.764510"], ["updated_at", "2015-03-08 06:29:32.764510"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "NH"], ["flight_number", "8244"], ["created_at", "2015-03-08 06:29:36.395988"], ["updated_at", "2015-03-08 06:29:36.395988"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 15285ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.3ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:37:38 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("flight_number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["flight_number", "889"], ["created_at", "2015-03-08 06:37:42.206986"], ["updated_at", "2015-03-08 06:37:42.206986"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("flight_number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["flight_number", "2"], ["created_at", "2015-03-08 06:37:45.673499"], ["updated_at", "2015-03-08 06:37:45.673499"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("flight_number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["flight_number", "115"], ["created_at", "2015-03-08 06:37:49.136550"], ["updated_at", "2015-03-08 06:37:49.136550"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("flight_number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["flight_number", "542"], ["created_at", "2015-03-08 06:37:53.323812"], ["updated_at", "2015-03-08 06:37:53.323812"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("flight_number", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["flight_number", "25"], ["created_at", "2015-03-08 06:37:57.868099"], ["updated_at", "2015-03-08 06:37:57.868099"]]
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.4ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 19034ms (Views: 4.9ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:39:01 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "MU"], ["flight_number", "889"], ["created_at", "2015-03-08 06:39:05.357221"], ["updated_at", "2015-03-08 06:39:05.357221"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "AS"], ["flight_number", "2"], ["created_at", "2015-03-08 06:39:07.887752"], ["updated_at", "2015-03-08 06:39:07.887752"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "NH"], ["flight_number", "115"], ["created_at", "2015-03-08 06:39:10.841539"], ["updated_at", "2015-03-08 06:39:10.841539"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 14399ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.1ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:40:55 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "UA"], ["flight_number", "889"], ["created_at", "2015-03-08 06:40:59.548577"], ["updated_at", "2015-03-08 06:40:59.548577"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "NZ"], ["flight_number", "2"], ["created_at", "2015-03-08 06:41:03.590504"], ["updated_at", "2015-03-08 06:41:03.590504"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "NH"], ["flight_number", "115"], ["created_at", "2015-03-08 06:41:06.501992"], ["updated_at", "2015-03-08 06:41:06.501992"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["carrier_code", "FI"], ["flight_number", "542"], ["created_at", "2015-03-08 06:41:10.436181"], ["updated_at", "2015-03-08 06:41:10.436181"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("carrier_code", "flight_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["carrier_code", "SQ"], ["flight_number", "25"], ["created_at", "2015-03-08 06:41:15.151409"], ["updated_at", "2015-03-08 06:41:15.151409"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+Completed 200 OK in 19572ms (Views: 7.5ms | ActiveRecord: 9.1ms)
+  [1m[36m (119.0ms)[0m  [1mDROP DATABASE IF EXISTS "db/development"[0m
+  [1m[35m (117.4ms)[0m  DROP DATABASE IF EXISTS "db/test"
+  [1m[36m (295.8ms)[0m  [1mCREATE DATABASE "db/development" ENCODING = 'utf8'[0m
+  [1m[35m (629.0ms)[0m  CREATE DATABASE "db/test" ENCODING = 'utf8'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (293.9ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (40.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (26.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (17.7ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (16.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/index" for ::1 at 2015-03-07 22:52:36 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 06:52:40.688992"], ["updated_at", "2015-03-08 06:52:40.688992"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 06:52:43.699704"], ["updated_at", "2015-03-08 06:52:43.699704"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 06:52:46.759478"], ["updated_at", "2015-03-08 06:52:46.759478"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 06:52:51.138142"], ["updated_at", "2015-03-08 06:52:51.138142"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 06:52:55.911769"], ["updated_at", "2015-03-08 06:52:55.911769"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mTrip Load (0.5ms)[0m  [1mSELECT "trips".* FROM "trips"[0m
+Completed 200 OK in 18634ms (Views: 3.0ms | ActiveRecord: 10.9ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:01:13 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:01:17.143349"], ["updated_at", "2015-03-08 07:01:17.143349"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:01:20.440927"], ["updated_at", "2015-03-08 07:01:20.440927"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:01:23.772048"], ["updated_at", "2015-03-08 07:01:23.772048"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 500 Internal Server Error in 13584ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:02:30 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+Completed 500 Internal Server Error in 3634ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.4ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:03:11 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:03:14.499350"], ["updated_at", "2015-03-08 07:03:14.499350"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:03:17.740209"], ["updated_at", "2015-03-08 07:03:17.740209"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:03:21.339946"], ["updated_at", "2015-03-08 07:03:21.339946"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 14459ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.5ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:03:37 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:03:40.897668"], ["updated_at", "2015-03-08 07:03:40.897668"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:03:43.847265"], ["updated_at", "2015-03-08 07:03:43.847265"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:03:47.967526"], ["updated_at", "2015-03-08 07:03:47.967526"]]
+  [1m[35m (11.5ms)[0m  COMMIT
+Completed 500 Internal Server Error in 14896ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.1ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:04:07 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:04:11.348678"], ["updated_at", "2015-03-08 07:04:11.348678"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:04:14.392487"], ["updated_at", "2015-03-08 07:04:14.392487"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:04:17.924311"], ["updated_at", "2015-03-08 07:04:17.924311"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:04:22.037685"], ["updated_at", "2015-03-08 07:04:22.037685"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:04:27.569741"], ["updated_at", "2015-03-08 07:04:27.569741"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.4ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 20152ms (Views: 6.4ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:04:54 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"LAX", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:04:58.406701"], ["updated_at", "2015-03-08 07:04:58.406701"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:05:01.452727"], ["updated_at", "2015-03-08 07:05:01.452727"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:05:05.299852"], ["updated_at", "2015-03-08 07:05:05.299852"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:05:08.908800"], ["updated_at", "2015-03-08 07:05:08.908800"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:05:13.142631"], ["updated_at", "2015-03-08 07:05:13.142631"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.4ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 18954ms (Views: 7.7ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:05:24 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SJC", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:05:28.895720"], ["updated_at", "2015-03-08 07:05:28.895720"]]
+  [1m[36m (295.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:05:33.081418"], ["updated_at", "2015-03-08 07:05:33.081418"]]
+  [1m[35m (8.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:05:36.423052"], ["updated_at", "2015-03-08 07:05:36.423052"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:05:41.323037"], ["updated_at", "2015-03-08 07:05:41.323037"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:05:46.996344"], ["updated_at", "2015-03-08 07:05:46.996344"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.4ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 22305ms (Views: 8.5ms | ActiveRecord: 308.5ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:06:04 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SNA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:06:08.822853"], ["updated_at", "2015-03-08 07:06:08.822853"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:06:11.790140"], ["updated_at", "2015-03-08 07:06:11.790140"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:06:14.925806"], ["updated_at", "2015-03-08 07:06:14.925806"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:06:20.408467"], ["updated_at", "2015-03-08 07:06:20.408467"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:06:26.563635"], ["updated_at", "2015-03-08 07:06:26.563635"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.4ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 21951ms (Views: 9.7ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:06:31 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:06:35.287775"], ["updated_at", "2015-03-08 07:06:35.287775"]]
+  [1m[36m (15.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:06:38.292861"], ["updated_at", "2015-03-08 07:06:38.292861"]]
+  [1m[35m (20.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:06:41.798055"], ["updated_at", "2015-03-08 07:06:41.798055"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 14851ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.9ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:07:12 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+Completed 500 Internal Server Error in 3280ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.9ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:07:36 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SEA", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:07:39.969069"], ["updated_at", "2015-03-08 07:07:39.969069"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:07:42.955168"], ["updated_at", "2015-03-08 07:07:42.955168"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:07:45.891418"], ["updated_at", "2015-03-08 07:07:45.891418"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 13587ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:32:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:07:58 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:08:02.305903"], ["updated_at", "2015-03-08 07:08:02.305903"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:08:06.132556"], ["updated_at", "2015-03-08 07:08:06.132556"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:08:09.360043"], ["updated_at", "2015-03-08 07:08:09.360043"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:08:13.919196"], ["updated_at", "2015-03-08 07:08:13.919196"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:08:20.088728"], ["updated_at", "2015-03-08 07:08:20.088728"]]
+  [1m[36m (14.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.6ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 21949ms (Views: 17.1ms | ActiveRecord: 21.3ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:13:43 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+Completed 500 Internal Server Error in 4399ms
+
+TypeError (no implicit conversion of String into Integer):
+  app/controllers/trips_controller.rb:38:in `[]'
+  app/controllers/trips_controller.rb:38:in `block (2 levels) in index'
+  app/controllers/trips_controller.rb:31:in `times'
+  app/controllers/trips_controller.rb:31:in `block in index'
+  app/controllers/trips_controller.rb:6:in `each'
+  app/controllers/trips_controller.rb:6:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.6ms)
+
+
+Started POST "/index" for ::1 at 2015-03-07 23:14:01 -0800
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-13", "sale_total"=>"2000"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:14:05.326844"], ["updated_at", "2015-03-08 07:14:05.326844"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:14:09.497597"], ["updated_at", "2015-03-08 07:14:09.497597"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:14:13.071240"], ["updated_at", "2015-03-08 07:14:13.071240"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2015-03-08 07:14:16.889446"], ["updated_at", "2015-03-08 07:14:16.889446"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2015-03-08 07:14:22.920962"], ["updated_at", "2015-03-08 07:14:22.920962"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.5ms)[0m  SELECT "trips".* FROM "trips"
+Completed 200 OK in 21551ms (Views: 13.7ms | ActiveRecord: 8.2ms)
