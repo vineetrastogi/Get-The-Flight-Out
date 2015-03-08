@@ -24,10 +24,10 @@ function eventListeners() {
 
     // to test handlebars template
     var data = [
-      {"budget": "600", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"71", "depart_time" :"13:45", "origin":"SFO" , "arrival_time":"13:67" , "destination":"LAS" }
-      // ,
-      // {"budget": "400", "carrier": "USA Airways", "carrier_code": "US", "flight_number" :"415", "depart_time" :"12:22", "origin":"SJS" , "arrival_time":"14:45" , "destination":"MIA"},
-      // {"budget": "800", "carrier": "Royal Dutch Airlines", "carrier_code": "KLM", "flight_number" :"360", "depart_time": "21:12", "origin":"MNL" , "arrival_time":"5:00" , "destination":"SFO"}
+    //LEGIT FLIGHT!!!
+      {"index": 0, "budget": "80", "carrier": "Virgin America", "carrier_code": "VX", "flight_number" :"906", "depart_time" :"2015-03-23", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"LAS" },
+      {"index": 1, "budget": "1800", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"990", "depart_time" :"2015-03-13", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"CDG"},
+      {"index": 2, "budget": "900", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"837", "depart_time": "2015-03-16", "origin":"SFO" , "arrival_time":"2015-03-18" , "destination":"NRT"}
     ];
     populateResultsTemp(data);
   });
@@ -90,11 +90,16 @@ function redirectToPurchase(data) {
   $(".button#purchase").on("click", function(event) {
     event.preventDefault();
 
+    // grab data attribute value of button that was clicked
+    var indexString = $(this).attr("data");
+    var index = parseInt(indexString);
+
     console.log('in redirectToPurchase');
 
-    var purchaseLink = "https://www.google.com/flights/#search;f="+data[0].origin+";t="+data[0].destination+";d="+data[0].depart_time+";r="+data[0].arrival_time+";sel="+data[0].origin+data[0].destination+"0"+data[0].carrier_code+""+data[0].flight_number+";mp="+data[0].budget;
+    var purchaseLink = "https://www.google.com/flights/#search;f="+data[index].origin+";t="+data[index].destination+";d="+data[index].depart_time+";r="+data[index].arrival_time+";sel="+data[index].origin+data[index].destination+"0"+data[index].carrier_code+""+data[index].flight_number+";mp="+data[index].budget;
 
-    console.log(purchaseLink);
+      console.log(purchaseLink);
 
+      window.open(purchaseLink);
   });
 }
