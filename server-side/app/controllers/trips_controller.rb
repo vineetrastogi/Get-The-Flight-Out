@@ -16,6 +16,7 @@ class TripsController < ApplicationController
     @destination_code = []
     @origin = []
     @duration = []
+    @all_objects = []
     # @final_result = []
     # @final_result = {}
 
@@ -36,37 +37,56 @@ class TripsController < ApplicationController
               },
               "solutions" => 2,
               "refundable" => false
-        }
-      }.to_json
+            }
+            }.to_json
 
-          @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
-            body: request,
-            headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
-          @result << @response
+            @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
+              body: request,
+              headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
+            @result << @response
+
+            p '*' * 100
+            p @result
+
+            counter = 0
+            2.times do
+              @ticket_price << @result[0]['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+              @carrier << @result[0]['trips']['data']['carrier'][counter]['name']
+              @carrier_code << @result[0]['trips']['data']['carrier'][counter]['code']
+              @flight_number << @result[0]['trips']['tripOption'][counter]['slice'][0]['segment'][0]['flight']['number']
+              @depart_time << @result[0]['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
+              @arrival_time << @result[0]['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+              @destination << @result[0]['trips']['data']['city'].first['name']
+              @destination_code << @result[0]['trips']['data']['city'].first['name']['code']
+              @origin << find_origin_city(params['origin'])
+              @duration << @result[0]['trips']['tripOption'][counter]['slice'][0]['duration']
+
+              counter += 1
+            end
+
+            @final_result = {ticket_price: @ticket_price, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, destination: @destination, destination_code: @destination_code, origin: @origin, duration: @duration}
+            @all_objects << @final_result
+          end
+          render json: @all_objects
+        end
+
+        def find_origin_city(params)
+          x = []
+          @result[0]['trips']['data']['city'].each { |el| x << el if el.has_value?(params) }
+          return x[0]['name']
+        end
+
+
+
       end
 
-      counter = 0
-      2.times do
-        @ticket_price << @result[0]['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
-        @carrier << @result[0]['trips']['data']['carrier'][counter]['name']
-        @carrier_code << @result[0]['trips']['data']['carrier'][counter]['code']
-        @flight_number << @result[0]['trips']['tripOption'][counter]['slice'][0]['segment'][0]['flight']['number']
-        @depart_time << @result[0]['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
-        @arrival_time << @result[0]['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
-        @destination << @result[0]['trips']['data']['city'].first['name']
-        @destination_code << @result[0]['trips']['data']['city'].first['name']['code']
-        @origin << @result[0]['trips']['data']['city'].last['name']
-        @duration << @result[0]['trips']['tripOption'][counter]['slice'][0]['duration']
 
-        counter += 1
-      end
-      p @ticket_price
-      p @carrier
-      @final_result = {ticket_price: @ticket_price, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, destination: @destination, destination_code: @destination_code, origin: @origin, duration: @duration}
-      # render json: @result
-      render json: @final_result
-  end
-end
+
+
+
+
+
+
 
 
 
