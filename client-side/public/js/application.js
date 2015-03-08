@@ -27,7 +27,7 @@ function eventListeners() {
     event.preventDefault();
     console.log("in .button#submit on click");
 
-    var origin = $("#origin").val();
+    var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
     var depDate = $("#dep-date").val();
     var retDate = $("#ret-date").val();
