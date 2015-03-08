@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  post '/index' => 'trips#index'
+  # resources :trips
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+
 
   # Example resource route with options:
   #   resources :products do
