@@ -8,14 +8,13 @@ gem 'rails-api'
 gem 'spring', :group => :development
 
 
-# gem 'sqlite3'
+gem 'sqlite3'
 
 gem 'pg'
 
 gem 'dotenv-rails'
 
 gem 'httparty'
-
 
 
 # To use ActiveModel has_secure_password
