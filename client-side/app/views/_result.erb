@@ -9,9 +9,18 @@
   </div>
 </div> -->
 <script id="results-template" type="text/x-handlebars-template">
-    {{#each data}}
-      <p>Budget: {{budget}}</p>
-      <p>Carrier: {{carrier}}</p>
-    {{/each}}
-
+  {{#each this}}
+    <div class="container results">
+      <div class="flight-info">
+        <p class="price">$ {{budget}}</p>
+      </div>
+      <div class="flight-info verbose">
+        <p class="carrier">{{carrier}} <span class="carrier-code">( {{carrier_code}} {{flight_number}} )</span></p>
+        <p class="date-time">{{depart_time}} {{origin}} to {{arrival_time}} {{destination}}</p>
+      </div>
+      <div class="purchase-button">
+        <input type="submit" class="button" id="purchase">
+      </div>
+    </div>
+  {{/each}}
 </script>

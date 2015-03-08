@@ -31,6 +31,17 @@ max-width: 800px;
  /* see responsive.gs.12col.css */
 }
 
+.result-text p {
+  position: relative;
+  bottom: 70px;
+  text-align: center;
+  font-size: 3em;
+  color: #ececec;
+  font-family: 'Arbutus Slab', serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
 .search-bar-shadow {
   height: 150px;
   opacity: 0.6;
@@ -65,33 +76,36 @@ input {
 /**** RESULTS TEMPLATE CSS ****/
 
 .container.results {
-  margin-top: 50px;
+  margin-top: 30px;
   border: 1px solid gray;
+  position: relative;
 }
 
-.flight {
+.flight-info {
   display: inline-block;
+  font-size: 1.2em;
 }
 
-.flight.price {
-  margin-left: 70px;
-  margin-right: 100px;
-  position: relative;
-  bottom: 15px;
+.flight-info.verbose {
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
-.flight.duration {
-  color: #767676;
-  margin-left: 70px;
+.purchase-button {
+  position: absolute;
+  top: 50px;
+  left: 650px;
 }
 
-.result-text p {
-  position: relative;
-  bottom: 70px;
-  text-align: center;
-  font-size: 3em;
-  color: #ececec;
-  font-family: 'Arbutus Slab', serif;
+.price {
   font-weight: bolder;
-  text-shadow: 1px 1px 1px #414141;
+  font-size: 2em;
+  margin-left: 60px;
+  margin-right: 50px;
+  position: relative;
+  bottom: 5px;
+}
+
+.carrier-code {
+  color: darkgray;
 }
