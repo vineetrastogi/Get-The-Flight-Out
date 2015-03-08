@@ -1,5 +1,5 @@
 /** {
-  outline: 1px solid gray;
+  outline: 1px solid white;
 }*/
 
 .logo {
@@ -50,27 +50,55 @@ max-width: 800px;
 }
 
 input {
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .search-bar {
   position: relative;
-  bottom: 85px;
-  width: 670px;
+  bottom: 110px;
+  width: 600px;
   margin: 0 auto;
+  opacity: 0.9;
 }
 
 .search-params {
   height: 28px;
-  width: 170px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.search-params#origin {
+  width: 400px;
+  margin-bottom: 15px;
+}
+
+.search-params#budget {
+  width: 130px;
+}
+
+.search-params#dep-date {
+  width: 215px;
+}
+
+.search-params#ret-date {
+  width: 215px;
 }
 
 #submit {
   height: 28px;
   width: 66px;
-  margin-left: 10px;
+  margin-left: 15px;
+}
+
+.date-text {
+  color: #ececec;
+  font-size: small;
+  /*display: inline-block;*/
+}
+
+.date-text #dep-text {
+ /* position: relative;
+  left: 10px;*/
 }
 
 /**** RESULTS TEMPLATE CSS ****/
