@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale_total: 1
+  carrier: MyString
+  flight_number: 1
+  depart_time: MyString
+  arrival_time: MyString
+  duration: 1
+  mileage: 1
+
+two:
+  sale_total: 1
+  carrier: MyString
+  flight_number: 1
+  depart_time: MyString
+  arrival_time: MyString
+  duration: 1
+  mileage: 1

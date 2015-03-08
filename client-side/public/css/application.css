@@ -1,0 +1,146 @@
+/** {
+  outline: 1px solid white;
+}*/
+
+.logo {
+  font-family: 'Arbutus Slab', serif;
+  margin-left: 20px;
+}
+
+body {
+  background-color: #ececec;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+img {
+max-width: 800px;
+}
+
+.image-wrapper {
+  background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");
+  width: 100%;
+  height: 550px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 190px;
+}
+
+.container {
+ /* see responsive.gs.12col.css */
+}
+
+.result-text p {
+  position: relative;
+  bottom: 70px;
+  text-align: center;
+  font-size: 3em;
+  color: #ececec;
+  font-family: 'Arbutus Slab', serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.search-bar-shadow {
+  height: 150px;
+  opacity: 0.6;
+  background-color: black;
+  border-radius: 5px;
+}
+
+input {
+  border-radius: 2px;
+}
+
+.search-bar {
+  position: relative;
+  bottom: 110px;
+  width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.search-params {
+  height: 28px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.search-params#origin {
+  width: 400px;
+  margin-bottom: 15px;
+}
+
+.search-params#budget {
+  width: 130px;
+}
+
+.search-params#dep-date {
+  width: 215px;
+}
+
+.search-params#ret-date {
+  width: 215px;
+}
+
+#submit {
+  height: 28px;
+  width: 66px;
+  margin-left: 15px;
+}
+
+.date-text {
+  color: #ececec;
+  font-size: small;
+  /*display: inline-block;*/
+}
+
+.date-text #dep-text {
+ /* position: relative;
+  left: 10px;*/
+}
+
+/**** RESULTS TEMPLATE CSS ****/
+
+.container.results {
+  margin-top: 30px;
+  border: 1px solid gray;
+  position: relative;
+}
+
+.flight-info {
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+.flight-info.verbose {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.purchase-button {
+  position: absolute;
+  top: 50px;
+  left: 650px;
+}
+
+.price {
+  font-weight: bolder;
+  font-size: 2em;
+  margin-left: 60px;
+  margin-right: 50px;
+  position: relative;
+  bottom: 5px;
+}
+
+.carrier-code {
+  color: darkgray;
+}
+
+.ui-menu {
+  background-color: #ccc;
+  width: 398px;
+}
+
+
