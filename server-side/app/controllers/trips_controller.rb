@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def index
-    airport_codes = ["PEK","LHR","HND","CDG","FRA"]
+    airport_codes =  %w(LAX)
 
     airport_codes.each do |airport|
       p "THIS IS THE AIRPORT => #{airport}"
@@ -18,15 +18,15 @@ class TripsController < ApplicationController
             "passengers" => {
               "adultCount" => 1
               },
-              "solutions" => 2,
+              "solutions" => 1,
               "refundable" => false
             }
             }.to_json
 
-      @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
+      p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
         body: request,
         headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
-p @response
+
         def find_origin_city(params)
           x = []
           @response['trips']['data']['city'].each { |el| x << el if el.has_value?(params) }
@@ -40,16 +40,20 @@ p @response
         #   return x[0]['code']
         # end
 
-        def find_city(city_name)
-          result = []
-          @response['trips']['data']['airport'].each { |code| result << code if code.has_value?(city_name)}
-          p "=" * 50
-          p result
-          # return result
+
+        def find_city(airport)
+          hash_containing_city_code = @response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(airport)) }
+          return hash_containing_city_code[0]['name']
         end
 
+        def find_city_code(airport)
+          @response['trips']['data']['airport'].select { |hash| hash.has_value?(airport) }[0]['city']
+        end
+
+
         counter = 0
-        2.times do
+        # while counter < airport_codes.length
+        # 2.times do
 
           # ERROR HANDLING
           # if @response['trips']['data']['airport'] == nil
@@ -57,30 +61,29 @@ p @response
           # elsif @response['trips']['tripOption'][counter] == nil
           #   @error
           # else
-          p @duration = @response['trips']['tripOption'][counter]['slice'][0]['duration']
-          p @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
-           p @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
-          p @carrier = @response['trips']['data']['carrier'][counter]['name']
-          p @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
-          p @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
-          p @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
-          # p @mileage =
-          p @origin = find_origin_city(params['origin'])
-          p airport
-          p '*' * 20
-          p find_destination_airport_code(airport)
-          p '*' * 20
-          p @destination_code = @response['trips']['tripOption'].last['slice'][0]['segment'][0]['leg'][0]['destination']
-          p @destination = @response['trips']['data']['airport'][find_city(airport)]['name']
+          @duration = @response['trips']['tripOption'][counter]['slice'][0]['duration']
+          @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
+          @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+          @carrier = @response['trips']['data']['carrier'][counter]['name']
+          @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+          @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
+          @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
+          # # p @mileage =
+          @origin = find_origin_city(params['origin'])
 
-          counter += 1
+
+          # These are not correct
+          @destination_code = airport
+          @destination = find_city(airport)
+
+          # counter += 1
           # end
-        end
+        # end
 
       Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
 
     end
-    p "*" * 100
+    # p "*" * 100
     # p @response
 
     @trips = Trip.all
