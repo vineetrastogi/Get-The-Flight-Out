@@ -11,7 +11,7 @@ function searchBarAutocomplete() {
       var searchTerm = request.term.toLowerCase();
       var ret = [];
       $.each(source, function(i, airportItem){
-        if (airportItem.code.toLowerCase().indexOf(searchTerm) !== -1 || airportItem.name.toLowerCase().indexOf(searchTerm) === 0) {
+        if (airportItem.name.toLowerCase().indexOf(searchTerm) !== -1 || airportItem.code.toLowerCase().indexOf(searchTerm) === 0) {
           ret.push(airportItem.name + ' (' + airportItem.code + ')');
         }
       });
