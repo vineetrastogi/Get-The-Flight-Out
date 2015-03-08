@@ -33,14 +33,6 @@ class TripsController < ApplicationController
           return x[0]['name']
         end
 
-        # def find_destination_airport_code(airport_code)
-        #   x = []
-        #   @response['trips']['data']['city'].each { |el| p el x << el if el.has_value?(airport_code) }
-        #   p x
-        #   return x[0]['code']
-        # end
-
-
         def find_city(airport)
           hash_containing_city_code = @response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(airport)) }
           return hash_containing_city_code[0]['name']
@@ -72,7 +64,6 @@ class TripsController < ApplicationController
           @origin = find_origin_city(params['origin'])
 
 
-          # These are not correct
           @destination_code = airport
           @destination = find_city(airport)
 
@@ -83,9 +74,6 @@ class TripsController < ApplicationController
       Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
 
     end
-    # p "*" * 100
-    # p @response
-
     @trips = Trip.all
     render json: @trips
   end
