@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def index
-    airport_codes =  %w(ATL ANC AUS BWI BOS CLT MDW ORD CVG CLE)
+    airport_codes =  %w(LAX)
 
     airport_codes.each do |airport|
       p "THIS IS THE AIRPORT => #{airport}"
@@ -40,18 +40,16 @@ class TripsController < ApplicationController
         #   return x[0]['code']
         # end
 
-        def find_city(city_name)
-          result = []
-          @response['trips']['data']['city'].each { |code| result << code if code.has_value?(city_name)}
 
-          if result.size == 0
-            return city_name
-          end
-          # p "=" * 50
-          p "THIS IS RESULT"
-          p result
-          return result[0]['name']
+        def find_city(airport)
+          hash_containing_city_code = @response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(airport)) }
+          return hash_containing_city_code[0]['name']
         end
+
+        def find_city_code(airport)
+          @response['trips']['data']['airport'].select { |hash| hash.has_value?(airport) }[0]['city']
+        end
+
 
         counter = 0
         # while counter < airport_codes.length
@@ -76,9 +74,9 @@ class TripsController < ApplicationController
 
           # These are not correct
           @destination_code = airport
-          p @destination = find_city(@destination_code)
+          @destination = find_city(airport)
 
-          counter += 1
+          # counter += 1
           # end
         # end
 
