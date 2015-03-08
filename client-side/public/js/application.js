@@ -21,20 +21,27 @@ function searchBarAutocomplete() {
 }
 
 function eventListeners() {
-  console.log("in eventListeners")
+  console.log("in eventListeners");
+  console.log("*************************");
 
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
     console.log("in .button#submit on click");
+    console.log("*************************");
 
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
     var depDate = $("#dep-date").val();
     var retDate = $("#ret-date").val();
 
+    // console.log(origin);
+    // console.log(budget);
+    // console.log(depDate);
+    // console.log(retDate);
+
     // uncomment below in order to make ajax post request
     // leads to replaceSearchBox and populateResultsTemp
-    // add retDate
+    // add retDate?
     submitRequest(origin, budget, depDate, retDate);
 
     // to test fade in and fade out
@@ -53,6 +60,8 @@ function eventListeners() {
 
 function submitRequest(origin, budget, depDate, retDate) {
   console.log("in submitRequest");
+  console.log(origin, budget, depDate, retDate);
+  console.log("*************************");
 
   $.ajax({
     url: "http://localhost:3000/index",
@@ -91,8 +100,8 @@ function replaceSearchBox() {
 // called in submitRequest callback when successful
 function populateResultsTemp(data, retDate, origin) {
   console.log("in populateResultsTemp");
-  console.log(retDate+"***********");
-  console.log(data);
+  console.log(data, retDate, origin);
+  console.log("*************************");
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
@@ -110,11 +119,13 @@ function redirectToPurchase(data, retDate, origin) {
     event.preventDefault();
 
     console.log('in redirectToPurchase');
-    console.log(retDate+"***********");
+    console.log("*************************");
 
     // grab data attribute value of button that was clicked
     var indexString = $(this).attr("data");
     var index = parseInt(indexString);
+
+    console.log(data[index]);
 
     var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+data[index].destination_code+";d="+data[index].depart_time+";r="+retDate+";sel="+data[index].origin+data[index].destination+"0"+data[index].carrier_code+""+data[index].flight_number+";mp="+data[index].budget;
 
