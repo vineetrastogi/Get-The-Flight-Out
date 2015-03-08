@@ -73,7 +73,7 @@ class TripsController < ApplicationController
           end
         airport_codes = original_airport_codes
     end
-    @trips = Trip.all
+    @trips = Trip.all.order(sale_total: 'asc')
     @client_side = {trips: @trips, invalid_input: @invalid_input}
     render json: @client_side
   end
