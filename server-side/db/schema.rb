@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150306040828) do
   enable_extension "plpgsql"
 
   create_table "trips", force: :cascade do |t|
-    t.integer  "sale_total"
+    t.float    "sale_total"
     t.string   "carrier"
     t.string   "carrier_code"
     t.string   "flight_number"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150306040828) do
     t.string   "origin"
     t.string   "destination"
     t.string   "destination_code"
+    t.string   "airport_code"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
