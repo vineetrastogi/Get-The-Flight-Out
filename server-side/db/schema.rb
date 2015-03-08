@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20150306040828) do
     t.integer  "mileage"
     t.string   "origin"
     t.string   "destination"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "destination_code"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
