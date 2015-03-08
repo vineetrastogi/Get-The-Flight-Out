@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def index
-    airport_codes =  %w(ATL)
+    airport_codes =  %w(ATL ANC AUS BWI BOS CLT MDW ORD CVG CLE)
 
     airport_codes.each do |airport|
       p "THIS IS THE AIRPORT => #{airport}"
@@ -18,7 +18,7 @@ class TripsController < ApplicationController
             "passengers" => {
               "adultCount" => 1
               },
-              "solutions" => 2,
+              "solutions" => 1,
               "refundable" => false
             }
             }.to_json
@@ -42,13 +42,19 @@ class TripsController < ApplicationController
 
         def find_city(city_name)
           result = []
-          @response['trips']['data']['airport'].each { |code| result << code if code.has_value?(city_name)}
+          @response['trips']['data']['city'].each { |code| result << code if code.has_value?(city_name)}
+
+          if result.size == 0
+            return city_name
+          end
           # p "=" * 50
-          # p result
-          # return result
+          p "THIS IS RESULT"
+          p result
+          return result[0]['name']
         end
 
         counter = 0
+        # while counter < airport_codes.length
         # 2.times do
 
           # ERROR HANDLING
@@ -66,14 +72,11 @@ class TripsController < ApplicationController
           @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
           # # p @mileage =
           @origin = find_origin_city(params['origin'])
-          # # p airport
-          # # p '*' * 20
-          # # p find_destination_airport_code(airport)
-          # # p '*' * 20
+
 
           # These are not correct
-          # @destination_code = @response['trips']['tripOption'].last['slice'][0]['segment'][0]['leg'][0]['destination']
-          # @destination = @response['trips']['data']['airport'][find_city(airport)]['name']
+          @destination_code = airport
+          p @destination = find_city(@destination_code)
 
           counter += 1
           # end
