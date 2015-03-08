@@ -137,3 +137,10 @@ input {
 .carrier-code {
   color: darkgray;
 }
+
+.ui-menu {
+  background-color: #ccc;
+  width: 398px;
+}
+
+
