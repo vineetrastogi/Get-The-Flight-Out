@@ -12,14 +12,14 @@
   {{#each this}}
     <div class="container results">
       <div class="flight-info">
-        <p class="price">$ {{budget}}</p>
+        <p class="price">{{sale_total}}</p>
       </div>
       <div class="flight-info verbose">
         <p class="carrier">{{carrier}} <span class="carrier-code">( {{carrier_code}} {{flight_number}} )</span></p>
         <p class="date-time">{{depart_time}} {{origin}} to {{arrival_time}} {{destination}}</p>
       </div>
       <div class="purchase-button">
-        <input type="submit" class="button" id="purchase" value="purchase" data={{index}}>
+        <input type="submit" class="button" id="purchase" value="purchase" data={{@index}}>
       </div>
     </div>
   {{/each}}
