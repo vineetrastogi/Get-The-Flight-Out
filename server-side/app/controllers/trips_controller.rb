@@ -1,11 +1,12 @@
 Dotenv::Railtie.load
 require 'data_parser_helper'
+require 'typhoeus'
 
 class TripsController < ApplicationController
 include DataParserHelper # SEE HELPERS DIRECTORY
 
   def index
-    airport_codes =  %w(LAX ORD CVG CLE CMH DFW DEN PHX)
+    airport_codes =  %w(LAX SFO SEA ATL)
       # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
@@ -30,10 +31,18 @@ include DataParserHelper # SEE HELPERS DIRECTORY
             }
             }.to_json
 
-        p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
-        body: request,
-        headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
-counter = 0
+    #      p @response1 = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
+    # body: request,
+    # headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
+
+        p @response = JSON.parse(Typhoeus.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g", body: request, headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).body)
+
+
+
+        counter = 0
+
+
+
             # ERROR HANDLING: Ensuring that api_call is returning a response with respect to the user's input
             if @response['trips']['data'].size < 2
               @invalid_input = "No flights found with provided inputs. Please consider a different date or budget."

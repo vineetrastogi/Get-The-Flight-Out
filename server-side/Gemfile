@@ -18,6 +18,10 @@ gem 'httparty'
 
 gem 'awesome_print'
 
+gem 'typhoeus'
+
+gem 'nokogiri'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
