@@ -26,6 +26,10 @@ function eventListeners() {
 
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
+      var $searchField = $(".search-params#origin");
+      $searchField.prop("disabled", true);
+      var $submitButton = $("#submit.button");
+      $submitButton.attr("disabled", true).val('........');
     console.log("in .button#submit on click");
     console.log("*************************");
 
@@ -81,7 +85,8 @@ function submitRequest(origin, budget, depDate, retDate) {
   .always(function() {
     console.log("complete");
   });
-
+    // $submitButton.attr('disabled', false).val('Submit');
+    // $searchField.prop('disabled', false);
 } //end of submitRequest
 
 // called in submitRequest callback when successful
