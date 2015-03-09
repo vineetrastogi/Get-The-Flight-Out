@@ -6,33 +6,39 @@
   </nav> -->
 </header>
 
-<div class="image-wrapper">
-  <div class="container">
-
-    <!-- search-bar-wrapper div to be replaced with result-text upon successful return of data from api -->
-    <div class="search-bar-wrapper">
-
-      <!-- transparent black shadow for search bar -->
-      <!-- separated so that search bar does not inherit opacity property -->
-      <div class="search-bar-shadow">
-      </div>
-
-      <form class="search-bar">
-        <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
-        <input type="text" class="search-params" id="budget"placeholder="Budget">
-        <input type="date" class="search-params" id="dep-date" placeholder="2014-01-23">
-         <input type="date" class="search-params" id="ret-date" placeholder="Return Date">
-        <input type="submit" class="button" id="submit">
-       <!--  <p class="date-text" id="dep-text">Departing</p>
-        <p class="date-text" id="ret-text">Returning</p> -->
-      </form>
-    </div>
-
-    <div class="result-text" style="display:none">
-      <p>Oh, the places you'll go...</p>
-    </div>
-
+<div class="hero-wrapper">
+  <div id="hero">
+    <video id="videobg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+      <source src="/assets/plane.mp4" type="video/mp4">
+    </video>
   </div>
+</div>
+
+<div class="container">
+
+  <!-- search-bar-wrapper div to be replaced with result-text upon successful return of data from api -->
+  <div class="search-bar-wrapper">
+
+    <!-- transparent black shadow for search bar -->
+    <!-- separated so that search bar does not inherit opacity property -->
+    <div class="search-bar-shadow">
+    </div>
+
+    <form class="search-bar">
+      <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
+      <input type="text" class="search-params" id="budget"placeholder="Budget">
+      <input class="search-params datepicker" id="dep-date" placeholder="">
+      <input class="search-params datepicker" id="ret-date" placeholder="">
+      <input type="submit" class="button" id="submit">
+     <!--  <p class="date-text" id="dep-text">Departing</p>
+      <p class="date-text" id="ret-text">Returning</p> -->
+    </form>
+  </div>
+
+  <div class="result-text" style="display:none">
+    <p>Oh, the places you'll go...</p>
+  </div>
+
 </div>
 
 <div class="results-wrapper">

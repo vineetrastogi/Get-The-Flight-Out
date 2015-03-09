@@ -1,5 +1,5 @@
 /** {
-  outline: 1px solid white;
+  outline: 1px solid black;
 }*/
 
 .logo {
@@ -13,33 +13,43 @@ body {
   font-weight: 400;
 }
 
-img {
-max-width: 800px;
+.hero-wrapper {
+  position: relative;
+  height: 600px;
+  display: block;
 }
 
-.image-wrapper {
-  background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");
+#hero {
+  /*background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");*/
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+#videobg {
+  bottom: 0;
+  position: absolute;
   width: 100%;
-  height: 550px;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: center top;
-  padding-top: 190px;
+/*  z-index: -1;
+  position: absolute;
+  width: 100%;*/
 }
 
 .container {
  /* see responsive.gs.12col.css */
 }
 
-.result-text p {
+input {
+  border-radius: 2px;
+}
+
+.search-bar-wrapper {
   position: relative;
-  bottom: 70px;
-  text-align: center;
-  font-size: 3em;
-  color: #ececec;
-  font-family: 'Arbutus Slab', serif;
-  font-weight: bolder;
-  text-shadow: 1px 1px 1px #414141;
+  bottom: 380px;
 }
 
 .search-bar-shadow {
@@ -47,10 +57,9 @@ max-width: 800px;
   opacity: 0.6;
   background-color: black;
   border-radius: 5px;
-}
-
-input {
-  border-radius: 2px;
+  z-index: 1;
+/*  position: relative;
+  top: 500px;*/
 }
 
 .search-bar {
@@ -59,6 +68,7 @@ input {
   width: 600px;
   margin: 0 auto;
   opacity: 0.9;
+  z-index: 2;
 }
 
 .search-params {
@@ -70,6 +80,7 @@ input {
 .search-params#origin {
   width: 400px;
   margin-bottom: 15px;
+  z-index: 4;
 }
 
 .search-params#budget {
@@ -84,21 +95,27 @@ input {
   width: 215px;
 }
 
+div.ui-datepicker {
+  font-size: 12.5px;
+}
+
 #submit {
   height: 28px;
   width: 66px;
   margin-left: 15px;
 }
 
-.date-text {
-  color: #ececec;
-  font-size: small;
-  /*display: inline-block;*/
-}
+/* replaces search bar when displaying results to query */
 
-.date-text #dep-text {
- /* position: relative;
-  left: 10px;*/
+.result-text p {
+  position: relative;
+  bottom: 70px;
+  text-align: center;
+  font-size: 3em;
+  color: #ececec;
+  font-family: 'Arbutus Slab', serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
 }
 
 /* remove autocomplete helper text because it's unnecessary */
@@ -147,6 +164,7 @@ input {
 .ui-menu {
   background-color: #ccc;
   width: 398px;
+  z-index: 4;
 }
 
 

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   searchBarAutocomplete();
+  loadDatePicker();
   eventListeners();
 
 });
@@ -20,12 +21,65 @@ function searchBarAutocomplete() {
   });
 }
 
+function loadDatePicker() {
+
+  // selects both departure and return date fields
+  $('.search-params.datepicker').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
+
+  replaceDepDatePlaceholder();
+}
+
+function replaceDepDatePlaceholder() {
+
+  console.log('replaceDepDatePlaceholder');
+  var today = new Date();
+  var dd = today.getDate().toString();
+    dd = lengthToTwo(dd);
+  var mm = (today.getMonth() + 1).toString();
+    mm = lengthToTwo(mm);
+  var yy = today.getFullYear().toString();
+
+  $('.search-params.datepicker#dep-date').attr('placeholder', yy+"-"+mm+"-"+dd);
+
+  replaceRetDatePlaceholder(yy,mm,dd);
+} //end of replaceDepDatePlaceholder
+
+function replaceRetDatePlaceholder(yy,mm,dd) {
+  console.log('replaceRetDatePlaceholder');
+  dd = (parseInt(dd)+1).toString();
+  dd = lengthToTwo(dd);
+
+  console.log(typeof(dd));
+  $('.search-params.datepicker#ret-date').attr('placeholder', yy+"-"+mm+"-"+dd);
+}
+
+function lengthToTwo(mmdd) {
+  console.log('lengthToTwo');
+  console.log(mmdd);
+  if (mmdd.length < 2) {
+    mmdd = "0" + mmdd;
+    console.log(mmdd);
+    return mmdd;
+  } else {
+    return mmdd;
+  }
+}
+
 function eventListeners() {
   console.log("in eventListeners");
   console.log("*************************");
 
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
+
+    // change button to loading and prevents user from typing in search field while ajax request is still going
+    var $searchField = $(".search-params#origin");
+    $searchField.prop("disabled", true);
+    var $submitButton = $(".button#submit");
+    $submitButton.attr("disabled", true).val('......');
+
     console.log("in .button#submit on click");
     console.log("*************************");
 
