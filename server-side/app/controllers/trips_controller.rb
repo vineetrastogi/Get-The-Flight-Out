@@ -1,3 +1,4 @@
+Dotenv::Railtie.load
 class TripsController < ApplicationController
 
   def index
@@ -25,7 +26,7 @@ class TripsController < ApplicationController
             }
             }.to_json
 
-      p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
+      p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
         body: request,
         headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
