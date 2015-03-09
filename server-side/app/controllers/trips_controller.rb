@@ -1,5 +1,8 @@
 Dotenv::Railtie.load
+require 'data_parser_helper'
+
 class TripsController < ApplicationController
+include DataParserHelper # SEE HELPERS DIRECTORY
 
   def index
     airport_codes =  %w(LAX SEA AUS BWI BOS CLT MDW ORD CVG CLE )
@@ -8,7 +11,6 @@ class TripsController < ApplicationController
     airport_codes.delete(params['origin'])
 
     airport_codes.each do |airport|
-      # p "THIS IS THE AIRPORT => #{airport}"
       request = {
         "request" => {
           "maxPrice" => "USD" + params['sale_total'],
@@ -31,16 +33,6 @@ class TripsController < ApplicationController
         @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
         body: request,
         headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
-
-        def find_city(departing_airport_code)
-          hash_containing_city_code = @response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(departing_airport_code)) }
-          return hash_containing_city_code[0]['name']
-        end
-
-        def find_city_code(departing_airport_code)
-          @response['trips']['data']['airport'].select { |hash| hash.has_value?(departing_airport_code) }[0]['city']
-        end
-
 
         # while counter < airport_codes.length
         # 2.times do
