@@ -5,7 +5,7 @@ class TripsController < ApplicationController
 include DataParserHelper # SEE HELPERS DIRECTORY
 
   def index
-    airport_codes =  %w(LAX ORD CVG CLE CMH DFW DEN)
+    airport_codes =  %w(LAX ORD CVG CLE CMH DFW DEN PHX)
       # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
@@ -30,7 +30,7 @@ include DataParserHelper # SEE HELPERS DIRECTORY
             }
             }.to_json
 
-        @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
+        p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
         body: request,
         headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 counter = 0
@@ -59,6 +59,25 @@ counter = 0
   end
 end
 
+
+# PSEUDOCODE FOR EXTRACTING NECESSARY INFO FOR MULTI-STOP URLs
+# Url Format: ;sel=LAXLAS0NK562-LASORD0NK446
+  # Where:
+    # LAX => Origin
+    # LAS => Midway
+    # 0
+    # NK => Flight code
+    # 562 => Flight number
+    # - => Separater
+    # LAS => Midway
+    # ORD => Destination
+    # 0
+    # NK => Flight code
+    # 446 => Flight number
+
+# 1. FIND array size. If > 2 then it's a multi-stop
+    # @multi['trips']['data']['city'].size == 3
+    # @single['trips']['data']['city'].size == 2
 
 
 
