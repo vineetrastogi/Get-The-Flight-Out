@@ -28,7 +28,7 @@ class TripsController < ApplicationController
             }
             }.to_json
 
-      p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
+        @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
         body: request,
         headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
@@ -54,7 +54,7 @@ class TripsController < ApplicationController
             @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
             @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
             @carrier = @response['trips']['data']['carrier'][counter]['name']
-            @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f * 2
+            @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
             @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
             @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
             # # p @mileage =
