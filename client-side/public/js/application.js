@@ -26,6 +26,13 @@ function eventListeners() {
 
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
+
+    // change button to loading and prevents user from typing in search field while ajax request is still going
+    var $searchField = $(".search-params#origin");
+    $searchField.prop("disabled", true);
+    var $submitButton = $(".button#submit");
+    $submitButton.attr("disabled", true).val('......');
+
     console.log("in .button#submit on click");
     console.log("*************************");
 
@@ -131,7 +138,7 @@ function redirectToPurchase(context, retDate, origin) {
 
     console.log(context);
 
-    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel="+selection;
+    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
 
     console.log(purchaseLink);
 
