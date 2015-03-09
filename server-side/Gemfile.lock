@@ -43,6 +43,9 @@ GEM
     dotenv-rails (2.0.0)
       dotenv (= 2.0.0)
     erubis (2.7.0)
+    ethon (0.7.3)
+      ffi (>= 1.3.0)
+    ffi (1.9.6)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -108,6 +111,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    typhoeus (0.7.1)
+      ethon (>= 0.7.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -118,8 +123,10 @@ DEPENDENCIES
   awesome_print
   dotenv-rails
   httparty
+  nokogiri
   pg
   rails (= 4.2.0)
   rails-api
   spring
   sqlite3
+  typhoeus

@@ -1,15 +1,17 @@
 Dotenv::Railtie.load
 require 'data_parser_helper'
+require 'typhoeus'
 
 class TripsController < ApplicationController
 include DataParserHelper # SEE HELPERS DIRECTORY
 
   def index
-    airport_codes =  %w(LAX ORD CVG CLE CMH DFW DEN PHX)
-      # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
+    airport_codes =  %w(BCN AOT LHR CDG SIN VIE OSL JED BNE)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
+    @request_array = []
 
+    @hydra = Typhoeus::Hydra.new
     airport_codes.each do |airport|
       request = {
         "request" => {
@@ -30,30 +32,37 @@ include DataParserHelper # SEE HELPERS DIRECTORY
             }
             }.to_json
 
-        p @response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}",
-        body: request,
-        headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
-counter = 0
-            # ERROR HANDLING: Ensuring that api_call is returning a response with respect to the user's input
-            if @response['trips']['data'].size < 2
-              @invalid_input = "No flights found with provided inputs. Please consider a different date or budget."
-            else
-              @duration = @response['trips']['tripOption'][counter]['slice'][0]['duration']
-              @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
-              @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
-              @carrier = @response['trips']['data']['carrier'][counter]['name']
-              @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
-              @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
-              @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
-              @origin = find_city(params['origin'])
-              @destination_code = airport
-              @destination = find_city(airport)
+      request_hydra = Typhoeus::Request.new("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{ENV['GOOGLE_API_TOKEN']}", method: :post, body: request, headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }, followlocation: true)
+      @request_array << request_hydra
+      @hydra.queue(request_hydra)
 
-              Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
-            end
-        airport_codes = original_airport_codes
+      airport_codes = original_airport_codes
     end
-    @trips = Trip.where(origin: @origin)
+
+    @hydra.run
+    @request_array.each do |request|
+    p '*' * 100
+    p final_response = JSON.parse(request.response.body)
+        # ERROR HANDLING: Ensuring that api_call is returning a response with respect to the user's input
+        if final_response['trips']['data'].size < 2
+          @invalid_input = "No flights found with provided inputs. Please consider a different date or budget."
+        else
+          duration = final_response['trips']['tripOption'][0]['slice'][0]['duration']
+          depart_time = final_response['trips']['tripOption'][0]['slice'][0]['segment'].first['leg'][0]['departureTime']
+          arrival_time = final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+          carrier = final_response['trips']['data']['carrier'][0]['name']
+          sale_total = final_response['trips']['tripOption'][0]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+          carrier_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['carrier']
+          flight_number = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['number']
+          origin = find_city(params['origin'], final_response)
+          @original_airport = origin # this is necessary to devoid scoping issues. Please see size_of_result_array variable
+          destination_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['destination']
+          destination = find_city(destination_code, final_response)
+
+          Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: depart_time, arrival_time: arrival_time, duration: duration, origin: origin, destination_code: destination_code, destination: destination)
+        end
+    end
+    @trips = Trip.last(9) # 9 is the size of @request_array
     @client_side = {trips: @trips, invalid_input: @invalid_input}
     render json: @client_side
   end
