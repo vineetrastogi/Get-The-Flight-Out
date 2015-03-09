@@ -36,7 +36,7 @@
 #   #       }
 #   # }.to_json
 
-#     # response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
+#     # response = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=",
 #     #   body: request,
 #     #   headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
