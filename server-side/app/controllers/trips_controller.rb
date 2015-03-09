@@ -5,7 +5,7 @@ class TripsController < ApplicationController
 include DataParserHelper # SEE HELPERS DIRECTORY
 
   def index
-    airport_codes =  %w(LAX ORD CVG CLE CMH DFW DEN)
+    airport_codes =  %w(LAX ORD CVG CLE CMH DFW DEN PHX)
       # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
