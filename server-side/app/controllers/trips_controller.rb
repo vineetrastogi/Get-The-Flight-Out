@@ -1,12 +1,13 @@
 class TripsController < ApplicationController
 
   def index
-    airport_codes =  %w(SFO LAX SJC SEA)
+    airport_codes =  %w(LAX SEA)
+      # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
 
     airport_codes.each do |airport|
-      p "THIS IS THE AIRPORT => #{airport}"
+      # p "THIS IS THE AIRPORT => #{airport}"
       request = {
         "request" => {
           "maxPrice" => "USD" + params['sale_total'],
@@ -15,6 +16,7 @@ class TripsController < ApplicationController
               "origin" => params['origin'],
               "destination" => airport,
               "date" => params['depart_time']
+              # "maxStops" => 4
             }
             ],
             "passengers" => {
@@ -57,7 +59,7 @@ class TripsController < ApplicationController
             @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
             @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
             @carrier = @response['trips']['data']['carrier'][counter]['name']
-            @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+            @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f * 2
             @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
             @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
             # # p @mileage =
@@ -73,7 +75,7 @@ class TripsController < ApplicationController
           end
         airport_codes = original_airport_codes
     end
-    @trips = Trip.all
+    @trips = Trip.all.order(sale_total: 'asc')
     @client_side = {trips: @trips, invalid_input: @invalid_input}
     render json: @client_side
   end
