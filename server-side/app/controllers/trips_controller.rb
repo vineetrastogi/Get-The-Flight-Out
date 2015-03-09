@@ -2,7 +2,7 @@ Dotenv::Railtie.load
 class TripsController < ApplicationController
 
   def index
-    airport_codes =  %w(LAX SEA)
+    airport_codes =  %w(LAX SEA AUS BWI BOS CLT MDW ORD CVG CLE )
       # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
@@ -32,19 +32,13 @@ class TripsController < ApplicationController
         body: request,
         headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
-        def find_origin_city(params)
-          x = []
-          @response['trips']['data']['city'].each { |el| x << el if el.has_value?(params) }
-          return x[0]['name']
-        end
-
-        def find_city(airport)
-          hash_containing_city_code = @response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(airport)) }
+        def find_city(departing_airport_code)
+          hash_containing_city_code = @response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(departing_airport_code)) }
           return hash_containing_city_code[0]['name']
         end
 
-        def find_city_code(airport)
-          @response['trips']['data']['airport'].select { |hash| hash.has_value?(airport) }[0]['city']
+        def find_city_code(departing_airport_code)
+          @response['trips']['data']['airport'].select { |hash| hash.has_value?(departing_airport_code) }[0]['city']
         end
 
 
@@ -64,7 +58,7 @@ class TripsController < ApplicationController
             @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
             @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
             # # p @mileage =
-            @origin = find_origin_city(params['origin'])
+            @origin = find_city(params['origin'])
             @destination_code = airport
             @destination = find_city(airport)
 
