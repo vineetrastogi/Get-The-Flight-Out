@@ -105,16 +105,17 @@ function populateResultsTemp(data, retDate, origin) {
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
-  var context = data;
+  var context = data.trips;
+
 
   console.log(template(context));
   $(".results-wrapper").html(template(context));
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
-  redirectToPurchase(data, retDate, origin);
+  redirectToPurchase(context, retDate, origin);
 }
 
-function redirectToPurchase(data, retDate, origin) {
+function redirectToPurchase(context, retDate, origin) {
   $(".button#purchase").on("click", function(event) {
     event.preventDefault();
 
@@ -123,11 +124,14 @@ function redirectToPurchase(data, retDate, origin) {
 
     // grab data attribute value of button that was clicked
     var indexString = $(this).attr("data");
+    debugger;
     var index = parseInt(indexString);
+    var departDate = context[index].depart_time.substring(0,10);
+    var selection = origin+context[index].destination_code+"0"+context[index].carrier_code+""+context[index].flight_number;
 
-    console.log(data[index]);
+    console.log(context);
 
-    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+data[index].destination_code+";d="+data[index].depart_time+";r="+retDate+";sel="+data[index].origin+data[index].destination+"0"+data[index].carrier_code+""+data[index].flight_number+";mp="+data[index].budget;
+    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel="+selection;
 
     console.log(purchaseLink);
 
