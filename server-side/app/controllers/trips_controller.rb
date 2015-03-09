@@ -3,13 +3,15 @@ require 'data_parser_helper'
 require 'typhoeus'
 
 class TripsController < ApplicationController
-include DataParserHelper # SEE HELPERS DIRECTORY
+# include DataParserHelper # SEE HELPERS DIRECTORY
 
   def index
     airport_codes =  %w(LAX SFO SEA ATL)
       # AUS BWI BOS CLT MDW ORD CVG CLE CMH DFW DEN DTW FLL RSW BDL HNL IAH HOU IND MCI LAS LAX MEM MIA MSP BNA MSY JFK LGA EWR OAK ONT MCO PHL PHX PIT PDX RDU SMF SLC SAT SAN SJC SNA SEA STL TPA IAD DCA)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
+    @request_array = []
+    @hydra = Typhoeus::Hydra.new
 
     airport_codes.each do |airport|
       request = {
@@ -31,41 +33,76 @@ include DataParserHelper # SEE HELPERS DIRECTORY
             }
             }.to_json
 
-    #      p @response1 = HTTParty.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g",
-    # body: request,
-    # headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' })
 
-        p @response = JSON.parse(Typhoeus.post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g", body: request, headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).body)
+          def find_city(departing_airport_code, final_response)
+            hash_containing_city_code = final_response['trips']['data']['city'].select { |hash| hash.has_value?(find_city_code(departing_airport_code, final_response)) }
+            return hash_containing_city_code[0]['name']
+          end
 
+          def find_city_code(departing_airport_code, final_response)
+            final_response['trips']['data']['airport'].select { |hash| hash.has_value?(departing_airport_code) }[0]['city']
+          end
 
+            request_hydra = Typhoeus::Request.new("https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g", method: :post, body: request, headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }, followlocation: true)
+            @request_array << request_hydra
+            @hydra.queue(request_hydra)
 
-        counter = 0
+            # @response.on_complete do |response|
+            #   @parsed_response = JSON.parse(response.body)
+            #   p @parsed_response
+            # @result_array << @request
+            #           counter = 0
+            #           # ERROR HANDLING: Ensuring that api_call is returning a response with respect to the user's input
+            #           if @parsed_response['trips']['data'].size < 2
+            #             @invalid_input = "No flights found with provided inputs. Please consider a different date or budget."
+            #           else
+            #             @duration = @parsed_response['trips']['tripOption'][counter]['slice'][0]['duration']
+            #             @depart_time = @parsed_response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
+            #             @arrival_time = @parsed_response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+            #             @carrier = @parsed_response['trips']['data']['carrier'][counter]['name']
+            #             @sale_total = @parsed_response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+            #             @carrier_code = @parsed_response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
+            #             @flight_number = @parsed_response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
+            #             @origin = find_city(params['origin'])
+            #             @destination_code = airport
+            #             @destination = find_city(airport)
 
+            #             Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
+            #           end
+            #   end
 
-
-            # ERROR HANDLING: Ensuring that api_call is returning a response with respect to the user's input
-            if @response['trips']['data'].size < 2
-              @invalid_input = "No flights found with provided inputs. Please consider a different date or budget."
-            else
-              @duration = @response['trips']['tripOption'][counter]['slice'][0]['duration']
-              @depart_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
-              @arrival_time = @response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
-              @carrier = @response['trips']['data']['carrier'][counter]['name']
-              @sale_total = @response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
-              @carrier_code = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
-              @flight_number = @response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
-              @origin = find_city(params['origin'])
-              @destination_code = airport
-              @destination = find_city(airport)
-
-              Trip.create(sale_total: @sale_total, carrier: @carrier, carrier_code: @carrier_code, flight_number: @flight_number, depart_time: @depart_time, arrival_time: @arrival_time, duration: @duration, mileage: @mileage, origin: @origin, destination: @destination, destination_code: @destination_code)
-            end
         airport_codes = original_airport_codes
     end
-    @trips = Trip.where(origin: @origin)
+
+    @hydra.run
+    @request_array.each do |request|
+    final_response = JSON.parse(request.response.body)
+                      counter = 0
+                      # ERROR HANDLING: Ensuring that api_call is returning a response with respect to the user's input
+                      if final_response['trips']['data'].size < 2
+                        invalid_input = "No flights found with provided inputs. Please consider a different date or budget."
+                      else
+                        duration = final_response['trips']['tripOption'][counter]['slice'][0]['duration']
+                        depart_time = final_response['trips']['tripOption'][counter]['slice'][0]['segment'].first['leg'][0]['departureTime']
+                        arrival_time = final_response['trips']['tripOption'][counter]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+                        carrier = final_response['trips']['data']['carrier'][counter]['name']
+                        sale_total = final_response['trips']['tripOption'][counter]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+                        carrier_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['carrier']
+                        flight_number = final_response['trips']['tripOption'][0]['slice'][0]['segment'][counter]['flight']['number']
+                        origin = find_city(params['origin'], final_response)
+                        # destination_code = airport
+                        # destination = find_city(airport, final_response)
+
+                        Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: depart_time, arrival_time: arrival_time, duration: duration, origin: origin)
+                      end
+  end
+
+
+    @trips = Trip.all
     @client_side = {trips: @trips, invalid_input: @invalid_input}
     render json: @client_side
   end
+
 end
 
 
