@@ -131,7 +131,7 @@ function redirectToPurchase(context, retDate, origin) {
 
     console.log(context);
 
-    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel="+selection;
+    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
 
     console.log(purchaseLink);
 
