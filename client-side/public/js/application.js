@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  $(".load-icon").hide();
   searchBarAutocomplete();
   loadDatePicker();
   eventListeners();
@@ -74,6 +75,8 @@ function eventListeners() {
     // change button to loading and prevents user from typing in search field while ajax request is still going
     $(".search-params#origin").prop("disabled", true);
     $(".button#submit").attr("disabled", true).val('......');
+    $(".search-bar-wrapper").animate({ opacity:0 });
+    $(".load-icon").show();
 
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
@@ -122,6 +125,7 @@ function submitRequest(origin, budget, depDate, retDate) {
   })
   .always(function() {
     console.log("complete");
+    $(".load-icon").hide();
   });
 
 } //end of submitRequest
@@ -131,12 +135,12 @@ function replaceSearchBox() {
   console.log("in replaceSearchBox");
 
   // fadeOut
-  $(".search-bar-wrapper").animate({ opacity:0 }, fadeInTextBox());
+  // $(".search-bar-wrapper").animate({ opacity:0 }, fadeInTextBox());
 
   //fadein
-  function fadeInTextBox() {
-    $(".result-text").fadeIn("4000");
-  }
+  // function fadeInTextBox() {
+    $(".result-text").fadeIn("slow");
+  // }
 }
 
 // called in submitRequest callback when successful
