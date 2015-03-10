@@ -5,11 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   post '/index' => 'trips#index'
-  # post '/index' => 'users#index'
+
   post '/users' => 'users#create'
-
-
-  # resources :users
 
   # resources :trips
   # Example of regular route:
