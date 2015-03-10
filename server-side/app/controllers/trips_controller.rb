@@ -4,9 +4,9 @@ require 'typhoeus'
 
 class TripsController < ApplicationController
 include DataParserHelper # SEE HELPERS DIRECTORY
-
+  @@all_codes = ["PEK","LHR","HND","CDG","FRA","HKG","DXB","CGK","AMS","MAD","BKK","SIN","CAN","PVG","MUC","KUL","FCO","IST","SYD","ICN","DEL","BCN","LGW","YYZ","SHA","BOM","GRU","MNL","CTU","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","PMI","CPH","SVO","KMG","VIE","OSL","JED","BNE","DUS","BOG","MXP","JNB","ARN","MAN","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL", "ATL", "ANC", "AUS", "BWI", "BOS", "CLT", "MDW", "ORD", "CVG", "CLE", "CMH", "DFW", "DEN", "DTW", "FLL", "RSW", "BDL", "HNL", "IAH", "HOU", "IND", "MCI", "LAS", "LAX", "MEM", "MIA", "MSP", "BNA", "MSY", "JFK", "LGA", "EWR", "OAK", "ONT", "MCO", "PHL", "PHX", "PIT", "PDX", "RDU", "SMF", "SLC", "SAT", "SAN", "SJC", "SNA", "SEA", "STL", "TPA", "IAD", "DCA"]
   def index
-    airport_codes =  %w(BCN AOT LHR CDG SIN VIE OSL JED BNE)
+    airport_codes =  @@all_codes.sample(9)
     original_airport_codes = airport_codes.clone
     airport_codes.delete(params['origin'])
     @request_array = []
@@ -62,7 +62,7 @@ include DataParserHelper # SEE HELPERS DIRECTORY
           Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: depart_time, arrival_time: arrival_time, duration: duration, origin: origin, destination_code: destination_code, destination: destination)
         end
     end
-    @trips = Trip.last(9) # 9 is the size of @request_array
+    @trips = Trip.last(9) #9 is the size of @request_array
     @client_side = {trips: @trips, invalid_input: @invalid_input}
     render json: @client_side
   end
