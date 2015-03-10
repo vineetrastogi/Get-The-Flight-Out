@@ -44,8 +44,9 @@ function submitRequest(origin, budget, depDate, retDate) {
   .done(function(data) {
     console.log("success");
     console.log(data);
+    sortDataBySaleTotal(data, origin, retDate);
     replaceSearchBox();
-    populateResultsTemp(data, origin, retDate);
+    // populateResultsTemp(data, origin, retDate);
   })
   .fail(function() {
     console.log("error");
@@ -57,6 +58,27 @@ function submitRequest(origin, budget, depDate, retDate) {
 
 } //end of submitRequest
 
+function sortDataBySaleTotal(data, origin, retDate) {
+  var response = data.trips;
+  var sortAsc = [];
+
+  for (var key in response) {
+    sortAsc.push({key:key,sale_total:response[key].sale_total});
+  }
+
+  sortAsc.sort(function(x,y) {
+    return x.sale_total - y.sale_total;
+  })
+
+  var data_array = [];
+
+  for (var i = 0; i< sortAsc.length; i++) {
+    data_array.push(response[sortAsc[i].key]);
+  }
+
+  populateResultsTemp(data_array, origin, retDate);
+}
+
 // called in submitRequest callback when successful
 function replaceSearchBox() {
   console.log("in replaceSearchBox");
@@ -66,13 +88,13 @@ function replaceSearchBox() {
 }
 
 // called in submitRequest callback when successful
-function populateResultsTemp(data, origin, retDate) {
+function populateResultsTemp(data_array, origin, retDate) {
   console.log("in populateResultsTemp");
-  console.log(data, origin, retDate);
+  console.log(data_array, origin, retDate);
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
-  var context = data.trips;
+  var context = data_array;
 
   $(".results-wrapper").html(template(context));
 
