@@ -152,6 +152,7 @@ div.ui-datepicker {
   margin-top: 30px;
   border: 1px solid gray;
   position: relative;
+  box-shadow: 5px 5px 5px #888;
 }
 
 .flight-info {
