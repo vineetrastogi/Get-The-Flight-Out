@@ -1,4 +1,5 @@
 <script id="results-template" type="text/x-handlebars-template">
+  <div id="parent-container">
   {{#each this}}
     <div class="container results">
       <div class="flight-info">
@@ -13,10 +14,11 @@
         <input type="submit" class="button" id="purchase" value="select" data={{@index}}>
       </div>
       <div class="email-button">
-        <input type="submit" class="button" id="email" value="track" data={{@index}}>
+        <input type="submit" class="button" id="email_{{@index}}" value="track" data={{@index}}>
       </div>
     </div>
   {{/each}}
+  </div>
 </script>
 
 <!--       <div class="flight-info">

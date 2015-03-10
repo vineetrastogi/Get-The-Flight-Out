@@ -109,27 +109,27 @@ function populateResultsTemp(data, origin, retDate) {
 
 // POP UP WINDOW FOR USER TO INSERT NAME AND EMAIL TO RECEIVE PUSH NOTIFICATION
 function trackDataViaEmail() {
-
-  $('.button#email').on('click', function(event){
+  $('#parent-container').on('click', '.email-button',  function(event){
+    var clickedElement = event.target.id
     event.preventDefault();
-    var trackButton = $(this).attr('data')
-    console.log(trackButton);
-    formDialog(trackButton);
+    // var trackButton = $(this).attr('data')
+    console.log(clickedElement);
+    alert('hi')
+    formDialog(clickedElement);
   });
 }
 
-function formDialog(trackButton) {
+function formDialog(clickedElement) {
+  console.log('form dialog')
   $("#dialog").dialog({
     autoOpen: false
   });
-  $(".email-button").on("click", function() {
-    $("#dialog").dialog("open");
-    $('#dialog').css("display", 'block')
-    sendEmail(trackButton);
-  });
+  $("#dialog").dialog("open");
+  $('#dialog').css("display", 'block')
+  sendEmail(clickedElement);
 }
 
-function sendEmail(trackButton) {
+function sendEmail(clickedElement) {
   $('form').on('submit', function(event) {
     event.preventDefault();
 
@@ -142,7 +142,8 @@ function sendEmail(trackButton) {
     .done(function(response) {
       console.log('success');
       console.log(response);
-      $('#dialog').parent().css("display", "none");
+      $('#dialog').parent().remove();
+      // $('#dialog').parent().css("display", "none");
     })
     .fail(function() {
       console.log("error");
