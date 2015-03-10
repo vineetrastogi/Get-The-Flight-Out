@@ -42,16 +42,15 @@ body {
 #videobg {
   bottom: 0;
   width: 100%;
-/*  z-index: -1;
+  z-index: -1;
   position: absolute;
-  width: 100%;*/
+  width: 100%;
 }
 
 .load-icon img {
   width: 4em;
   position: absolute;
-  text-align: center;
-  top: 270px;
+  top: 340px;
   left: 48%;
 }
 
