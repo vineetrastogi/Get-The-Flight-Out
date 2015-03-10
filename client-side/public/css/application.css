@@ -41,11 +41,18 @@ body {
 
 #videobg {
   bottom: 0;
-  position: absolute;
   width: 100%;
 /*  z-index: -1;
   position: absolute;
   width: 100%;*/
+}
+
+.load-icon img {
+  width: 4em;
+  position: absolute;
+  text-align: center;
+  top: 270px;
+  left: 48%;
 }
 
 .container {
