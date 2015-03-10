@@ -9,4 +9,11 @@ module DataParserHelper
     final_response['trips']['data']['airport'].select { |hash| hash.has_value?(departing_airport_code) }[0]['city']
   end
 
+  def convert_date_to_time(date_time)
+    date = Date.parse(date_time)
+    date = date.to_s
+    time = date_time[11..15]
+    date + " at " + time
+  end
+
 end
