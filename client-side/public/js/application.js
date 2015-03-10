@@ -36,7 +36,6 @@ function loadDatePicker() {
 
 function replaceDepDatePlaceholder() {
 
-  console.log('replaceDepDatePlaceholder');
   var today = new Date();
   var dd = today.getDate().toString();
     dd = lengthToTwo(dd);
@@ -46,24 +45,20 @@ function replaceDepDatePlaceholder() {
 
   $('.search-params.datepicker#dep-date').attr('placeholder', yy+"-"+mm+"-"+dd);
 
+  // takes the day from DepDatePlaceholder and adds 1
   replaceRetDatePlaceholder(yy,mm,dd);
 } //end of replaceDepDatePlaceholder
 
 function replaceRetDatePlaceholder(yy,mm,dd) {
-  console.log('replaceRetDatePlaceholder');
   dd = (parseInt(dd)+1).toString();
   dd = lengthToTwo(dd);
 
-  console.log(typeof(dd));
   $('.search-params.datepicker#ret-date').attr('placeholder', yy+"-"+mm+"-"+dd);
 }
 
 function lengthToTwo(mmdd) {
-  console.log('lengthToTwo');
-  console.log(mmdd);
   if (mmdd.length < 2) {
     mmdd = "0" + mmdd;
-    console.log(mmdd);
     return mmdd;
   } else {
     return mmdd;
@@ -72,7 +67,6 @@ function lengthToTwo(mmdd) {
 
 function eventListeners() {
   console.log("in eventListeners");
-  console.log("*************************");
 
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
@@ -81,18 +75,10 @@ function eventListeners() {
     $(".search-params#origin").prop("disabled", true);
     $(".button#submit").attr("disabled", true).val('......');
 
-    console.log("in .button#submit on click");
-    console.log("*************************");
-
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
     var depDate = $("#dep-date").val();
     var retDate = $("#ret-date").val();
-
-    // console.log(origin);
-    // console.log(budget);
-    // console.log(depDate);
-    // console.log(retDate);
 
     // uncomment below in order to make ajax post request
     // leads to replaceSearchBox and populateResultsTemp
@@ -128,7 +114,7 @@ function submitRequest(origin, budget, depDate, retDate) {
     console.log("success");
     console.log(data);
     replaceSearchBox();
-    populateResultsTemp(data, retDate, origin);
+    populateResultsTemp(data, origin, retDate);
   })
   .fail(function() {
     console.log("error");
@@ -153,24 +139,26 @@ function replaceSearchBox() {
 }
 
 // called in submitRequest callback when successful
-function populateResultsTemp(data, retDate, origin) {
+function populateResultsTemp(data, origin, retDate) {
   console.log("in populateResultsTemp");
-  console.log(data, retDate, origin);
-  console.log("*************************");
+  console.log(data, origin, retDate);
+
+  // FOR TESTING ONLY
+  // var depDate = depDate;
+  //   depDate = "REPLACE THIS";
+  // $('.date-time#departure').children().text(depDate);
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
   var context = data.trips;
 
-
-  console.log(template(context));
   $(".results-wrapper").html(template(context));
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
-  redirectToPurchase(context, retDate, origin);
+  redirectToPurchase(context, origin, retDate);
 }
 
-function redirectToPurchase(context, retDate, origin) {
+function redirectToPurchase(context, origin, retDate) {
   $(".button#purchase").on("click", function(event) {
     event.preventDefault();
 
@@ -179,10 +167,8 @@ function redirectToPurchase(context, retDate, origin) {
 
     // grab data attribute value of button that was clicked
     var indexString = $(this).attr("data");
-    debugger;
     var index = parseInt(indexString);
     var departDate = context[index].depart_time.substring(0,10);
-    var selection = origin+context[index].destination_code+"0"+context[index].carrier_code+""+context[index].flight_number;
 
     console.log(context);
 
