@@ -135,6 +135,8 @@ div.ui-datepicker {
   text-shadow: 1px 1px 1px #414141;
 }
 
+/* message to show up instead of result text when there are no results*/
+
 /* remove autocomplete helper text because it's unnecessary */
 
 .ui-helper-hidden-accessible {

@@ -13,16 +13,18 @@ function eventListeners() {
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
 
-    // change button to loading and prevents user from typing in search field while ajax request is still going
-    $(".search-params#origin").prop("disabled", true);
-    $(".button#submit").attr("disabled", true).val('......');
     $(".search-bar-wrapper").animate({ opacity:0 });
-    $(".load-icon").show();
+    // change button to loading and prevents user from typing in search field while ajax request is still going
+    // $(".search-params#origin").prop("disabled", true);
+    // $(".button#submit").attr("disabled", true).val('......');
+    // $(".load-icon").show();
 
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
     var depDate = $("#dep-date").val();
     var retDate = $("#ret-date").val();
+
+    // checkForBlankInputs(origin, budget, depDate, retDate);
 
     // uncomment below in order to make ajax post request
     // leads to replaceSearchBox and populateResultsTemp
@@ -34,6 +36,7 @@ function submitRequest(origin, budget, depDate, retDate) {
   console.log("in submitRequest");
   console.log(origin, budget, depDate, retDate);
   console.log("*************************");
+  $(".load-icon").show();
 
   $.ajax({
     url: "http://localhost:3000/index",
@@ -44,12 +47,15 @@ function submitRequest(origin, budget, depDate, retDate) {
   .done(function(data) {
     console.log("success");
     console.log(data);
+    // replaceSearchBox();
+    $(".result-text#success").fadeIn("slow");
+    // error handling when array[0];
     sortDataBySaleTotal(data, origin, retDate);
-    replaceSearchBox();
-    // populateResultsTemp(data, origin, retDate);
   })
   .fail(function() {
     console.log("error");
+    $(".result-text#no-results").fadeIn("slow");
+    errorInvalidRequest();
   })
   .always(function() {
     console.log("complete");
@@ -84,7 +90,7 @@ function replaceSearchBox() {
   console.log("in replaceSearchBox");
 
   //fadein
-    $(".result-text").fadeIn("slow");
+    $(".result-text #success").fadeIn("slow");
 }
 
 // called in submitRequest callback when successful
