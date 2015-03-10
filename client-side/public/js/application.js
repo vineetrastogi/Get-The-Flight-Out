@@ -40,9 +40,9 @@ function replaceDepDatePlaceholder() {
 
   var today = new Date();
   var dd = today.getDate().toString();
-    dd = lengthToTwo(dd);
+  dd = lengthToTwo(dd);
   var mm = (today.getMonth() + 1).toString();
-    mm = lengthToTwo(mm);
+  mm = lengthToTwo(mm);
   var yy = today.getFullYear().toString();
 
   $('.search-params.datepicker#dep-date').attr('placeholder', yy+"-"+mm+"-"+dd);
@@ -153,9 +153,9 @@ function populateResultsTemp(data, origin, retDate) {
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
     // debugger;
-  var context = data.trips;
+    var context = data.trips;
 
-  $(".results-wrapper").html(template(context));
+    $(".results-wrapper").html(template(context));
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
@@ -169,39 +169,34 @@ function trackDataViaEmail() {
   $('.button#email').on('click', function(event){
     event.preventDefault();
     var trackButton = $(this).attr('data')
-    console.log(trackButton)
-
-    $(function() {
-      $("#dialog").dialog({
-        autoOpen: false,
-        show: {
-          effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-        }
-      });
-    });
-    // $.ajax({
-    //   url: '/path/to/file',
-    //   type: 'default GET (Other values: POST)',
-    //   dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    //   data: {param1: 'value1'},
-    // })
-    // .done(function() {
-    //   console.log("success");
-    // })
-    // .fail(function() {
-    //   console.log("error");
-    // })
-    // .always(function() {
-    //   console.log("complete");
-    // });
+    console.log(trackButton);
+    testDialog(trackButton);
 
   });
-};
+}
+  function testDialog(trackButton) {
+    $("#dialog").dialog({
+      autoOpen: false
+    });
+    $(".email-button").on("click", function() {
+      $("#dialog").dialog("open");
+    });
+  }
+// Validating Form Fields.....
+// $("#submit").click(function(e) {
+//   var email = $("#email").val();
+//   var name = $("#name").val();
+//   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+//   if (email === '' || name === '') {
+//     alert("Please fill all fields...!!!!!!");
+//     e.preventDefault();
+//   } else if (!(email).match(emailReg)) {
+//     alert("Invalid Email...!!!!!!");
+//     e.preventDefault();
+//   } else {
+//     alert("Form Submitted Successfully......");
+//   }
+// });
 
 
 function redirectToPurchase(context, origin, retDate) {
