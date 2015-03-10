@@ -170,18 +170,41 @@ function trackDataViaEmail() {
     event.preventDefault();
     var trackButton = $(this).attr('data')
     console.log(trackButton);
-    testDialog(trackButton);
+    formDialog(trackButton);
   });
 }
-  function testDialog(trackButton) {
-    $("#dialog").dialog({
-      autoOpen: false
+
+function formDialog(trackButton) {
+  $("#dialog").dialog({
+    autoOpen: false
+  });
+  $(".email-button").on("click", function() {
+    $("#dialog").dialog("open");
+    $('#dialog').css("display", 'block')
+    sendEmail(trackButton);
+  });
+}
+
+function sendEmail(trackButton) {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:3000/users',
+      type: 'post',
+      dataType: 'json',
+      data: $('form').serialize()
+    })
+    .done(function(response) {
+      console.log('success');
+      console.log(response);
+    })
+    .fail(function() {
+      console.log("error");
     });
-    $(".email-button").on("click", function() {
-      $("#dialog").dialog("open");
-      $('#dialog').css("display", 'block')
-    });
-  }
+  });
+}
+
 // Validating Form Fields.....
 // $("#submit").click(function(e) {
 //   var email = $("#email").val();
