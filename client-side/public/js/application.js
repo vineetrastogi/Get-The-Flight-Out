@@ -7,6 +7,8 @@ $(document).ready(function() {
 
 });
 
+
+
 function searchBarAutocomplete() {
   $(".search-params#origin").autocomplete({
     minLength: 2,
@@ -39,9 +41,9 @@ function replaceDepDatePlaceholder() {
 
   var today = new Date();
   var dd = today.getDate().toString();
-    dd = lengthToTwo(dd);
+  dd = lengthToTwo(dd);
   var mm = (today.getMonth() + 1).toString();
-    mm = lengthToTwo(mm);
+  mm = lengthToTwo(mm);
   var yy = today.getFullYear().toString();
 
   $('.search-params.datepicker#dep-date').attr('placeholder', yy+"-"+mm+"-"+dd);
@@ -155,13 +157,76 @@ function populateResultsTemp(data, origin, retDate) {
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
-  var context = data.trips;
+    // debugger;
+    var context = data.trips;
 
-  $(".results-wrapper").html(template(context));
+    $(".results-wrapper").html(template(context));
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
+  trackDataViaEmail();
+
 }
+
+// POP UP WINDOW FOR USER TO INSERT NAME AND EMAIL TO RECEIVE PUSH NOTIFICATION
+function trackDataViaEmail() {
+
+  $('.button#email').on('click', function(event){
+    event.preventDefault();
+    var trackButton = $(this).attr('data')
+    console.log(trackButton);
+    formDialog(trackButton);
+  });
+}
+
+function formDialog(trackButton) {
+  $("#dialog").dialog({
+    autoOpen: false
+  });
+  $(".email-button").on("click", function() {
+    $("#dialog").dialog("open");
+    $('#dialog').css("display", 'block')
+    sendEmail(trackButton);
+  });
+}
+
+function sendEmail(trackButton) {
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:3000/users',
+      type: 'post',
+      dataType: 'json',
+      data: $('form').serialize()
+    })
+    .done(function(response) {
+      console.log('success');
+      console.log(response);
+      $('#dialog').parent().css("display", "none");
+    })
+    .fail(function() {
+      console.log("error");
+    });
+  });
+}
+
+// Validating Form Fields.....
+// $("#submit").click(function(e) {
+//   var email = $("#email").val();
+//   var name = $("#name").val();
+//   var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+//   if (email === '' || name === '') {
+//     alert("Please fill all fields...!!!!!!");
+//     e.preventDefault();
+//   } else if (!(email).match(emailReg)) {
+//     alert("Invalid Email...!!!!!!");
+//     e.preventDefault();
+//   } else {
+//     alert("Form Submitted Successfully......");
+//   }
+// });
+
 
 function redirectToPurchase(context, origin, retDate) {
   $(".button#purchase").on("click", function(event) {
@@ -174,7 +239,6 @@ function redirectToPurchase(context, origin, retDate) {
     var indexString = $(this).attr("data");
     var index = parseInt(indexString);
     var departDate = context[index].depart_time.substring(0,10);
-
     console.log(context);
 
     var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
