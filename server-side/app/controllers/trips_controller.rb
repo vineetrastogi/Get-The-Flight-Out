@@ -58,8 +58,9 @@ include DataParserHelper # SEE HELPERS DIRECTORY
           @original_airport = origin # this is necessary to devoid scoping issues. Please see size_of_result_array variable
           destination_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['destination']
           destination = find_city(destination_code, final_response)
+          num_of_stops = final_response['trips']['tripOption'][0]['slice'][0]['segment'].size - 1
 
-          Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: depart_time, arrival_time: arrival_time, duration: duration, origin: origin, destination_code: destination_code, destination: destination)
+          Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: depart_time, arrival_time: arrival_time, duration: duration, origin: origin, destination_code: destination_code, destination: destination, num_of_stop: num_of_stops)
         end
     end
     @trips = Trip.last(9) #9 is the size of @request_array
