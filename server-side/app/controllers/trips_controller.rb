@@ -51,7 +51,7 @@ include DataParserHelper # SEE HELPERS DIRECTORY
           depart_time = convert_date_to_time(final_response['trips']['tripOption'][0]['slice'][0]['segment'].first['leg'][0]['departureTime'])
           arrival_time = convert_date_to_time(final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['arrivalTime'])
           carrier = final_response['trips']['data']['carrier'][0]['name']
-          sale_total = final_response['trips']['tripOption'][0]['saleTotal'].reverse.chomp('DSU').reverse.to_f
+          sale_total = final_response['trips']['tripOption'][0]['saleTotal'].reverse.chomp('DSU').reverse.to_i
           carrier_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['carrier']
           flight_number = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['number']
           origin = find_city(params['origin'], final_response)
