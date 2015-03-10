@@ -12,6 +12,7 @@ class CreateTrips < ActiveRecord::Migration
       t.string :origin
       t.string :destination
       t.string :destination_code
+      t.integer :num_of_stop
 
       t.timestamps null: false
     end

@@ -1555,3 +1555,139 @@ ETHON: performed MULTI
   [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
   [1m[35mTrip Load (0.7ms)[0m  SELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" DESC LIMIT 9
 Completed 200 OK in 5024ms (Views: 3.2ms | ActiveRecord: 13.5ms)
+  [1m[36m (119.7ms)[0m  [1mDROP DATABASE IF EXISTS "db/development"[0m
+  [1m[35m (119.3ms)[0m  DROP DATABASE IF EXISTS "db/test"
+  [1m[36m (627.8ms)[0m  [1mCREATE DATABASE "db/development" ENCODING = 'utf8'[0m
+  [1m[35m (281.2ms)[0m  CREATE DATABASE "db/test" ENCODING = 'utf8'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (21.2ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" float, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "airport_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (18.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (2.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310030852')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.4ms)[0m  CREATE TABLE "trips" ("id" serial primary key, "sale_total" float, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "airport_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150310030852')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150306040828')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/index" for ::1 at 2015-03-10 11:45:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"LAX", "depart_time"=>"2015-03-14", "sale_total"=>"1600"}
+ETHON: Libcurl initialized
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.504078
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.045161
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.409024
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.452038
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.733636
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.555241
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.287752
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.789758
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.3399
+ETHON: performed MULTI
+Completed 500 Internal Server Error in 6373ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'num_of_stops' for Trip.):
+  app/controllers/trips_controller.rb:63:in `block in index'
+  app/controllers/trips_controller.rb:43:in `each'
+  app/controllers/trips_controller.rb:43:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.0ms)
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTrips (20150306040828)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "trips" ("id" serial primary key, "sale_total" integer, "carrier" character varying, "carrier_code" character varying, "flight_number" character varying, "depart_time" character varying, "arrival_time" character varying, "duration" integer, "mileage" integer, "origin" character varying, "destination" character varying, "destination_code" character varying, "num_of_stop" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150306040828"]]
+  [1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20150310030852)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150310030852"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'trips'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started POST "/index" for ::1 at 2015-03-10 11:48:44 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-14", "sale_total"=>"20000"}
+ETHON: Libcurl initialized
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.595872
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.771379
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.872558
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.0627
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.139421
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.482687
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.604883
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.644651
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.685117
+ETHON: performed MULTI
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 630], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "1783"], ["depart_time", "2015-03-14 at 11:15"], ["arrival_time", "2015-03-14 at 19:06"], ["duration", 291], ["origin", "San Francisco"], ["destination_code", "CLT"], ["destination", "Charlotte"], ["num_of_stop", 0], ["created_at", "2015-03-10 18:48:52.145866"], ["updated_at", "2015-03-10 18:48:52.145866"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 288], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "454"], ["depart_time", "2015-03-14 at 17:05"], ["arrival_time", "2015-03-14 at 21:11"], ["duration", 246], ["origin", "San Francisco"], ["destination_code", "ONT"], ["destination", "Ontario"], ["num_of_stop", 1], ["created_at", "2015-03-10 18:48:52.186054"], ["updated_at", "2015-03-10 18:48:52.186054"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 830], ["carrier", "Finnair Oyj"], ["carrier_code", "AY"], ["flight_number", "5738"], ["depart_time", "2015-03-14 at 07:00"], ["arrival_time", "2015-03-15 at 12:05"], ["duration", 1145], ["origin", "San Francisco"], ["destination_code", "SVO"], ["destination", "Moscow"], ["num_of_stop", 2], ["created_at", "2015-03-10 18:48:52.193334"], ["updated_at", "2015-03-10 18:48:52.193334"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 2020], ["carrier", "Scandinavian Airlines System (SAS)"], ["carrier_code", "SK"], ["flight_number", "936"], ["depart_time", "2015-03-14 at 18:30"], ["arrival_time", "2015-03-15 at 15:55"], ["duration", 805], ["origin", "San Francisco"], ["destination_code", "TRF"], ["destination", "Oslo"], ["num_of_stop", 1], ["created_at", "2015-03-10 18:48:52.199787"], ["updated_at", "2015-03-10 18:48:52.199787"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 536], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "1159"], ["depart_time", "2015-03-14 at 13:05"], ["arrival_time", "2015-03-14 at 21:36"], ["duration", 331], ["origin", "San Francisco"], ["destination_code", "BOS"], ["destination", "Boston"], ["num_of_stop", 0], ["created_at", "2015-03-10 18:48:52.205228"], ["updated_at", "2015-03-10 18:48:52.205228"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 211], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "922"], ["depart_time", "2015-03-14 at 06:45"], ["arrival_time", "2015-03-14 at 08:00"], ["duration", 75], ["origin", "San Francisco"], ["destination_code", "LAX"], ["destination", "Los Angeles"], ["num_of_stop", 0], ["created_at", "2015-03-10 18:48:52.212148"], ["updated_at", "2015-03-10 18:48:52.212148"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 699], ["carrier", "China Southern Airlines"], ["carrier_code", "CZ"], ["flight_number", "660"], ["depart_time", "2015-03-14 at 13:55"], ["arrival_time", "2015-03-15 at 22:00"], ["duration", 1025], ["origin", "San Francisco"], ["destination_code", "HGH"], ["destination", "Hangzhou"], ["num_of_stop", 1], ["created_at", "2015-03-10 18:48:52.250712"], ["updated_at", "2015-03-10 18:48:52.250712"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 1486], ["carrier", "Turkish Airlines Inc."], ["carrier_code", "VX"], ["flight_number", "90"], ["depart_time", "2015-03-14 at 14:10"], ["arrival_time", "2015-03-15 at 19:35"], ["duration", 1225], ["origin", "San Francisco"], ["destination_code", "AYT"], ["destination", "Antalya"], ["num_of_stop", 2], ["created_at", "2015-03-10 18:48:52.256819"], ["updated_at", "2015-03-10 18:48:52.256819"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 365], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "1940"], ["depart_time", "2015-03-14 at 13:20"], ["arrival_time", "2015-03-14 at 23:41"], ["duration", 441], ["origin", "San Francisco"], ["destination_code", "LGA"], ["destination", "New York"], ["num_of_stop", 1], ["created_at", "2015-03-10 18:48:52.263968"], ["updated_at", "2015-03-10 18:48:52.263968"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mTrip Load (0.7ms)[0m  [1mSELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" DESC LIMIT 9[0m
+Completed 200 OK in 6859ms (Views: 3.0ms | ActiveRecord: 14.9ms)
