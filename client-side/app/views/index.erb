@@ -26,20 +26,22 @@
 
     <form class="search-bar">
       <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
-      <input type="text" class="search-params" id="budget"placeholder="Budget">
+      <input type="text" class="search-params" id="budget" list="budget-list" placeholder="Budget">
       <input class="search-params datepicker" id="dep-date" placeholder="">
       <input class="search-params datepicker" id="ret-date" placeholder="">
       <input type="submit" class="button" id="submit">
-     <!--  <p class="date-text" id="dep-text">Departing</p>
-      <p class="date-text" id="ret-text">Returning</p> -->
     </form>
   </div>
 
   <div class="result-text" style="display:none">
-    <p>Oh, the places you'll go...</p>
+    <p>Oh the places you'll go...</p>
   </div>
 
 </div>
+
+<datalist id="budget-list">
+<%= erb :_budget_list %>
+</datalist>
 
 <div class="results-wrapper">
 <%= erb :_result %>
