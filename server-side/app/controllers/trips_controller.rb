@@ -55,7 +55,7 @@ include DataParserHelper # SEE HELPERS DIRECTORY
           carrier_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['carrier']
           flight_number = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['number']
           origin = find_city(params['origin'], final_response)
-          @original_airport = origin # this is necessary to devoid scoping issues. Please see size_of_result_array variable
+          @original_city = origin # this is necessary to devoid scoping issues. Please see size_of_result_array variable
           destination_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['destination']
           destination = find_city(destination_code, final_response)
           num_of_stops = final_response['trips']['tripOption'][0]['slice'][0]['segment'].size - 1
@@ -63,7 +63,8 @@ include DataParserHelper # SEE HELPERS DIRECTORY
           Trip.create(sale_total: sale_total, carrier: carrier, carrier_code: carrier_code, flight_number: flight_number, depart_time: depart_time, arrival_time: arrival_time, duration: duration, origin: origin, destination_code: destination_code, destination: destination, num_of_stop: num_of_stops)
         end
     end
-    @trips = Trip.last(9) #9 is the size of @request_array
+
+    @trips = Trip.where('sale_total < ?', params['sale_total']).where(origin: @original_city).last(9) #9 is the size of @request_array
     @client_side = {trips: @trips, invalid_input: @invalid_input}
     render json: @client_side
   end
