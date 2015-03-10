@@ -90,12 +90,13 @@ function eventListeners() {
 
     // to test handlebars template
     //LEGIT FLIGHT!!!
-    // var data = [
-    //   {"index": 0, "budget": "80", "carrier": "Virgin America", "carrier_code": "VX", "flight_number" :"906", "depart_time" :"2015-03-23", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"LAS" },
-    //   {"index": 1, "budget": "1800", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"990", "depart_time" :"2015-03-13", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"CDG"},
-    //   {"index": 2, "budget": "900", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"837", "depart_time": "2015-03-16", "origin":"SFO" , "arrival_time":"2015-03-18" , "destination":"NRT"}
-    // ];
-    // populateResultsTemp(data, retDate);
+    // var data = {
+    //   trips: [
+    //   {"index": 0, "sale_total": "80", "carrier": "Virgin America", "carrier_code": "VX", "flight_number" :"906", "depart_time" :"2015-03-23 at 9:00", "origin":"SFO" , "arrival_time":"2015-03-27 at 10:00" , "destination":"LAS" },
+    //   {"index": 1, "sale_total": "1800", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"990", "depart_time" :"2015-03-13 at 9:00", "origin":"SFO" , "arrival_time":"2015-03-27 at 10:00" , "destination":"CDG"},
+    //   {"index": 2, "sale_total": "900", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"837", "depart_time": "2015-03-16 at 9:00", "origin":"SFO" , "arrival_time":"2015-03-18 at 10:00" , "destination":"NRT"}]
+    // };
+    // populateResultsTemp(data, origin, retDate);
   }); //end of on click
 }
 
