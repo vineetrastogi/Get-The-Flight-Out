@@ -8,6 +8,9 @@ $(document).ready(function() {
 
 function searchBarAutocomplete() {
   $(".search-params#origin").autocomplete({
+    minLength: 2,
+    delay: 0,
+    autoFocus:true,
     source: function(request, response){
       var searchTerm = request.term.toLowerCase();
       var ret = [];
@@ -75,10 +78,8 @@ function eventListeners() {
     event.preventDefault();
 
     // change button to loading and prevents user from typing in search field while ajax request is still going
-    var $searchField = $(".search-params#origin");
-    $searchField.prop("disabled", true);
-    var $submitButton = $(".button#submit");
-    $submitButton.attr("disabled", true).val('......');
+    $(".search-params#origin").prop("disabled", true);
+    $(".button#submit").attr("disabled", true).val('......');
 
     console.log("in .button#submit on click");
     console.log("*************************");
