@@ -6,6 +6,8 @@ $(document).ready(function() {
 
 });
 
+
+
 function searchBarAutocomplete() {
   $(".search-params#origin").autocomplete({
     minLength: 2,
@@ -150,13 +152,57 @@ function populateResultsTemp(data, origin, retDate) {
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
+    // debugger;
   var context = data.trips;
 
   $(".results-wrapper").html(template(context));
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
+  trackDataViaEmail();
+
 }
+
+// POP UP WINDOW FOR USER TO INSERT NAME AND EMAIL TO RECEIVE PUSH NOTIFICATION
+function trackDataViaEmail() {
+
+  $('.button#email').on('click', function(event){
+    event.preventDefault();
+    var trackButton = $(this).attr('data')
+    console.log(trackButton)
+
+    $(function() {
+      $("#dialog").dialog({
+        autoOpen: false,
+        show: {
+          effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+        }
+      });
+    });
+    // $.ajax({
+    //   url: '/path/to/file',
+    //   type: 'default GET (Other values: POST)',
+    //   dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+    //   data: {param1: 'value1'},
+    // })
+    // .done(function() {
+    //   console.log("success");
+    // })
+    // .fail(function() {
+    //   console.log("error");
+    // })
+    // .always(function() {
+    //   console.log("complete");
+    // });
+
+  });
+};
+
 
 function redirectToPurchase(context, origin, retDate) {
   $(".button#purchase").on("click", function(event) {
@@ -169,7 +215,6 @@ function redirectToPurchase(context, origin, retDate) {
     var indexString = $(this).attr("data");
     var index = parseInt(indexString);
     var departDate = context[index].depart_time.substring(0,10);
-
     console.log(context);
 
     var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
