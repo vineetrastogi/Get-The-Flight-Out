@@ -171,7 +171,6 @@ function trackDataViaEmail() {
     var trackButton = $(this).attr('data')
     console.log(trackButton);
     testDialog(trackButton);
-
   });
 }
   function testDialog(trackButton) {
@@ -180,6 +179,7 @@ function trackDataViaEmail() {
     });
     $(".email-button").on("click", function() {
       $("#dialog").dialog("open");
+      $('#dialog').css("display", 'block')
     });
   }
 // Validating Form Fields.....
