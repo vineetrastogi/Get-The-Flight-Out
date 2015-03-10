@@ -4,7 +4,7 @@ require 'typhoeus'
 
 class TripsController < ApplicationController
 include DataParserHelper # SEE HELPERS DIRECTORY
-  @@all_codes = ["PEK","LHR","HND","CDG","FRA","HKG","DXB","CGK","AMS","MAD","BKK","SIN","CAN","PVG","MUC","KUL","FCO","IST","SYD","ICN","DEL","BCN","LGW","YYZ","SHA","BOM","GRU","MNL","CTU","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","PMI","CPH","SVO","KMG","VIE","OSL","JED","BNE","DUS","BOG","MXP","JNB","ARN","MAN","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL", "ATL", "ANC", "AUS", "BWI", "BOS", "CLT", "MDW", "ORD", "CVG", "CLE", "CMH", "DFW", "DEN", "DTW", "FLL", "RSW", "BDL", "HNL", "IAH", "HOU", "IND", "MCI", "LAS", "LAX", "MEM", "MIA", "MSP", "BNA", "MSY", "JFK", "LGA", "EWR", "OAK", "ONT", "MCO", "PHL", "PHX", "PIT", "PDX", "RDU", "SMF", "SLC", "SAT", "SAN", "SJC", "SNA", "SEA", "STL", "TPA", "IAD", "DCA"]
+  @@all_codes = ["PEK","LHR","HND","CDG","FRA","HKG","DXB","CGK","AMS","MAD","BKK","SIN","CAN","PVG","MUC","KUL","FCO","IST","SYD","ICN","DEL","BCN","LGW","YYZ","SHA","BOM","GRU","MNL","CTU","SZX","MEL","NRT","ORY","MEX","DME","AYT","TPE","ZRH","PMI","CPH","SVO","KMG","VIE","OSL","JED","BNE","DUS","BOG","MXP","JNB","ARN","MAN","BRU","DUB","GMP","DOH","STN","HGH","CJU","YVR","TXL","CGH","BSB","CTS","XMN","RUH","FUK","GIG","HEL","LIS","ATH","AKL","ATL", "ANC", "AUS", "BWI", "BOS", "CLT", "MDW", "ORD", "CVG", "CLE", "CMH", "DFW", "DEN", "DTW", "FLL", "RSW", "BDL", "HNL", "IAH", "HOU", "IND", "MCI", "LAS", "LAX", "MEM", "MIA", "MSP", "BNA", "MSY", "JFK", "LGA", "EWR", "OAK", "ONT", "MCO", "PHL", "PHX", "PIT", "PDX", "RDU", "SMF", "SLC", "SAT", "SAN", "SJC", "SNA", "SEA", "STL", "TPA", "IAD", "DCA"]
   def index
     airport_codes =  @@all_codes.sample(9)
     original_airport_codes = airport_codes.clone
@@ -48,8 +48,8 @@ include DataParserHelper # SEE HELPERS DIRECTORY
           @invalid_input = "No flights found with provided inputs. Please consider a different date or budget."
         else
           duration = final_response['trips']['tripOption'][0]['slice'][0]['duration']
-          depart_time = final_response['trips']['tripOption'][0]['slice'][0]['segment'].first['leg'][0]['departureTime']
-          arrival_time = final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['arrivalTime']
+          depart_time = convert_date_to_time(final_response['trips']['tripOption'][0]['slice'][0]['segment'].first['leg'][0]['departureTime'])
+          arrival_time = convert_date_to_time(final_response['trips']['tripOption'][0]['slice'][0]['segment'].last['leg'][0]['arrivalTime'])
           carrier = final_response['trips']['data']['carrier'][0]['name']
           sale_total = final_response['trips']['tripOption'][0]['saleTotal'].reverse.chomp('DSU').reverse.to_f
           carrier_code = final_response['trips']['tripOption'][0]['slice'][0]['segment'][0]['flight']['carrier']
@@ -67,7 +67,6 @@ include DataParserHelper # SEE HELPERS DIRECTORY
     render json: @client_side
   end
 end
-
 
 # PSEUDOCODE FOR EXTRACTING NECESSARY INFO FOR MULTI-STOP URLs
 # Url Format: ;sel=LAXLAS0NK562-LASORD0NK446
