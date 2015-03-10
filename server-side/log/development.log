@@ -889,3 +889,220 @@ Processing by UsersController#create as HTML
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "juice"], ["email", "juice@window.com"], ["created_at", "2015-03-10 16:55:28.653819"], ["updated_at", "2015-03-10 16:55:28.653819"]]
   [1m[35m (0.6ms)[0m  COMMIT
 Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 09:58:11 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-18", "sale_total"=>"3000"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.467277
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.664041
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.884284
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.88731
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.904769
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.91816
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.478182
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.119384
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.3947009999999995
+ETHON: performed MULTI
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 306.1], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-18 at 06:00"], ["arrival_time", "2015-03-18 at 07:55"], ["duration", 398], ["origin", "San Francisco"], ["destination_code", "PHX"], ["destination", "Phoenix"], ["created_at", "2015-03-10 16:58:17.029243"], ["updated_at", "2015-03-10 16:58:17.029243"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1407.99], ["carrier", "Gol Transportes Aereos Ltda."], ["carrier_code", "US"], ["flight_number", "219"], ["depart_time", "2015-03-18 at 21:01"], ["arrival_time", "2015-03-19 at 21:45"], ["duration", 1244], ["origin", "San Francisco"], ["destination_code", "CGH"], ["destination", "Sao Paulo"], ["created_at", "2015-03-10 16:58:17.043171"], ["updated_at", "2015-03-10 16:58:17.043171"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 620.8], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-18 at 01:15"], ["arrival_time", "2015-03-19 at 14:05"], ["duration", 1250], ["origin", "San Francisco"], ["destination_code", "CTS"], ["destination", "Sapporo"], ["created_at", "2015-03-10 16:58:17.051004"], ["updated_at", "2015-03-10 16:58:17.051004"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1051.17], ["carrier", "Aer Lingus Limited"], ["carrier_code", "EI"], ["flight_number", "146"], ["depart_time", "2015-03-18 at 18:20"], ["arrival_time", "2015-03-19 at 19:00"], ["duration", 1000], ["origin", "San Francisco"], ["destination_code", "FCO"], ["destination", "Rome"], ["created_at", "2015-03-10 16:58:17.058340"], ["updated_at", "2015-03-10 16:58:17.058340"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 612.8], ["carrier", "Air New Zealand Limited"], ["carrier_code", "NZ"], ["flight_number", "9145"], ["depart_time", "2015-03-18 at 17:58"], ["arrival_time", "2015-03-20 at 08:00"], ["duration", 1082], ["origin", "San Francisco"], ["destination_code", "AKL"], ["destination", "Auckland"], ["created_at", "2015-03-10 16:58:17.064634"], ["updated_at", "2015-03-10 16:58:17.064634"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 240.1], ["carrier", "Frontier Airlines, Inc."], ["carrier_code", "F9"], ["flight_number", "1358"], ["depart_time", "2015-03-18 at 16:45"], ["arrival_time", "2015-03-18 at 18:40"], ["duration", 310], ["origin", "San Francisco"], ["destination_code", "PHX"], ["destination", "Phoenix"], ["created_at", "2015-03-10 16:58:17.069802"], ["updated_at", "2015-03-10 16:58:17.069802"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 270.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "23"], ["depart_time", "2015-03-18 at 10:53"], ["arrival_time", "2015-03-18 at 20:26"], ["duration", 393], ["origin", "San Francisco"], ["destination_code", "TPA"], ["destination", "Tampa"], ["created_at", "2015-03-10 16:58:17.122309"], ["updated_at", "2015-03-10 16:58:17.122309"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 898.17], ["carrier", "Aer Lingus Limited"], ["carrier_code", "EI"], ["flight_number", "146"], ["depart_time", "2015-03-18 at 18:20"], ["arrival_time", "2015-03-19 at 14:55"], ["duration", 815], ["origin", "San Francisco"], ["destination_code", "MAN"], ["destination", "Manchester"], ["created_at", "2015-03-10 16:58:17.128731"], ["updated_at", "2015-03-10 16:58:17.128731"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 551.8], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-18 at 01:15"], ["arrival_time", "2015-03-19 at 13:20"], ["duration", 1325], ["origin", "San Francisco"], ["destination_code", "CGK"], ["destination", "Jakarta"], ["created_at", "2015-03-10 16:58:17.136238"], ["updated_at", "2015-03-10 16:58:17.136238"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (0.4ms)[0m  SELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" DESC LIMIT 9
+Completed 200 OK in 5521ms (Views: 3.3ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/users" for ::1 at 2015-03-10 09:58:22 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"juice", "email"=>"juice"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "juice"], ["email", "juice"], ["created_at", "2015-03-10 16:58:22.415190"], ["updated_at", "2015-03-10 16:58:22.415190"]]
+  [1m[36m (33.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 41ms (Views: 0.6ms | ActiveRecord: 34.6ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 09:59:20 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"2000"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.399865
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.93924
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.215626
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.533138
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.786878
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.99132
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.169371
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.054691
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.84364
+ETHON: performed MULTI
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 652.8], ["carrier", "China Airlines"], ["carrier_code", "CI"], ["flight_number", "3"], ["depart_time", "2015-03-11 at 01:05"], ["arrival_time", "2015-03-12 at 12:45"], ["duration", 1180], ["origin", "San Francisco"], ["destination_code", "GMP"], ["destination", "Seoul"], ["created_at", "2015-03-10 16:59:27.624739"], ["updated_at", "2015-03-10 16:59:27.624739"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 1260.2], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "1169"], ["depart_time", "2015-03-11 at 19:00"], ["arrival_time", "2015-03-13 at 08:15"], ["duration", 1155], ["origin", "San Francisco"], ["destination_code", "MEL"], ["destination", "Melbourne"], ["created_at", "2015-03-10 16:59:27.635338"], ["updated_at", "2015-03-10 16:59:27.635338"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 389.0], ["carrier", "Hawaiian Airlines, Inc."], ["carrier_code", "HA"], ["flight_number", "41"], ["depart_time", "2015-03-11 at 10:30"], ["arrival_time", "2015-03-11 at 16:21"], ["duration", 531], ["origin", "San Francisco"], ["destination_code", "HNL"], ["destination", "Honolulu"], ["created_at", "2015-03-10 16:59:27.642914"], ["updated_at", "2015-03-10 16:59:27.642914"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 1398.3], ["carrier", "Turkish Airlines Inc."], ["carrier_code", "VX"], ["flight_number", "26"], ["depart_time", "2015-03-11 at 13:55"], ["arrival_time", "2015-03-12 at 15:55"], ["duration", 1020], ["origin", "San Francisco"], ["destination_code", "IST"], ["destination", "Istanbul"], ["created_at", "2015-03-10 16:59:27.650175"], ["updated_at", "2015-03-10 16:59:27.650175"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1486.3], ["carrier", "Turkish Airlines Inc."], ["carrier_code", "VX"], ["flight_number", "90"], ["depart_time", "2015-03-11 at 14:10"], ["arrival_time", "2015-03-12 at 19:35"], ["duration", 1225], ["origin", "San Francisco"], ["destination_code", "AYT"], ["destination", "Antalya"], ["created_at", "2015-03-10 16:59:27.658274"], ["updated_at", "2015-03-10 16:59:27.658274"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 704.8], ["carrier", "China Eastern Airlines"], ["carrier_code", "MU"], ["flight_number", "578"], ["depart_time", "2015-03-11 at 12:00"], ["arrival_time", "2015-03-13 at 00:25"], ["duration", 1285], ["origin", "San Francisco"], ["destination_code", "KMG"], ["destination", "Kunming"], ["created_at", "2015-03-10 16:59:27.666400"], ["updated_at", "2015-03-10 16:59:27.666400"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1382.17], ["carrier", "Aer Lingus Limited"], ["carrier_code", "EI"], ["flight_number", "146"], ["depart_time", "2015-03-11 at 18:20"], ["arrival_time", "2015-03-12 at 19:40"], ["duration", 1040], ["origin", "San Francisco"], ["destination_code", "CPH"], ["destination", "Copenhagen"], ["created_at", "2015-03-10 16:59:27.673957"], ["updated_at", "2015-03-10 16:59:27.673957"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 988.3], ["carrier", "TAP Portugal"], ["carrier_code", "TP"], ["flight_number", "8491"], ["depart_time", "2015-03-11 at 07:55"], ["arrival_time", "2015-03-12 at 06:00"], ["duration", 905], ["origin", "San Francisco"], ["destination_code", "LIS"], ["destination", "Lisbon"], ["created_at", "2015-03-10 16:59:27.681075"], ["updated_at", "2015-03-10 16:59:27.681075"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 477.8], ["carrier", "EVA Airways Corporation"], ["carrier_code", "BR"], ["flight_number", "17"], ["depart_time", "2015-03-11 at 01:15"], ["arrival_time", "2015-03-12 at 08:50"], ["duration", 995], ["origin", "San Francisco"], ["destination_code", "HKG"], ["destination", "Hong Kong"], ["created_at", "2015-03-10 16:59:27.688528"], ["updated_at", "2015-03-10 16:59:27.688528"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mTrip Load (0.5ms)[0m  [1mSELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" DESC LIMIT 9[0m
+Completed 200 OK in 6928ms (Views: 3.6ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/users" for ::1 at 2015-03-10 09:59:32 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"vineet", "email"=>"vineet"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "vineet"], ["email", "vineet"], ["created_at", "2015-03-10 16:59:32.201713"], ["updated_at", "2015-03-10 16:59:32.201713"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 10:00:33 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-14", "sale_total"=>"2000"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.594383
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.625485
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.969018
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.182821
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.578766
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.718604
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.190849
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.975655
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.50249
+ETHON: performed MULTI
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 980.2], ["carrier", "Cathay Pacific Airways Ltd."], ["carrier_code", "CX"], ["flight_number", "873"], ["depart_time", "2015-03-14 at 00:10"], ["arrival_time", "2015-03-15 at 14:50"], ["duration", 1360], ["origin", "San Francisco"], ["destination_code", "CTS"], ["destination", "Sapporo"], ["created_at", "2015-03-10 17:00:39.255116"], ["updated_at", "2015-03-10 17:00:39.255116"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1119.3], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "931"], ["depart_time", "2015-03-14 at 12:10"], ["arrival_time", "2015-03-15 at 08:32"], ["duration", 982], ["origin", "San Francisco"], ["destination_code", "BSB"], ["destination", "Brasilia"], ["created_at", "2015-03-10 17:00:39.270285"], ["updated_at", "2015-03-10 17:00:39.270285"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 343.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "454"], ["depart_time", "2015-03-14 at 17:05"], ["arrival_time", "2015-03-15 at 01:40"], ["duration", 395], ["origin", "San Francisco"], ["destination_code", "SAT"], ["destination", "San Antonio"], ["created_at", "2015-03-10 17:00:39.277872"], ["updated_at", "2015-03-10 17:00:39.277872"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 740.2], ["carrier", "Etihad Airways"], ["carrier_code", "EY"], ["flight_number", "182"], ["depart_time", "2015-03-14 at 09:45"], ["arrival_time", "2015-03-15 at 19:40"], ["duration", 1435], ["origin", "San Francisco"], ["destination_code", "DME"], ["destination", "Moscow"], ["created_at", "2015-03-10 17:00:39.285252"], ["updated_at", "2015-03-10 17:00:39.285252"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 293.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "2374"], ["depart_time", "2015-03-14 at 06:00"], ["arrival_time", "2015-03-14 at 15:20"], ["duration", 380], ["origin", "San Francisco"], ["destination_code", "CVG"], ["destination", "Cincinnati"], ["created_at", "2015-03-10 17:00:39.293653"], ["updated_at", "2015-03-10 17:00:39.293653"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1897.7], ["carrier", "Icelandair"], ["carrier_code", "VX"], ["flight_number", "744"], ["depart_time", "2015-03-14 at 12:55"], ["arrival_time", "2015-03-15 at 12:55"], ["duration", 900], ["origin", "San Francisco"], ["destination_code", "HEL"], ["destination", "Helsinki"], ["created_at", "2015-03-10 17:00:39.303087"], ["updated_at", "2015-03-10 17:00:39.303087"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 1486.3], ["carrier", "Turkish Airlines Inc."], ["carrier_code", "VX"], ["flight_number", "90"], ["depart_time", "2015-03-14 at 14:10"], ["arrival_time", "2015-03-15 at 19:35"], ["duration", 1225], ["origin", "San Francisco"], ["destination_code", "AYT"], ["destination", "Antalya"], ["created_at", "2015-03-10 17:00:39.310336"], ["updated_at", "2015-03-10 17:00:39.310336"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1985.1], ["carrier", "Air Berlin PLC & Co. Luftverkehrs KG"], ["carrier_code", "UA"], ["flight_number", "930"], ["depart_time", "2015-03-14 at 20:25"], ["arrival_time", "2015-03-15 at 18:45"], ["duration", 860], ["origin", "San Francisco"], ["destination_code", "ORY"], ["destination", "Paris"], ["created_at", "2015-03-10 17:00:39.319377"], ["updated_at", "2015-03-10 17:00:39.319377"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 775.7], ["carrier", "Asiana Airlines Inc."], ["carrier_code", "OZ"], ["flight_number", "211"], ["depart_time", "2015-03-14 at 13:00"], ["arrival_time", "2015-03-15 at 21:05"], ["duration", 1025], ["origin", "San Francisco"], ["destination_code", "PVG"], ["destination", "Shanghai"], ["created_at", "2015-03-10 17:00:39.380988"], ["updated_at", "2015-03-10 17:00:39.380988"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mTrip Load (1.0ms)[0m  SELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" DESC LIMIT 9
+Completed 200 OK in 5650ms (Views: 2.9ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/users" for ::1 at 2015-03-10 10:00:50 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"asibdhfg", "email"=>"askljb"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "asibdhfg"], ["email", "askljb"], ["created_at", "2015-03-10 17:00:50.626900"], ["updated_at", "2015-03-10 17:00:50.626900"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 10:02:05 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"2000"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.077083
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.543953
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.744516
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.931014
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.247974
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.624515
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.159266
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.306092
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.749604
+ETHON: performed MULTI
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 277.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "2374"], ["depart_time", "2015-03-11 at 06:00"], ["arrival_time", "2015-03-11 at 16:18"], ["duration", 438], ["origin", "San Francisco"], ["destination_code", "BOS"], ["destination", "Boston"], ["created_at", "2015-03-10 17:02:11.120329"], ["updated_at", "2015-03-10 17:02:11.120329"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 1303.27], ["carrier", "Flybe Limited"], ["carrier_code", "EI"], ["flight_number", "146"], ["depart_time", "2015-03-11 at 18:20"], ["arrival_time", "2015-03-12 at 20:25"], ["duration", 1085], ["origin", "San Francisco"], ["destination_code", "ORY"], ["destination", "Paris"], ["created_at", "2015-03-10 17:02:11.131830"], ["updated_at", "2015-03-10 17:02:11.131830"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1267.17], ["carrier", "Aer Lingus Limited"], ["carrier_code", "EI"], ["flight_number", "146"], ["depart_time", "2015-03-11 at 18:20"], ["arrival_time", "2015-03-12 at 19:25"], ["duration", 1025], ["origin", "San Francisco"], ["destination_code", "MUC"], ["destination", "Munich"], ["created_at", "2015-03-10 17:02:11.140559"], ["updated_at", "2015-03-10 17:02:11.140559"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 544.5], ["carrier", "JSC Aeroflot - Russian Airlines"], ["carrier_code", "SU"], ["flight_number", "4210"], ["depart_time", "2015-03-11 at 08:15"], ["arrival_time", "2015-03-12 at 12:25"], ["duration", 1090], ["origin", "San Francisco"], ["destination_code", "SVO"], ["destination", "Moscow"], ["created_at", "2015-03-10 17:02:11.151144"], ["updated_at", "2015-03-10 17:02:11.151144"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 283.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "610"], ["depart_time", "2015-03-11 at 06:00"], ["arrival_time", "2015-03-11 at 13:35"], ["duration", 335], ["origin", "San Francisco"], ["destination_code", "MCI"], ["destination", "Kansas City"], ["created_at", "2015-03-10 17:02:11.159356"], ["updated_at", "2015-03-10 17:02:11.159356"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 520.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "2374"], ["depart_time", "2015-03-11 at 06:00"], ["arrival_time", "2015-03-11 at 16:12"], ["duration", 432], ["origin", "San Francisco"], ["destination_code", "BDL"], ["destination", "Hartford"], ["created_at", "2015-03-10 17:02:11.166673"], ["updated_at", "2015-03-10 17:02:11.166673"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 535.6], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "1589"], ["depart_time", "2015-03-11 at 12:40"], ["arrival_time", "2015-03-11 at 22:00"], ["duration", 380], ["origin", "San Francisco"], ["destination_code", "TPA"], ["destination", "Tampa"], ["created_at", "2015-03-10 17:02:11.174168"], ["updated_at", "2015-03-10 17:02:11.174168"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["sale_total", 293.6], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "242"], ["depart_time", "2015-03-11 at 08:21"], ["arrival_time", "2015-03-11 at 17:29"], ["duration", 368], ["origin", "San Francisco"], ["destination_code", "DTW"], ["destination", "Detroit"], ["created_at", "2015-03-10 17:02:11.181967"], ["updated_at", "2015-03-10 17:02:11.181967"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["sale_total", 1195.37], ["carrier", "Aer Lingus Limited"], ["carrier_code", "EI"], ["flight_number", "146"], ["depart_time", "2015-03-11 at 18:20"], ["arrival_time", "2015-03-12 at 20:00"], ["duration", 1060], ["origin", "San Francisco"], ["destination_code", "FRA"], ["destination", "Frankfurt"], ["created_at", "2015-03-10 17:02:11.192274"], ["updated_at", "2015-03-10 17:02:11.192274"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT  "trips".* FROM "trips"  ORDER BY "trips"."id" DESC LIMIT 9[0m
+Completed 200 OK in 5839ms (Views: 3.1ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/users" for ::1 at 2015-03-10 10:02:17 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"thigh", "email"=>"thigh"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "thigh"], ["email", "thigh"], ["created_at", "2015-03-10 17:02:17.057042"], ["updated_at", "2015-03-10 17:02:17.057042"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m

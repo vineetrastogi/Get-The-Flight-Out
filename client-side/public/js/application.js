@@ -198,6 +198,7 @@ function sendEmail(trackButton) {
     .done(function(response) {
       console.log('success');
       console.log(response);
+      $('#dialog').parent().css("display", "none");
     })
     .fail(function() {
       console.log("error");
