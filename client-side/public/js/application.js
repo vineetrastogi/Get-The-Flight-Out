@@ -95,7 +95,7 @@ function eventListeners() {
     //   {"index": 1, "budget": "1800", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"990", "depart_time" :"2015-03-13", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"CDG"},
     //   {"index": 2, "budget": "900", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"837", "depart_time": "2015-03-16", "origin":"SFO" , "arrival_time":"2015-03-18" , "destination":"NRT"}
     // ];
-    populateResultsTemp(data, retDate);
+    // populateResultsTemp(data, retDate);
   }); //end of on click
 }
 
@@ -114,7 +114,7 @@ function submitRequest(origin, budget, depDate, retDate) {
     console.log("success");
     console.log(data);
     replaceSearchBox();
-    populateResultsTemp(data, depDate, retDate, origin);
+    populateResultsTemp(data, origin, retDate);
   })
   .fail(function() {
     console.log("error");
@@ -139,27 +139,26 @@ function replaceSearchBox() {
 }
 
 // called in submitRequest callback when successful
-function populateResultsTemp(data, depDate, retDate, origin) {
+function populateResultsTemp(data, origin, retDate) {
   console.log("in populateResultsTemp");
-  console.log(data, depDate, retDate, origin);
+  console.log(data, origin, retDate);
 
   // FOR TESTING ONLY
-  var depDate = depDate;
-    depDate = "REPLACE THIS";
-  $('.date-time#departure').children().text(depDate);
+  // var depDate = depDate;
+  //   depDate = "REPLACE THIS";
+  // $('.date-time#departure').children().text(depDate);
 
   var source = $("#results-template").html();
   var template = Handlebars.compile(source);
   var context = data.trips;
 
-  // $(".results-wrapper").html(template(context));
-  // $('.date-time#arrival').children().text(arrDate);
+  $(".results-wrapper").html(template(context));
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
-  redirectToPurchase(context, retDate, origin);
+  redirectToPurchase(context, origin, retDate);
 }
 
-function redirectToPurchase(context, retDate, origin) {
+function redirectToPurchase(context, origin, retDate) {
   $(".button#purchase").on("click", function(event) {
     event.preventDefault();
 
@@ -170,7 +169,6 @@ function redirectToPurchase(context, retDate, origin) {
     var indexString = $(this).attr("data");
     var index = parseInt(indexString);
     var departDate = context[index].depart_time.substring(0,10);
-    var selection = origin+context[index].destination_code+"0"+context[index].carrier_code+""+context[index].flight_number;
 
     console.log(context);
 
