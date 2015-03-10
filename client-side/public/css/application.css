@@ -1,7 +1,7 @@
 /** {
   outline: 1px solid black;
-}
-*/
+}*/
+
 .logo {
   font-family: 'Arbutus Slab', serif;
   margin-left: 20px;
@@ -18,7 +18,7 @@ body {
   border-color: #ff5a5f;
   border-bottom-color: #e00007;
   background-color: #ff5a5f;
-  width: 66px;
+  width: 81px;
 }
 
 /* video elements */
@@ -41,11 +41,17 @@ body {
 
 #videobg {
   bottom: 0;
+  width: 100%;
+  z-index: -1;
   position: absolute;
   width: 100%;
-/*  z-index: -1;
+}
+
+.load-icon img {
+  width: 4em;
   position: absolute;
-  width: 100%;*/
+  top: 340px;
+  left: 48%;
 }
 
 .container {
@@ -121,7 +127,7 @@ div.ui-datepicker {
   position: relative;
   bottom: 610px;
   text-align: center;
-  font-size: 3.5em;
+  font-size: 3.4em;
   color: #ececec;
   font-family: 'Homemade Apple', cursive;
   font-weight: bolder;
@@ -138,7 +144,7 @@ div.ui-datepicker {
 
 .results-wrapper {
   position: relative;
-  bottom: 200px;
+  bottom: 420px;
 }
 
 .container.results {
@@ -153,20 +159,25 @@ div.ui-datepicker {
 }
 
 .flight-info.verbose {
+  position: absolute;
   margin-right: 50px;
-  /*margin-left: 50px;*/
+  margin-left: 50px;
+  bottom: -7%;
+  left: 32%;
 }
 
 .purchase-button {
   position: absolute;
-  top: 50px;
-  left: 650px;
+  top: 30px;
+  /*left: 700px;*/
+  right: 50px;
 }
 
 .email-button {
   position: absolute;
-  top: 90px;
-  left: 650px;
+  top: 70px;
+  /*left: 700px;*/
+  right: 50px;
 }
 
 .price {
@@ -175,7 +186,7 @@ div.ui-datepicker {
   margin-left: 60px;
   margin-right: 50px;
   position: relative;
-  bottom: 5px;
+  bottom: 8px;
 }
 
 .carrier-code {

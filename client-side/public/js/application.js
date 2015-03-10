@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  $(".load-icon").hide();
   searchBarAutocomplete();
   loadDatePicker();
   eventListeners();
@@ -76,6 +77,8 @@ function eventListeners() {
     // change button to loading and prevents user from typing in search field while ajax request is still going
     $(".search-params#origin").prop("disabled", true);
     $(".button#submit").attr("disabled", true).val('......');
+    $(".search-bar-wrapper").animate({ opacity:0 });
+    $(".load-icon").show();
 
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
@@ -92,12 +95,13 @@ function eventListeners() {
 
     // to test handlebars template
     //LEGIT FLIGHT!!!
-    // var data = [
-    //   {"index": 0, "budget": "80", "carrier": "Virgin America", "carrier_code": "VX", "flight_number" :"906", "depart_time" :"2015-03-23", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"LAS" },
-    //   {"index": 1, "budget": "1800", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"990", "depart_time" :"2015-03-13", "origin":"SFO" , "arrival_time":"2015-03-27" , "destination":"CDG"},
-    //   {"index": 2, "budget": "900", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"837", "depart_time": "2015-03-16", "origin":"SFO" , "arrival_time":"2015-03-18" , "destination":"NRT"}
-    // ];
-    // populateResultsTemp(data, retDate);
+    // var data = {
+    //   trips: [
+    //   {"index": 0, "sale_total": "80", "carrier": "Virgin America", "carrier_code": "VX", "flight_number" :"906", "depart_time" :"2015-03-23 at 9:00", "origin":"SFO" , "arrival_time":"2015-03-27 at 10:00" , "destination":"LAS" },
+    //   {"index": 1, "sale_total": "1800", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"990", "depart_time" :"2015-03-13 at 9:00", "origin":"SFO" , "arrival_time":"2015-03-27 at 10:00" , "destination":"CDG"},
+    //   {"index": 2, "sale_total": "900", "carrier": "United Airlines", "carrier_code": "UA", "flight_number" :"837", "depart_time": "2015-03-16 at 9:00", "origin":"SFO" , "arrival_time":"2015-03-18 at 10:00" , "destination":"NRT"}]
+    // };
+    // populateResultsTemp(data, origin, retDate);
   }); //end of on click
 }
 
@@ -123,6 +127,7 @@ function submitRequest(origin, budget, depDate, retDate) {
   })
   .always(function() {
     console.log("complete");
+    $(".load-icon").hide();
   });
 
 } //end of submitRequest
@@ -132,12 +137,12 @@ function replaceSearchBox() {
   console.log("in replaceSearchBox");
 
   // fadeOut
-  $(".search-bar-wrapper").animate({ opacity:0 }, fadeInTextBox());
+  // $(".search-bar-wrapper").animate({ opacity:0 }, fadeInTextBox());
 
   //fadein
-  function fadeInTextBox() {
-    $(".result-text").fadeIn("4000");
-  }
+  // function fadeInTextBox() {
+    $(".result-text").fadeIn("slow");
+  // }
 }
 
 // called in submitRequest callback when successful
