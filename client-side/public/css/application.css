@@ -13,6 +13,14 @@ body {
   font-weight: 400;
 }
 
+.button {
+  color: #fff;
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+}
+
+/* video elements */
 .hero-wrapper {
   position: relative;
   height: 600px;
@@ -47,6 +55,7 @@ input {
   border-radius: 2px;
 }
 
+/* search bar elements */
 .search-bar-wrapper {
   position: relative;
   bottom: 380px;
@@ -109,11 +118,11 @@ div.ui-datepicker {
 
 .result-text p {
   position: relative;
-  bottom: 70px;
+  bottom: 610px;
   text-align: center;
-  font-size: 3em;
+  font-size: 3.5em;
   color: #ececec;
-  font-family: 'Arbutus Slab', serif;
+  font-family: 'Homemade Apple', cursive;
   font-weight: bolder;
   text-shadow: 1px 1px 1px #414141;
 }
@@ -161,10 +170,24 @@ div.ui-datepicker {
   color: darkgray;
 }
 
+.ui-widget {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
 .ui-menu {
   background-color: #ccc;
   width: 398px;
   z-index: 4;
+}
+
+.ui-autocomplete {
+  border-top: 0.5px solid transparent!important;
+  position: absolute;
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
 }
 
 
