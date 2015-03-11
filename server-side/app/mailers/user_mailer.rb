@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
   def welcome_email(user)
     @user = user
     @url = 'http://localhost:9393/'
-    mail(to: @user.email, subject: 'Hi, @user.name, this is the link you requested: link')
+    mail(to: @user.email, subject: 'Hi #{@user.name}, this is link: #{@user.link}')
   end
 end
