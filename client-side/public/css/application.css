@@ -255,7 +255,15 @@ div.ui-datepicker {
   max-height: 150px;
   overflow-y: auto;
   overflow-x: hidden;
+}
 
+a.logo-reload {
+  text-decoration: none;
+  color: black;
+}
+
+.ui-datepicker table .ui-state-hover {
+  background: #ff5a5f;
 }
 
 
