@@ -215,8 +215,9 @@ function addToWishList(context, origin, retDate) {
       event.preventDefault();
       var payload = "";
       $.each(accumulatedLinks, function(index, value){
-        payload << "<p>"+value+"</p>"
+        payload += "<p>"+value+"</p>"
       })
+      console.log(payload);
         $.ajax({
           type: 'POST',
           url: 'https://mandrillapp.com/api/1.0/messages/send.json',
