@@ -4,7 +4,6 @@ $(document).ready(function() {
   searchBarAutocomplete();
   loadDatePicker();
   eventListeners();
-
 });
 
 function eventListeners() {
@@ -113,6 +112,7 @@ function populateResultsTemp(data_array, origin, retDate) {
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
   trackDataViaEmail(context, origin, retDate);
+  addToWishList();
 }
 
 function redirectToPurchase(context, origin, retDate) {
@@ -184,7 +184,14 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
   });
 }
 
+// USER WISH LIST TO ACCUMULATE DESIRED RESULTS FOR EMAIL NOTIFICATION
 
+function addToWishList() {
+  $('#parent-container').on('click', '.add-to-wishlist', function(event) {
+    event.preventDefault();
+      $('.wish-list').append("<p>hi</p>")
+  });
+}
 
 
 
