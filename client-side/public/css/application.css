@@ -130,6 +130,28 @@ div.ui-datepicker {
   margin-left: 15px;
 }
 
+/* sytling for email dialog box */
+div.ui-dialog {
+  font-size: .9em;
+}
+
+div.ui-widget-header {
+  color: #fff;
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  background-image: none;
+}
+
+div.ui-icon {
+  color: #fff;
+}
+
+#dialog form .button {
+  position: relative;
+  left: 161px;
+}
+
 /* replaces search bar when displaying results to query */
 
 .result-text p {
