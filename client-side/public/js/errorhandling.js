@@ -22,9 +22,9 @@ function displayApologyText() {
   })
 }
 
-function checkForNoResults(data) {
+function checkForNoResults(data, origin, retDate) {
   if (data.trips.length === 0) {
-    // no responsive data
+    $(".no-flights-text").fadeIn("slow");
   } else {
     $(".result-text").fadeIn("slow");
     sortDataBySaleTotal(data, origin, retDate);
