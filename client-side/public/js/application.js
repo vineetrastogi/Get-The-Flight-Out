@@ -202,17 +202,16 @@ function addToWishList(context, origin, retDate) {
 
     event.preventDefault();
       $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
-      debugger;
       accumulatedLinks.push(purchaseLink);
       console.log(accumulatedLinks)
-      debugger;
-      // trigger();
   });
 }
   function trigger() {
     $("#email-me").on('click', function(event) {
-      debugger;
+      var currentUserEmailAddress = $('#email-address').val();
+      var currentUserName = $('#user-name').val();
       event.preventDefault();
+
       var payload = "";
       $.each(accumulatedLinks, function(index, value){
         payload += "<p>"+value+"</p>"
@@ -227,8 +226,8 @@ function addToWishList(context, origin, retDate) {
               "from_email": "vineetrastogi@gmail.com",
               "to": [
                 {
-                  "email": "beheshtaein.a@gmail.com",
-                  "name": "Amir",
+                  "email": currentUserEmailAddress,
+                  "name": currentUserName,
                   "type": "to"
                 },
               ],
