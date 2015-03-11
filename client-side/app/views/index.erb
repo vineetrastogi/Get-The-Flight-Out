@@ -1,9 +1,6 @@
 <header role="banner" class="row">
-  <h1 class="logo"><a class="logo-reload" href="">GetTheFlightOut</a></h1>
-  <!-- for when we end up adding User Profiles -->
-<!--   <nav role="navbar" class="row">
-    <h1>About</h1>
-  </nav> -->
+  <h1 class="app-name"><a class="logo-reload" href="">GetTheFlightOut</a></h1>
+  <img class="logo" src="/assets/logo.gif" />
 </header>
 
 <div class="hero-wrapper">
@@ -30,10 +27,10 @@
 
     <form class="search-bar">
       <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
-      <input type="text" class="search-params" id="budget" list="budget-list" placeholder="Budget">
+      <input type="text" class="search-params" id="budget" list="budget-list" placeholder="Budget" title="How much you are willing to pay for a one-way flight?">
       <input class="search-params datepicker" id="dep-date" placeholder="">
       <input class="search-params datepicker" id="ret-date" placeholder="">
-      <input type="submit" class="button" id="submit">
+      <input type="submit" class="button" id="send-request">
     </form>
   </div>
 
@@ -59,14 +56,15 @@
 
 </div>
 
-
-<div id="dialog" title="Email Me!" style="display:none">
+<div id="dialog" title="Email me!" style="display:none">
   <form action="" method="post">
-    <label>Name:</label>
-    <input id="name" name="name" type="text">
-    <label>Email:</label>
-    <input id="email" name="email" type="text">
-    <input id="submit" type="submit" value="Submit">
+      <label>Name:</label>
+      <input id="name" name="name" type="text">
+      <br />
+      <label>Email:</label>
+      <input id="email" name="email" type="text">
+      <br />
+    <input class="button" id="submit" type="submit" value="Submit">
   </form>
 </div>
 

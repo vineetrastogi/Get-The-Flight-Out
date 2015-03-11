@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $(".load-icon").hide();
+  infoOnHover();
   searchBarAutocomplete();
   loadDatePicker();
   eventListeners();
@@ -11,7 +12,7 @@ accumulatedLinks = []
 function eventListeners() {
   console.log("in eventListeners");
 
-  $(".button#submit").on("click", function(event) {
+  $(".button#send-request").on("click", function(event) {
     event.preventDefault();
 
     // $(".search-bar-wrapper").animate({ opacity:0 });
