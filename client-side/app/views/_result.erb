@@ -1,0 +1,26 @@
+<!-- <div class="container results">
+  <div class="flight price">
+    <h2>$200.00</h2>
+  </div>
+  <div class="flight info">
+    <h3 class="flight carrier">Virgin America (<span class="flight carrier-code"> VX </span> <span class="flight number">152</span>)</h3>
+
+    <h3 class="flight departure_time">8:25p <span class="flight origin">SFO</span> <span class="flight arrival_time">1-:05p</span> <span class="flight destination">CDG</span> <span class="flight duration">17h 40m</span></h3>
+  </div>
+</div> -->
+<script id="results-template" type="text/x-handlebars-template">
+  {{#each this}}
+    <div class="container results">
+      <div class="flight-info">
+        <p class="price">{{sale_total}}</p>
+      </div>
+      <div class="flight-info verbose">
+        <p class="carrier">{{carrier}} <span class="carrier-code">( {{carrier_code}} {{flight_number}} )</span></p>
+        <p class="date-time">{{depart_time}} {{origin}} to {{arrival_time}} {{destination}}</p>
+      </div>
+      <div class="purchase-button">
+        <input type="submit" class="button" id="purchase" value="purchase" data={{@index}}>
+      </div>
+    </div>
+  {{/each}}
+</script>

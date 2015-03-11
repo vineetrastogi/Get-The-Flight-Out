@@ -1,0 +1,43 @@
+<header role="banner" class="row">
+  <h1 class="logo">GetTheFlightOut</h1>
+  <!-- for when we end up adding User Profiles -->
+<!--   <nav role="navbar" class="row">
+    <h1>About</h1>
+  </nav> -->
+</header>
+
+<div class="image-wrapper">
+  <div class="container">
+
+    <!-- search-bar-wrapper div to be replaced with result-text upon successful return of data from api -->
+    <div class="search-bar-wrapper">
+
+      <!-- transparent black shadow for search bar -->
+      <!-- separated so that search bar does not inherit opacity property -->
+      <div class="search-bar-shadow">
+      </div>
+
+      <form class="search-bar">
+        <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
+        <input type="text" class="search-params" id="budget"placeholder="Budget">
+        <input type="date" class="search-params" id="dep-date" placeholder="2014-01-23">
+         <input type="date" class="search-params" id="ret-date" placeholder="Return Date">
+        <input type="submit" class="button" id="submit">
+       <!--  <p class="date-text" id="dep-text">Departing</p>
+        <p class="date-text" id="ret-text">Returning</p> -->
+      </form>
+    </div>
+
+    <div class="result-text" style="display:none">
+      <p>Oh, the places you'll go...</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="results-wrapper">
+<%= erb :_result %>
+</div>
+
+
+
