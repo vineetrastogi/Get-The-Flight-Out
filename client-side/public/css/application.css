@@ -55,8 +55,10 @@ body {
   left: 47%;
 }
 
-.container {
- /* see responsive.gs.12col.css */
+.container #on-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 0;
 }
 
 input {

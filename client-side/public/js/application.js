@@ -169,7 +169,7 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
     event.preventDefault();
     $.ajax({
       url: 'http://localhost:3000/users',
-      type: 'post',
+      type: 'POST',
       dataType: 'json',
       data: {formData: ($('form').serializeArray()), purchaseLinkForEmail: purchaseLink},
     })

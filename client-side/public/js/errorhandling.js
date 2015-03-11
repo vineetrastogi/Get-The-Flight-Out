@@ -4,7 +4,6 @@ console.log('errorhandling.js');
 function checkForBlankInputs(origin, budget, depDate, retDate) {
   if (origin === "" || budget === "" || depDate === "" || retDate === "") {
     console.log('origin/budget/depDate/retDate is blank');
-    // PRESENT SOMETHING TO CONSOLE TO TELL USER TO FILL ALL INPUT FIELDS
     $('.search-params').addClass('animated shake');
   } else {
     console.log('no errors, go to submitRequest')
