@@ -173,8 +173,6 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
       data: {formData: ($('form').serializeArray()), purchaseLinkForEmail: purchaseLink},
     })
     .done(function(response) {
-      console.log('success');
-      console.log(response);
       $('#dialog').parent().remove();
     })
     .fail(function() {
@@ -200,8 +198,64 @@ function addToWishList(context, origin, retDate) {
 
     event.preventDefault();
       $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
+      trigger();
+
   });
+  function trigger() {
+    $("#email-me").on('click', function(event) {
+      event.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+          data: {
+            "key": "E5DEVeyAdB1o6K-I_hXa6g",
+            "message": {
+              "from_email": "vineetrastogi@gmail.com",
+              "to": [
+                {
+                  "email": "vineetrastogi@gmail.com",
+                  "name": "Amir",
+                  "type": "to"
+                },
+              ],
+              "autotext": "true",
+              "subject": "Hi, Here are the info you requested!",
+              "html": "<p>Success</p>",
+              "send_at": "2014-04-29 12:12:12"
+            }
+          }
+       }).done(function(response) {
+         console.log(response); // if you're into that sorta thing
+      }).error(function() {
+         console.log("error");
+      });
+   });
+
+  };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
