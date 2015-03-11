@@ -52,7 +52,7 @@ body {
   width: 4em;
   position: absolute;
   top: 340px;
-  left: 48%;
+  left: 47%;
 }
 
 .container {
@@ -136,6 +136,47 @@ div.ui-datepicker {
 }
 
 /* message to show up instead of result text when there are no results*/
+.apology-text {
+  position: relative;
+  bottom: 610px;
+  text-align: center;
+}
+
+.apology-text #sorry {
+  font-size: 3.4em;
+  color: #ececec;
+  font-family: 'Homemade Apple', cursive;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.apology-text #error {
+  font-family: 'Arbutus Slab', serif;
+  font-size: 1em;
+  color: #414141;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.no-flights-text {
+  position: relative;
+  bottom: 610px;
+  text-align: center;
+}
+
+.no-flights-text #sorry {
+  font-size: 3.4em;
+  color: #ececec;
+  font-family: 'Homemade Apple', cursive;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.no-flights-text #no-flights {
+  font-family: 'Arbutus Slab', serif;
+  font-size: 1em;
+  color: #414141;
+  text-shadow: 1px 1px 1px #414141;
+}
 
 /* remove autocomplete helper text because it's unnecessary */
 
@@ -214,7 +255,15 @@ div.ui-datepicker {
   max-height: 150px;
   overflow-y: auto;
   overflow-x: hidden;
+}
 
+a.logo-reload {
+  text-decoration: none;
+  color: black;
+}
+
+.ui-datepicker table .ui-state-hover {
+  background: #ff5a5f;
 }
 
 

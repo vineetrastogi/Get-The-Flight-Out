@@ -1,9 +1,11 @@
+console.log('datedropdowns.js');
 
 function loadDatePicker() {
 
   // selects both departure and return date fields
   $('.search-params.datepicker').datepicker({
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'yy-mm-dd',
+    minDate: 0
   });
 
   replaceDepDatePlaceholder();
