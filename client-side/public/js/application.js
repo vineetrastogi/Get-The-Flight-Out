@@ -232,9 +232,11 @@ function addToWishList(context, origin, retDate) {
                   "type": "to"
                 },
               ],
+              "inline_css": "true",
               "autotext": "true",
               "subject": "Get The Flight Out: Requested Links",
-              "html": "<h3>Here are the links you requested:</h3><br><p>"+ payload + "</p>",
+
+              "html": "<img src='http://i.imgur.com/I5Wywsw.png'/><h3>Here are the trips you requested:</h3><br><p>The prices on our homepage were specifically for one way trips. Prices may vary slightly as well.</p><ul><div>"+ payload + "</div></ul>",
               "send_at": "2014-04-29 12:12:12"
             }
           }
