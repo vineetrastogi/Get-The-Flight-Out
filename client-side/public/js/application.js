@@ -13,7 +13,7 @@ function eventListeners() {
   $(".button#submit").on("click", function(event) {
     event.preventDefault();
 
-    $(".search-bar-wrapper").animate({ opacity:0 });
+    // $(".search-bar-wrapper").animate({ opacity:0 });
     // change button to loading and prevents user from typing in search field while ajax request is still going
     // $(".search-params#origin").prop("disabled", true);
     // $(".button#submit").attr("disabled", true).val('......');
@@ -24,11 +24,13 @@ function eventListeners() {
     var depDate = $("#dep-date").val();
     var retDate = $("#ret-date").val();
 
-    // checkForBlankInputs(origin, budget, depDate, retDate);
+    //checks that all inputs fields have input
+    checkForBlankInputs(origin, budget, depDate, retDate);
 
     // uncomment below in order to make ajax post request
     // leads to replaceSearchBox and populateResultsTemp
-    submitRequest(origin, budget, depDate, retDate);
+    // call submitRequest from hasBlankInput if all inputs are present -- WORKING
+    // submitRequest(origin, budget, depDate, retDate);
   }); //end of on click
 }
 
@@ -36,6 +38,8 @@ function submitRequest(origin, budget, depDate, retDate) {
   console.log("in submitRequest");
   console.log(origin, budget, depDate, retDate);
   console.log("*************************");
+  // display loading icon
+  $(".search-bar-wrapper").animate({ opacity:0 });
   $(".load-icon").show();
 
   $.ajax({
@@ -48,13 +52,15 @@ function submitRequest(origin, budget, depDate, retDate) {
     console.log("success");
     console.log(data);
     // replaceSearchBox();
-    $(".result-text#success").fadeIn("slow");
+    checkForNoResults(data, origin, retDate);
     // error handling when array[0];
-    sortDataBySaleTotal(data, origin, retDate);
+    // now called from checkForNoResults fxn
+    // sortDataBySaleTotal(data, origin, retDate);
   })
   .fail(function() {
     console.log("error");
-    $(".result-text#no-results").fadeIn("slow");
+    // in errorhandling.js
+    displayApologyText();
     errorInvalidRequest();
   })
   .always(function() {
@@ -86,12 +92,12 @@ function sortDataBySaleTotal(data, origin, retDate) {
 }
 
 // called in submitRequest callback when successful
-function replaceSearchBox() {
-  console.log("in replaceSearchBox");
+// function replaceSearchBox() {
+//   console.log("in replaceSearchBox");
 
-  //fadein
-    $(".result-text #success").fadeIn("slow");
-}
+//   //fadein
+//     $(".result-text").fadeIn("slow");
+// }
 
 // called in submitRequest callback when successful
 function populateResultsTemp(data_array, origin, retDate) {

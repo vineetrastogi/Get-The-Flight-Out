@@ -1,12 +1,32 @@
+console.log('errorhandling.js');
 
-// function checkForBlankInputs(origin, budget, depDate, retDate) {
-//   if (origin || budget || depDate || retDate === "") {
-//     errorInvalidRequest();
-//     console.log('origin/budget/depDate/retDate is null');
-//   }
-// }
+// called from eventListeners on click -- SHAKES SUCCESSFULLY
+function checkForBlankInputs(origin, budget, depDate, retDate) {
+  if (origin === "" || budget === "" || depDate === "" || retDate === "") {
+    console.log('origin/budget/depDate/retDate is blank');
+    // PRESENT SOMETHING TO CONSOLE TO TELL USER TO FILL ALL INPUT FIELDS
+    $('.search-params').addClass('animated shake');
+  } else {
+    console.log('no errors, go to submitRequest')
+    submitRequest(origin, budget, depDate, retDate);
+  }
+}
 
-function errorInvalidRequest() {
-  console.log('errorInvalidRequest');
+// called from submitRequest if ajax request fails -- WORKING
+function displayApologyText() {
+  $(".load-icon").hide();
+  $(".apology-text").fadeIn("slow");
 
+  $('.refresh .button').click(function(){
+    location.reload();
+  })
+}
+
+function checkForNoResults(data) {
+  if (data.trips.length === 0) {
+    // no responsive data
+  } else {
+    $(".result-text").fadeIn("slow");
+    sortDataBySaleTotal(data, origin, retDate);
+  }
 }
