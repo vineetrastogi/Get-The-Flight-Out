@@ -15,12 +15,6 @@ function eventListeners() {
   $(".button#send-request").on("click", function(event) {
     event.preventDefault();
 
-    // $(".search-bar-wrapper").animate({ opacity:0 });
-    // change button to loading and prevents user from typing in search field while ajax request is still going
-    // $(".search-params#origin").prop("disabled", true);
-    // $(".button#submit").attr("disabled", true).val('......');
-    // $(".load-icon").show();
-
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
     var depDate = $("#dep-date").val();
@@ -69,7 +63,8 @@ function submitRequest(origin, budget, depDate, retDate) {
     console.log("complete");
     $(".load-icon").hide();
   });
-
+    // $submitButton.attr('disabled', false).val('Submit');
+    // $searchField.prop('disabled', false);
 } //end of submitRequest
 
 function sortDataBySaleTotal(data, origin, retDate) {
