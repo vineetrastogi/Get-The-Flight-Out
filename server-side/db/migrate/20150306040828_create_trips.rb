@@ -1,7 +1,7 @@
 class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
-      t.float :sale_total
+      t.integer :sale_total
       t.string :carrier
       t.string :carrier_code
       t.string :flight_number
@@ -12,6 +12,7 @@ class CreateTrips < ActiveRecord::Migration
       t.string :origin
       t.string :destination
       t.string :destination_code
+      t.integer :num_of_stop
 
       t.timestamps null: false
     end

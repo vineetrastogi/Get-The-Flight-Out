@@ -1,10 +1,17 @@
 /** {
-  outline: 1px solid white;
+  outline: 1px solid black;
 }*/
 
-.logo {
+.app-name {
   font-family: 'Arbutus Slab', serif;
   margin-left: 20px;
+}
+
+.logo {
+  height: 38px;
+  position: relative;
+  left: 5px;
+  top: 5px;
 }
 
 body {
@@ -13,33 +20,66 @@ body {
   font-weight: 400;
 }
 
-img {
-max-width: 800px;
+.row * {
+  display: inline-block;
 }
 
-.image-wrapper {
-  background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");
-  width: 100%;
-  height: 550px;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: center top;
-  padding-top: 190px;
+.button {
+  color: #fff;
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  width: 81px;
 }
 
-.container {
- /* see responsive.gs.12col.css */
-}
-
-.result-text p {
+/* video elements */
+.hero-wrapper {
   position: relative;
-  bottom: 70px;
-  text-align: center;
-  font-size: 3em;
-  color: #ececec;
-  font-family: 'Arbutus Slab', serif;
-  font-weight: bolder;
-  text-shadow: 1px 1px 1px #414141;
+  height: 600px;
+  display: block;
+}
+
+#hero {
+  /*background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");*/
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  -webkit-filter: blur(3px);
+}
+
+#videobg {
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+
+}
+
+.load-icon img {
+  width: 4em;
+  position: absolute;
+  top: 340px;
+  left: 47%;
+}
+
+.container #on-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 0;
+}
+
+input {
+  border-radius: 2px;
+}
+
+/* search bar elements */
+.search-bar-wrapper {
+  position: relative;
+  bottom: 380px;
 }
 
 .search-bar-shadow {
@@ -47,10 +87,9 @@ max-width: 800px;
   opacity: 0.6;
   background-color: black;
   border-radius: 5px;
-}
-
-input {
-  border-radius: 2px;
+  z-index: 1;
+/*  position: relative;
+  top: 500px;*/
 }
 
 .search-bar {
@@ -59,6 +98,7 @@ input {
   width: 600px;
   margin: 0 auto;
   opacity: 0.9;
+  z-index: 2;
 }
 
 .search-params {
@@ -70,10 +110,17 @@ input {
 .search-params#origin {
   width: 400px;
   margin-bottom: 15px;
+  z-index: 4;
 }
 
 .search-params#budget {
   width: 130px;
+}
+
+/* styling for info on hover with budget */
+div.ui-tooltip {
+  font-size: .75em;
+  width: 220px;
 }
 
 .search-params#dep-date {
@@ -84,21 +131,92 @@ input {
   width: 215px;
 }
 
+div.ui-datepicker {
+  font-size: 12.5px;
+}
+
 #submit {
   height: 28px;
   width: 66px;
   margin-left: 15px;
 }
 
-.date-text {
-  color: #ececec;
-  font-size: small;
-  /*display: inline-block;*/
+/* sytling for email dialog box */
+div.ui-dialog {
+  font-size: .9em;
 }
 
-.date-text #dep-text {
- /* position: relative;
-  left: 10px;*/
+div.ui-widget-header {
+  color: #fff;
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  background-image: none;
+}
+
+div.ui-icon {
+  color: #fff;
+}
+
+#dialog form .button {
+  position: relative;
+  left: 161px;
+}
+
+/* replaces search bar when displaying results to query */
+
+.result-text p {
+  position: relative;
+  bottom: 610px;
+  text-align: center;
+  font-size: 3.4em;
+  color: #ececec;
+  font-family: 'Homemade Apple', cursive;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+/* message to show up instead of result text when there are no results*/
+.apology-text {
+  position: relative;
+  bottom: 610px;
+  text-align: center;
+}
+
+.apology-text #sorry {
+  font-size: 3.4em;
+  color: #ececec;
+  font-family: 'Homemade Apple', cursive;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.apology-text #error {
+  font-family: 'Arbutus Slab', serif;
+  font-size: 1em;
+  color: #414141;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.no-flights-text {
+  position: relative;
+  bottom: 610px;
+  text-align: center;
+}
+
+.no-flights-text #sorry {
+  font-size: 3.4em;
+  color: #ececec;
+  font-family: 'Homemade Apple', cursive;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.no-flights-text #no-flights {
+  font-family: 'Arbutus Slab', serif;
+  font-size: 1em;
+  color: #414141;
+  text-shadow: 1px 1px 1px #414141;
 }
 
 /* remove autocomplete helper text because it's unnecessary */
@@ -109,10 +227,16 @@ input {
 
 /**** RESULTS TEMPLATE CSS ****/
 
+.results-wrapper {
+  position: relative;
+  bottom: 420px;
+}
+
 .container.results {
   margin-top: 30px;
   border: 1px solid gray;
   position: relative;
+  box-shadow: 5px 5px 5px #888;
 }
 
 .flight-info {
@@ -121,14 +245,25 @@ input {
 }
 
 .flight-info.verbose {
+  position: absolute;
   margin-right: 50px;
   margin-left: 50px;
+  bottom: -7%;
+  left: 32%;
 }
 
 .purchase-button {
   position: absolute;
-  top: 50px;
-  left: 650px;
+  top: 30px;
+  /*left: 700px;*/
+  right: 50px;
+}
+
+.email-button {
+  position: absolute;
+  top: 70px;
+  /*left: 700px;*/
+  right: 50px;
 }
 
 .price {
@@ -137,16 +272,39 @@ input {
   margin-left: 60px;
   margin-right: 50px;
   position: relative;
-  bottom: 5px;
+  bottom: 8px;
 }
 
 .carrier-code {
   color: darkgray;
 }
 
+.ui-widget {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
 .ui-menu {
   background-color: #ccc;
   width: 398px;
+  z-index: 4;
+}
+
+.ui-autocomplete {
+  border-top: 0.5px solid transparent!important;
+  position: absolute;
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+a.logo-reload {
+  text-decoration: none;
+  color: black;
+}
+
+.ui-datepicker table .ui-state-hover {
+  background: #ff5a5f;
 }
 
 

@@ -1,43 +1,121 @@
 <header role="banner" class="row">
-  <h1 class="logo">GetTheFlightOut</h1>
-  <!-- for when we end up adding User Profiles -->
-<!--   <nav role="navbar" class="row">
-    <h1>About</h1>
-  </nav> -->
+  <h1 class="app-name"><a class="logo-reload" href="">GetTheFlightOut</a></h1>
+  <img class="logo" src="/assets/logo.gif" />
 </header>
 
-<div class="image-wrapper">
-  <div class="container">
-
-    <!-- search-bar-wrapper div to be replaced with result-text upon successful return of data from api -->
-    <div class="search-bar-wrapper">
-
-      <!-- transparent black shadow for search bar -->
-      <!-- separated so that search bar does not inherit opacity property -->
-      <div class="search-bar-shadow">
-      </div>
-
-      <form class="search-bar">
-        <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
-        <input type="text" class="search-params" id="budget"placeholder="Budget">
-        <input type="date" class="search-params" id="dep-date" placeholder="2014-01-23">
-         <input type="date" class="search-params" id="ret-date" placeholder="Return Date">
-        <input type="submit" class="button" id="submit">
-       <!--  <p class="date-text" id="dep-text">Departing</p>
-        <p class="date-text" id="ret-text">Returning</p> -->
-      </form>
-    </div>
-
-    <div class="result-text" style="display:none">
-      <p>Oh, the places you'll go...</p>
-    </div>
-
+<div class="hero-wrapper">
+  <div id="hero">
+    <video id="videobg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+      <source src="/assets/plane.mp4" type="video/mp4">
+    </video>
   </div>
 </div>
+
+<div class="load-icon">
+  <img src="/assets/loading_icon.GIF" />
+</div>
+
+<div class="container" id="on-hero">
+
+  <!-- search-bar-wrapper div to be replaced with result-text upon successful return of data from api -->
+  <div class="search-bar-wrapper">
+
+    <!-- transparent black shadow for search bar -->
+    <!-- separated so that search bar does not inherit opacity property -->
+    <div class="search-bar-shadow">
+    </div>
+
+    <form class="search-bar">
+      <input type="text" class="search-params" id="origin" placeholder="Departing City" autocomplete="on">
+      <input type="text" class="search-params" id="budget" list="budget-list" placeholder="Budget" title="How much you are willing to pay for a one-way flight?">
+      <input class="search-params datepicker" id="dep-date" placeholder="">
+      <input class="search-params datepicker" id="ret-date" placeholder="">
+      <input type="submit" class="button" id="send-request">
+    </form>
+  </div>
+
+  <div class="result-text" style="display:none">
+    <p>Oh the places you will go...</p>
+  </div>
+
+  <div class="apology-text" style="display:none">
+    <p id="sorry">Sorry...</p>
+    <p id="error">Looks like something went wrong.</p>
+    <form class="refresh">
+      <input type="submit" class="button" value="Try Again">
+    </form>
+  </div>
+
+  <div class="no-flights-text" style="display:none">
+    <p id="sorry">Sorry...</p>
+    <p id="no-flights">We couldn't find any flights for your request</p>
+    <form class="refresh">
+      <input type="submit" class="button" value="Try Again">
+    </form>
+  </div>
+
+</div>
+
+<div id="dialog" title="Email me!" style="display:none">
+  <form action="" method="post">
+      <label>Name:</label>
+      <input id="name" name="name" type="text">
+      <br />
+      <label>Email:</label>
+      <input id="email" name="email" type="text">
+      <br />
+    <input class="button" id="submit" type="submit" value="Submit">
+  </form>
+</div>
+
+<datalist id="budget-list">
+<%= erb :_budget_list %>
+</datalist>
 
 <div class="results-wrapper">
 <%= erb :_result %>
 </div>
+
+
+
+<div class='wish-list' style="border:1px solid blue">
+  <h2>My Wish List</h2>
+
+  <table>
+    <!-- <thead> -->
+      <tr>
+        <th>Destination</th>
+        <th>Airline</th>
+        <th>Ticket Price</th>
+        <th style="display:none">Link</th>
+      </tr>
+    <!-- </thead> -->
+    <tbody id="table-body">
+    </tbody>
+    <!-- <tfoot> -->
+      <tr id"email-input-row">
+        <td><button id="email-me">Email me!</button></td>
+        <td><input id="email-address" type="email" placeholder="Your email here"></input></td>
+        <td><input id="user-name" type="text" placeholder="Your name here"></input></td>
+      </tr>
+    <!-- </tfoot> -->
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

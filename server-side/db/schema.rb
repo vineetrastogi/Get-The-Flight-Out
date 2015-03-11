@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306040828) do
+ActiveRecord::Schema.define(version: 20150310030852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "trips", force: :cascade do |t|
-    t.float    "sale_total"
+    t.integer  "sale_total"
     t.string   "carrier"
     t.string   "carrier_code"
     t.string   "flight_number"
@@ -28,9 +28,17 @@ ActiveRecord::Schema.define(version: 20150306040828) do
     t.string   "origin"
     t.string   "destination"
     t.string   "destination_code"
-    t.string   "airport_code"
+    t.integer  "num_of_stop"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
