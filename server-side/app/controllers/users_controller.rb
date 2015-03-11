@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     # @name = params['formData']['0']['value']
     @email = params['formData']['1']['value']
     # @link = params['purchaseLinkForEmail']
-    @current_user = User.find_by(email: @email)
+    @current_user = User.where(email: @email).last
 
     begin
       mandrill = Mandrill::API.new "#{ENV['MANDRILL_API']}"
@@ -26,7 +26,8 @@ class UsersController < ApplicationController
          }
          ],
          :html=>"<html><h1>Hi, <strong>#{@current_user.name.capitalize}</strong>, here is the link you requested! #{@current_user.link}</h1></html>",
-         :from_email=>"vineetrastogi@gmail.com"
+         :from_email=>"vineetrastogi@gmail.com",
+         :send_at => "2014-04-29 12:12:12"
        }
        sending = mandrill.messages.send message
        puts sending

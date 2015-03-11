@@ -1,7 +1,8 @@
+
 <script id="results-template" type="text/x-handlebars-template">
   <div id="parent-container">
   {{#each this}}
-    <div class="container results">
+    <div class="container results" id="result_{{@index}}">
       <div class="flight-info">
         <p class="price">$ {{sale_total}}</p>
       </div>
@@ -15,6 +16,9 @@
       </div>
       <div class="email-button">
         <input type="submit" class="button" id="email_{{@index}}" value="track" data={{@index}}>
+      </div>
+      <div class="add-to-wishlist">
+        <input type="submit" class="button" id="wishlist_{{@index}}" value="add to wishlist" data={{@index}}>
       </div>
     </div>
   {{/each}}

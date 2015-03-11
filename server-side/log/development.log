@@ -5006,3 +5006,8 @@ ETHON: performed MULTI
 Completed 200 OK in 6007ms (Views: 0.2ms | ActiveRecord: 0.8ms)
 >>>>>>> 7f431adbdf20bd27b2a60018fd1400041f0e4b5c
 >>>>>>> c785441995cd5dfb6d5d121f5ba625bc693ce82c
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "vineetrastogi@gmail.com"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = $1  [["email", "vineetrastogi@gmail.com"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" DESC LIMIT 1[0m  [["email", "vineetrastogi@gmail.com"]]
