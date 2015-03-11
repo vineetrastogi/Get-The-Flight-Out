@@ -2009,6 +2009,182 @@ NoMethodError (undefined method `[]' for nil:NilClass):
   app/controllers/trips_controller.rb:47:in `block in index'
   app/controllers/trips_controller.rb:43:in `each'
   app/controllers/trips_controller.rb:43:in `index'
+<<<<<<< HEAD
+=======
+
+
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.4ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 16:58:15 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"", "sale_total"=>""}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.24781600000000004
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.25047699999999995
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.250725
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.266108
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.286505
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.29185399999999995
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.29703
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.301416
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=400 return_code=ok total_time=0.320526
+ETHON: performed MULTI
+Completed 500 Internal Server Error in 325ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:47:in `block in index'
+  app/controllers/trips_controller.rb:43:in `each'
+  app/controllers/trips_controller.rb:43:in `index'
+
+
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 16:59:51 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"500"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.337131
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.948673
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.94938
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.488645
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.297347
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.509631
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.027223
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.049593
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.943361
+ETHON: performed MULTI
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 128], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "910"], ["depart_time", "2015-03-11 at 12:20"], ["arrival_time", "2015-03-11 at 13:50"], ["duration", 90], ["origin", "San Francisco"], ["destination_code", "LAS"], ["destination", "Las Vegas"], ["num_of_stop", 0], ["created_at", "2015-03-10 23:59:58.862303"], ["updated_at", "2015-03-10 23:59:58.862303"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 289], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "242"], ["depart_time", "2015-03-11 at 08:21"], ["arrival_time", "2015-03-11 at 17:54"], ["duration", 393], ["origin", "San Francisco"], ["destination_code", "CLE"], ["destination", "Cleveland"], ["num_of_stop", 1], ["created_at", "2015-03-10 23:59:58.870571"], ["updated_at", "2015-03-10 23:59:58.870571"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mTrip Load (0.3ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE (sale_total < '500') AND "trips"."origin" = $1  ORDER BY "trips"."id" DESC LIMIT 9[0m  [["origin", "San Francisco"]]
+Completed 200 OK in 6966ms (Views: 2.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 17:02:17 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"800"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.900868
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.902005
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.029199
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.173151
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.205916
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.4208870000000005
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.582855
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.805903
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.100924
+ETHON: performed MULTI
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 299], ["carrier", "Frontier Airlines, Inc."], ["carrier_code", "F9"], ["flight_number", "1106"], ["depart_time", "2015-03-11 at 09:04"], ["arrival_time", "2015-03-11 at 14:49"], ["duration", 225], ["origin", "San Francisco"], ["destination_code", "IAH"], ["destination", "Houston"], ["num_of_stop", 0], ["created_at", "2015-03-11 00:02:24.048341"], ["updated_at", "2015-03-11 00:02:24.048341"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 268], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "454"], ["depart_time", "2015-03-11 at 17:05"], ["arrival_time", "2015-03-11 at 21:11"], ["duration", 246], ["origin", "San Francisco"], ["destination_code", "ONT"], ["destination", "Ontario"], ["num_of_stop", 1], ["created_at", "2015-03-11 00:02:24.054454"], ["updated_at", "2015-03-11 00:02:24.054454"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 647], ["carrier", "Air France"], ["carrier_code", "AF"], ["flight_number", "83"], ["depart_time", "2015-03-11 at 15:50"], ["arrival_time", "2015-03-12 at 23:05"], ["duration", 1215], ["origin", "San Francisco"], ["destination_code", "DXB"], ["destination", "Dubai"], ["num_of_stop", 1], ["created_at", "2015-03-11 00:02:24.064393"], ["updated_at", "2015-03-11 00:02:24.064393"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mTrip Load (0.2ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE (sale_total < '800') AND "trips"."origin" = $1  ORDER BY "trips"."id" DESC LIMIT 9[0m  [["origin", "San Francisco"]]
+Completed 200 OK in 6170ms (Views: 2.3ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 17:03:17 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"800"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.143291
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.594453
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.673962
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.020236
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.020861
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.021375
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.550432
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.249239
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=0 return_code=couldnt_connect total_time=6.249411
+ETHON: performed MULTI
+Completed 500 Internal Server Error in 75248ms
+
+JSON::ParserError (A JSON text must at least contain two octets!):
+  app/controllers/trips_controller.rb:45:in `block in index'
+  app/controllers/trips_controller.rb:43:in `each'
+  app/controllers/trips_controller.rb:43:in `index'
+
+
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (32.8ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.1ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 17:06:07 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"800"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.243806
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.585563
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.652308
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.824297
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.912426
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.977141
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.039228
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.15977
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.815393
+ETHON: performed MULTI
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 636], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "857"], ["depart_time", "2015-03-11 at 14:35"], ["arrival_time", "2015-03-12 at 18:45"], ["duration", 790], ["origin", "San Francisco"], ["destination_code", "PVG"], ["destination", "Shanghai"], ["num_of_stop", 0], ["created_at", "2015-03-11 00:06:13.153599"], ["updated_at", "2015-03-11 00:06:13.153599"]]
+  [1m[35m (3595.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 543], ["carrier", "China Airlines"], ["carrier_code", "CI"], ["flight_number", "3"], ["depart_time", "2015-03-11 at 01:05"], ["arrival_time", "2015-03-12 at 06:00"], ["duration", 835], ["origin", "San Francisco"], ["destination_code", "TPE"], ["destination", "Taipei"], ["num_of_stop", 0], ["created_at", "2015-03-11 00:06:16.754163"], ["updated_at", "2015-03-11 00:06:16.754163"]]
+  [1m[36m (47.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 293], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "242"], ["depart_time", "2015-03-11 at 08:21"], ["arrival_time", "2015-03-11 at 17:29"], ["duration", 368], ["origin", "San Francisco"], ["destination_code", "DTW"], ["destination", "Detroit"], ["num_of_stop", 1], ["created_at", "2015-03-11 00:06:16.845338"], ["updated_at", "2015-03-11 00:06:16.845338"]]
+  [1m[35m (45.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 244], ["carrier", "Virgin America Inc."], ["carrier_code", "VX"], ["flight_number", "964"], ["depart_time", "2015-03-11 at 20:55"], ["arrival_time", "2015-03-11 at 22:20"], ["duration", 85], ["origin", "San Francisco"], ["destination_code", "SAN"], ["destination", "San Diego"], ["num_of_stop", 0], ["created_at", "2015-03-11 00:06:16.895744"], ["updated_at", "2015-03-11 00:06:16.895744"]]
+  [1m[36m (30.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 372], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "498"], ["depart_time", "2015-03-11 at 11:59"], ["arrival_time", "2015-03-11 at 13:58"], ["duration", 418], ["origin", "San Francisco"], ["destination_code", "PHX"], ["destination", "Phoenix"], ["num_of_stop", 0], ["created_at", "2015-03-11 00:06:16.944592"], ["updated_at", "2015-03-11 00:06:16.944592"]]
+  [1m[35m (42.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 684], ["carrier", "China Eastern Airlines"], ["carrier_code", "MU"], ["flight_number", "578"], ["depart_time", "2015-03-11 at 12:00"], ["arrival_time", "2015-03-13 at 00:35"], ["duration", 1295], ["origin", "San Francisco"], ["destination_code", "CTU"], ["destination", "Chengdu"], ["num_of_stop", 1], ["created_at", "2015-03-11 00:06:16.996399"], ["updated_at", "2015-03-11 00:06:16.996399"]]
+  [1m[36m (89.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 352], ["carrier", "Aeromexico"], ["carrier_code", "AM"], ["flight_number", "665"], ["depart_time", "2015-03-11 at 00:40"], ["arrival_time", "2015-03-11 at 15:14"], ["duration", 754], ["origin", "San Francisco"], ["destination_code", "BOG"], ["destination", "Bogota"], ["num_of_stop", 1], ["created_at", "2015-03-11 00:06:17.091578"], ["updated_at", "2015-03-11 00:06:17.091578"]]
+  [1m[35m (66.4ms)[0m  COMMIT
+  [1m[36mTrip Load (0.4ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE (sale_total < '800') AND "trips"."origin" = $1  ORDER BY "trips"."id" DESC LIMIT 9[0m  [["origin", "San Francisco"]]
+Completed 200 OK in 9993ms (Views: 2.3ms | ActiveRecord: 3920.7ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 17:11:47 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-11", "sale_total"=>"50"}
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.819738
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.995827
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.58403
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.748053
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=5.883697
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=0 return_code=couldnt_connect total_time=5.883525
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=0 return_code=couldnt_connect total_time=5.883685
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=0 return_code=couldnt_connect total_time=5.883661
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=0 return_code=couldnt_connect total_time=5.883638
+ETHON: performed MULTI
+Completed 500 Internal Server Error in 75672ms
+
+JSON::ParserError (A JSON text must at least contain two octets!):
+  app/controllers/trips_controller.rb:45:in `block in index'
+=======
+>>>>>>> staging
 
 
   Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
@@ -2305,6 +2481,7 @@ ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpres
 ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.608874
 ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.461374
 ETHON: performed MULTI
+<<<<<<< HEAD
   [1m[35mTrip Load (0.4ms)[0m  SELECT  "trips".* FROM "trips" WHERE (sale_total < '80') AND "trips"."origin" IS NULL  ORDER BY "trips"."id" DESC LIMIT 9
 Completed 200 OK in 6470ms (Views: 0.2ms | ActiveRecord: 0.4ms)
 
@@ -2612,6 +2789,25 @@ ETHON: performed MULTI
   [1m[35m (0.4ms)[0m  COMMIT
   [1m[36mTrip Load (0.3ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE (sale_total < '500') AND "trips"."origin" = $1  ORDER BY "trips"."id" DESC LIMIT 9[0m  [["origin", "San Francisco"]]
 Completed 200 OK in 6003ms (Views: 2.3ms | ActiveRecord: 4.5ms)
+=======
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 775], ["carrier", "Asiana Airlines Inc."], ["carrier_code", "OZ"], ["flight_number", "211"], ["depart_time", "2015-03-14 at 13:00"], ["arrival_time", "2015-03-15 at 21:05"], ["duration", 1025], ["origin", "San Francisco"], ["destination_code", "PVG"], ["destination", "Shanghai"], ["num_of_stop", 1], ["created_at", "2015-03-10 22:56:22.467081"], ["updated_at", "2015-03-10 22:56:22.467081"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 7538ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/trips_controller.rb:47:in `block in index'
+>>>>>>> 27aa46761c9018eaca2901ed40af0fb16bb36c80
+  app/controllers/trips_controller.rb:43:in `each'
+  app/controllers/trips_controller.rb:43:in `index'
+
+
+<<<<<<< HEAD
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/claaang/.rbenv/versions/2.0.0-p598/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.8ms)
+>>>>>>> staging
 
 
 Started POST "/index" for ::1 at 2015-03-10 20:33:10 -0700
@@ -4668,4 +4864,73 @@ Processing by UsersController#create as HTML
   [1m[35m (0.6ms)[0m  COMMIT
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "clangvalera@gmail.com"]]
 Completed 200 OK in 460ms (Views: 1.1ms | ActiveRecord: 2.6ms)
+<<<<<<< HEAD
 >>>>>>> af540ae35b23464ac9c7ce71826471d60b905f55
+=======
+
+
+Started POST "/users" for ::1 at 2015-03-10 21:00:46 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"formData"=>{"0"=>{"name"=>"name", "value"=>"lucas"}, "1"=>{"name"=>"email", "value"=>"lucasosouza@gmail.com"}}, "purchaseLinkForEmail"=>"https://www.google.com/flights/#search;f=SFO;t=MSP;d=2015-03-11;r=2015-03-15;sel=*"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "link", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "lucas"], ["email", "lucasosouza@gmail.com"], ["link", "https://www.google.com/flights/#search;f=SFO;t=MSP;d=2015-03-11;r=2015-03-15;sel=*"], ["created_at", "2015-03-11 04:00:46.560679"], ["updated_at", "2015-03-11 04:00:46.560679"]]
+  [1m[35m (36.2ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "lucasosouza@gmail.com"]]
+Completed 200 OK in 502ms (Views: 0.6ms | ActiveRecord: 38.5ms)
+
+
+Started POST "/users" for ::1 at 2015-03-10 21:01:07 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"formData"=>{"0"=>{"name"=>"name", "value"=>"yukio"}, "1"=>{"name"=>"email", "value"=>"yukior@gmail.com"}}, "purchaseLinkForEmail"=>"https://www.google.com/flights/#search;f=SFO;t=IST;d=2015-03-11;r=2015-03-15;sel=*"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "link", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "yukio"], ["email", "yukior@gmail.com"], ["link", "https://www.google.com/flights/#search;f=SFO;t=IST;d=2015-03-11;r=2015-03-15;sel=*"], ["created_at", "2015-03-11 04:01:07.863960"], ["updated_at", "2015-03-11 04:01:07.863960"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "yukior@gmail.com"]]
+Completed 200 OK in 468ms (Views: 0.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/index" for ::1 at 2015-03-10 21:06:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TripsController#index as HTML
+  Parameters: {"origin"=>"SFO", "depart_time"=>"2015-03-13", "sale_total"=>"676"}
+ETHON: Libcurl initialized
+ETHON: started MULTI
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=1.656863
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=1.996017
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.400473
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=2.4712389999999997
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.307082
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.372535
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=3.450891
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=4.400042
+ETHON:         performed EASY effective_url=https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyB9sDMOUjCNYYrn4K0A_CxPmEF7v2k741g response_code=200 return_code=ok total_time=6.174661
+ETHON: performed MULTI
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 403], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "502"], ["depart_time", "2015-03-13 at 16:43"], ["arrival_time", "2015-03-14 at 01:11"], ["duration", 328], ["origin", "San Francisco"], ["destination_code", "JFK"], ["destination", "New York"], ["num_of_stop", 0], ["created_at", "2015-03-11 04:07:01.870031"], ["updated_at", "2015-03-11 04:07:01.870031"]]
+  [1m[35m (15.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 298], ["carrier", "US Airways, Inc."], ["carrier_code", "US"], ["flight_number", "242"], ["depart_time", "2015-03-13 at 08:21"], ["arrival_time", "2015-03-13 at 17:36"], ["duration", 375], ["origin", "San Francisco"], ["destination_code", "CVG"], ["destination", "Cincinnati"], ["num_of_stop", 1], ["created_at", "2015-03-11 04:07:01.910341"], ["updated_at", "2015-03-11 04:07:01.910341"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 631], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "1057"], ["depart_time", "2015-03-13 at 10:02"], ["arrival_time", "2015-03-14 at 20:40"], ["duration", 1328], ["origin", "San Francisco"], ["destination_code", "BOM"], ["destination", "Mumbai"], ["num_of_stop", 1], ["created_at", "2015-03-11 04:07:01.919922"], ["updated_at", "2015-03-11 04:07:01.919922"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["sale_total", 364], ["carrier", "United Airlines, Inc."], ["carrier_code", "UA"], ["flight_number", "8564"], ["depart_time", "2015-03-13 at 07:25"], ["arrival_time", "2015-03-13 at 09:45"], ["duration", 140], ["origin", "San Francisco"], ["destination_code", "YVR"], ["destination", "Vancouver"], ["num_of_stop", 0], ["created_at", "2015-03-11 04:07:01.927044"], ["updated_at", "2015-03-11 04:07:01.927044"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "trips" ("sale_total", "carrier", "carrier_code", "flight_number", "depart_time", "arrival_time", "duration", "origin", "destination_code", "destination", "num_of_stop", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["sale_total", 296], ["carrier", "Frontier Airlines, Inc."], ["carrier_code", "F9"], ["flight_number", "1358"], ["depart_time", "2015-03-13 at 16:45"], ["arrival_time", "2015-03-13 at 18:40"], ["duration", 310], ["origin", "San Francisco"], ["destination_code", "PHX"], ["destination", "Phoenix"], ["num_of_stop", 0], ["created_at", "2015-03-11 04:07:01.932678"], ["updated_at", "2015-03-11 04:07:01.932678"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mTrip Load (0.6ms)[0m  [1mSELECT  "trips".* FROM "trips" WHERE (sale_total < '676') AND "trips"."origin" = $1  ORDER BY "trips"."id" DESC LIMIT 9[0m  [["origin", "San Francisco"]]
+Completed 200 OK in 6380ms (Views: 3.3ms | ActiveRecord: 25.1ms)
+
+
+Started POST "/users" for ::1 at 2015-03-10 21:07:27 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"formData"=>{"0"=>{"name"=>"name", "value"=>"hossein"}, "1"=>{"name"=>"email", "value"=>"beheshtaein.a@gmail.com"}}, "purchaseLinkForEmail"=>"https://www.google.com/flights/#search;f=SFO;t=JFK;d=2015-03-13;r=2015-03-27;sel=*"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "link", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "hossein"], ["email", "beheshtaein.a@gmail.com"], ["link", "https://www.google.com/flights/#search;f=SFO;t=JFK;d=2015-03-13;r=2015-03-27;sel=*"], ["created_at", "2015-03-11 04:07:27.431380"], ["updated_at", "2015-03-11 04:07:27.431380"]]
+  [1m[35m (15.8ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "beheshtaein.a@gmail.com"]]
+Completed 200 OK in 469ms (Views: 0.8ms | ActiveRecord: 18.2ms)
+>>>>>>> 27aa46761c9018eaca2901ed40af0fb16bb36c80
+>>>>>>> staging
