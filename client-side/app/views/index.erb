@@ -18,7 +18,7 @@
   <img src="/assets/loading_icon.GIF" />
 </div>
 
-<div class="container">
+<div class="container" id="on-hero">
 
   <!-- search-bar-wrapper div to be replaced with result-text upon successful return of data from api -->
   <div class="search-bar-wrapper">
@@ -51,6 +51,10 @@
 
   <div class="no-flights-text" style="display:none">
     <p id="sorry">Sorry...</p>
+    <p id="no-flights">We couldn't find any flights for your request</p>
+    <form class="refresh">
+      <input type="submit" class="button" value="Try Again">
+    </form>
   </div>
 
 </div>

@@ -55,8 +55,10 @@ body {
   left: 47%;
 }
 
-.container {
- /* see responsive.gs.12col.css */
+.container #on-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 0;
 }
 
 input {
@@ -151,6 +153,27 @@ div.ui-datepicker {
 }
 
 .apology-text #error {
+  font-family: 'Arbutus Slab', serif;
+  font-size: 1em;
+  color: #414141;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.no-flights-text {
+  position: relative;
+  bottom: 610px;
+  text-align: center;
+}
+
+.no-flights-text #sorry {
+  font-size: 3.4em;
+  color: #ececec;
+  font-family: 'Homemade Apple', cursive;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px #414141;
+}
+
+.no-flights-text #no-flights {
   font-family: 'Arbutus Slab', serif;
   font-size: 1em;
   color: #414141;
