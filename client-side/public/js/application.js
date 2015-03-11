@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   $(".load-icon").hide();
+  infoOnHover();
   searchBarAutocomplete();
   loadDatePicker();
   eventListeners();

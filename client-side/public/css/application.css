@@ -106,6 +106,12 @@ input {
   width: 130px;
 }
 
+/* styling for info on hover with budget */
+div.ui-tooltip {
+  font-size: .75em;
+  width: 220px;
+}
+
 .search-params#dep-date {
   width: 215px;
 }
