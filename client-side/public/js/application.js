@@ -155,7 +155,6 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
 
   $('form').on('submit', function(event) {
     event.preventDefault();
-    debugger
     $.ajax({
       url: 'http://localhost:3000/users',
       type: 'post',
@@ -165,7 +164,6 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
     .done(function(response) {
       console.log('success');
       console.log(response);
-      debugger;
       $('#dialog').parent().remove();
     })
     .fail(function() {
