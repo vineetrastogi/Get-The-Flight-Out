@@ -22,7 +22,7 @@ function displayApologyText() {
   })
 }
 
-function checkForNoResults(data) {
+function checkForNoResults(data, origin, retDate) {
   if (data.trips.length === 0) {
     // no responsive data
   } else {
