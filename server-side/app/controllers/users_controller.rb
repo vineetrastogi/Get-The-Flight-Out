@@ -25,7 +25,7 @@ class UsersController < ApplicationController
            :name=> "#{@current_user.name}"
          }
          ],
-         :html=>"<html><h1>Hi, <strong>#{@current_user.name}</strong>, here is the link you requested! #{@current_user.link}</h1></html>",
+         :html=>"<html><h1>Hi, <strong>#{@current_user.name.capitalize}</strong>, here is the link you requested! #{@current_user.link}</h1></html>",
          :from_email=>"vineetrastogi@gmail.com"
        }
        sending = mandrill.messages.send message
