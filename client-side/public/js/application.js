@@ -6,6 +6,8 @@ $(document).ready(function() {
   eventListeners();
 });
 
+accumulatedLinks = []
+
 function eventListeners() {
   console.log("in eventListeners");
 
@@ -113,6 +115,7 @@ function populateResultsTemp(data_array, origin, retDate) {
   redirectToPurchase(context, origin, retDate);
   trackDataViaEmail(context, origin, retDate);
   addToWishList(context, origin, retDate);
+  trigger();
 }
 
 function redirectToPurchase(context, origin, retDate) {
@@ -183,6 +186,7 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
 
 // USER WISH LIST TO ACCUMULATE DESIRED RESULTS FOR EMAIL NOTIFICATION
 function addToWishList(context, origin, retDate) {
+    // var accumulatedLinks = [];
     var originalAirportCode = origin
     var returnDate = retDate
     var apiResponseObjects = context
@@ -198,12 +202,21 @@ function addToWishList(context, origin, retDate) {
 
     event.preventDefault();
       $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
-      trigger();
-
+      debugger;
+      accumulatedLinks.push(purchaseLink);
+      console.log(accumulatedLinks)
+      debugger;
+      // trigger();
   });
+}
   function trigger() {
     $("#email-me").on('click', function(event) {
+      debugger;
       event.preventDefault();
+      var payload = "";
+      $.each(accumulatedLinks, function(index, value){
+        payload << "<p>"+value+"</p>"
+      })
         $.ajax({
           type: 'POST',
           url: 'https://mandrillapp.com/api/1.0/messages/send.json',
@@ -213,14 +226,14 @@ function addToWishList(context, origin, retDate) {
               "from_email": "vineetrastogi@gmail.com",
               "to": [
                 {
-                  "email": "vineetrastogi@gmail.com",
+                  "email": "beheshtaein.a@gmail.com",
                   "name": "Amir",
                   "type": "to"
                 },
               ],
               "autotext": "true",
-              "subject": "Hi, Here are the info you requested!",
-              "html": "<p>Success</p>",
+              "subject": "Get The Flight Out: Requested Links",
+              "html": "<h3>Here are the links you requested:</h3><br><p>"+ payload + "</p>",
               "send_at": "2014-04-29 12:12:12"
             }
           }
@@ -232,7 +245,7 @@ function addToWishList(context, origin, retDate) {
    });
 
   };
-}
+// }
 
 
 
