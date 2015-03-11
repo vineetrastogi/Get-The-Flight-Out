@@ -2,15 +2,26 @@
   outline: 1px solid black;
 }*/
 
-.logo {
+.app-name {
   font-family: 'Arbutus Slab', serif;
   margin-left: 20px;
+}
+
+.logo {
+  height: 38px;
+  position: relative;
+  left: 5px;
+  top: 5px;
 }
 
 body {
   background-color: #ececec;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
+}
+
+.row * {
+  display: inline-block;
 }
 
 .button {
