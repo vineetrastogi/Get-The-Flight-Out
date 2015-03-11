@@ -106,7 +106,7 @@ function populateResultsTemp(data_array, origin, retDate) {
 
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
-  trackDataViaEmail();
+  trackDataViaEmail(context, origin, retDate);
 }
 
 function redirectToPurchase(context, origin, retDate) {
@@ -131,33 +131,41 @@ function redirectToPurchase(context, origin, retDate) {
 }
 
 // POP UP WINDOW FOR USER TO INSERT NAME AND EMAIL TO RECEIVE PUSH NOTIFICATION
-function trackDataViaEmail() {
+function trackDataViaEmail(context, origin, retDate) {
   $('#parent-container').on('click', '.email-button',  function(event){
+    // var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
     var clickedElement = event.target.id
     event.preventDefault();
-    console.log(clickedElement);
-    formDialog(clickedElement);
+    console.log(context);
+    var originalAirportCode = origin
+    var returnDate = retDate
+    var apiResponseObjects = context
+    formDialog(clickedElement, originalAirportCode, returnDate, apiResponseObjects);
   });
 }
 
-function formDialog(clickedElement) {
+function formDialog(clickedElement, originalAirportCode, returnDate, apiResponseObjects) {
   $("#dialog").dialog({
     autoOpen: false
   });
   $("#dialog").dialog("open");
   $('#dialog').css("display", 'block')
-  sendEmail(clickedElement);
+
+  sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseObjects);
 }
 
-function sendEmail(clickedElement) {
+function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseObjects) {
+  var divResultIndex = parseInt(clickedElement[6]);
+  var departDate = apiResponseObjects[divResultIndex].depart_time.substring(0,10);
+  var purchaseLink = "https://www.google.com/flights/#search;f="+originalAirportCode+";t="+apiResponseObjects[divResultIndex].destination_code+";d="+departDate+";r="+returnDate+";sel=*";
+
   $('form').on('submit', function(event) {
     event.preventDefault();
-
     $.ajax({
       url: 'http://localhost:3000/users',
       type: 'post',
       dataType: 'json',
-      data: $('form').serialize()
+      data: {formData: ($('form').serializeArray()), purchaseLinkForEmail: purchaseLink},
     })
     .done(function(response) {
       console.log('success');
@@ -169,6 +177,8 @@ function sendEmail(clickedElement) {
     });
   });
 }
+
+
 
 
 
