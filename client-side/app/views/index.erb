@@ -38,14 +38,27 @@
   </div>
 
   <div class="result-text" style="display:none">
-    <p id="success">Oh the places you will go...</p>
-    <p id="no-reults">Sorry...</p>
+    <p>Oh the places you will go...</p>
   </div>
 
-<!--   <div class="error" id="no-results" style="display:none">
-  </div> -->
+  <div class="apology-text" style="display:none">
+    <p id="sorry">Sorry...</p>
+    <p id="error">Looks like something went wrong.</p>
+    <form class="refresh">
+      <input type="submit" class="button" value="Try Again">
+    </form>
+  </div>
+
+  <div class="no-flights-text" style="display:none">
+    <p id="sorry">Sorry...</p>
+    <p id="no-flights">We couldn't find any flights for your request</p>
+    <form class="refresh">
+      <input type="submit" class="button" value="Try Again">
+    </form>
+  </div>
 
 </div>
+
 <div id="dialog" title="Email Me!" style="display:none">
   <form action="" method="post">
     <label>Name:</label>

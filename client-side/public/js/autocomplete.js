@@ -1,5 +1,6 @@
+console.log('autocomplete.js');
+
 function searchBarAutocomplete() {
-  console.log('searchbar');
   $(".search-params#origin").autocomplete({
     minLength: 2,
     delay: 0,
