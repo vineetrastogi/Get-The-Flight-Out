@@ -112,7 +112,7 @@ function populateResultsTemp(data_array, origin, retDate) {
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
   trackDataViaEmail(context, origin, retDate);
-  addToWishList();
+  addToWishList(context, origin, retDate);
 }
 
 function redirectToPurchase(context, origin, retDate) {
@@ -142,7 +142,6 @@ function trackDataViaEmail(context, origin, retDate) {
     // var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
     var clickedElement = event.target.id
     event.preventDefault();
-    console.log(context);
     var originalAirportCode = origin
     var returnDate = retDate
     var apiResponseObjects = context
@@ -185,11 +184,22 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
 }
 
 // USER WISH LIST TO ACCUMULATE DESIRED RESULTS FOR EMAIL NOTIFICATION
-
-function addToWishList() {
+function addToWishList(context, origin, retDate) {
+    var originalAirportCode = origin
+    var returnDate = retDate
+    var apiResponseObjects = context
   $('#parent-container').on('click', '.add-to-wishlist', function(event) {
+    var clickedElement = event.target.id
+    var index = parseInt(clickedElement[9])
+    var currentDiv = apiResponseObjects[index]
+    var destination = currentDiv.destination
+    var carrier = currentDiv.carrier
+    var saleTotal = "$ " + currentDiv.sale_total
+    var departDate = currentDiv.depart_time.substring(0,10);
+    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+currentDiv.destination_code+";d="+departDate+";r="+returnDate+";sel=*";
+
     event.preventDefault();
-      $('.wish-list').append("<p>hi</p>")
+      $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
   });
 }
 
