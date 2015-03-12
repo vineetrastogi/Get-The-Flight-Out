@@ -168,10 +168,12 @@ div.ui-icon {
 /* replaces search bar when displaying results to query */
 .result-text p {
   position: relative;
-  bottom: 610px;
+  right: 400px;
+  bottom: 710px;
   text-align: center;
   font-size: 3.4em;
-  color: #ececec;
+  /*color: #ececec;*/
+  color: #414141;
   font-family: 'Homemade Apple', cursive;
   font-weight: bolder;
   text-shadow: 1px 1px 1px #414141;
@@ -186,7 +188,8 @@ div.ui-icon {
 
 .apology-text #sorry {
   font-size: 3.4em;
-  color: #ececec;
+  /*color: #ececec;*/
+  color: #414141;
   font-family: 'Homemade Apple', cursive;
   font-weight: bolder;
   text-shadow: 1px 1px 1px #414141;
@@ -207,7 +210,8 @@ div.ui-icon {
 
 .no-flights-text #sorry {
   font-size: 3.4em;
-  color: #ececec;
+  /*color: #ececec;*/
+  color: #414141;
   font-family: 'Homemade Apple', cursive;
   font-weight: bolder;
   text-shadow: 1px 1px 1px #414141;
@@ -315,11 +319,11 @@ div.ui-icon {
   position: relative;
   left: 45px;
   bottom: 50px;
-  color: darkgray;
+  color: gray;
 }
 
 .carrier-code {
-  color: darkgray;
+  color: gray;
 }
 
 .ui-widget {
