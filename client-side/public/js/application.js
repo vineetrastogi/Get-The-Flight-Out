@@ -92,15 +92,6 @@ function sortDataBySaleTotal(data, origin, retDate) {
   populateResultsTemp(data_array, origin, retDate);
 }
 
-// called in submitRequest callback when successful
-// function replaceSearchBox() {
-//   console.log("in replaceSearchBox");
-
-//   //fadein
-//     $(".result-text").fadeIn("slow");
-// }
-
-// called in submitRequest callback when successful
 function populateResultsTemp(data_array, origin, retDate) {
   console.log("in populateResultsTemp");
   console.log(data_array, origin, retDate);

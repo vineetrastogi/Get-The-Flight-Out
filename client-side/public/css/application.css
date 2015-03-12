@@ -16,7 +16,8 @@
 
 body {
   background-color: #ececec;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Lato', sans-serif;*/
   font-weight: 400;
 }
 
@@ -135,6 +136,10 @@ div.ui-datepicker {
   font-size: 12.5px;
 }
 
+.ui-datepicker table .ui-state-hover {
+  background: #ff5a5f;
+}
+
 #submit {
   height: 28px;
   width: 66px;
@@ -239,6 +244,16 @@ div.ui-icon {
   box-shadow: 5px 5px 5px #888;
 }
 
+#important {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+#not-important {
+  font-size: .8em;
+  font-weight: 400;
+}
+
 .flight-info {
   display: inline-block;
   font-size: 1.2em;
@@ -248,20 +263,20 @@ div.ui-icon {
   position: absolute;
   margin-right: 50px;
   margin-left: 50px;
-  bottom: -7%;
-  left: 32%;
+  /*bottom: -7%;*/
+  /*left: 32%;*/
 }
 
 .purchase-button {
   position: absolute;
-  top: 30px;
+  top: 40px;
   /*left: 700px;*/
   right: 50px;
 }
 
 .email-button {
   position: absolute;
-  top: 70px;
+  top: 85px;
   /*left: 700px;*/
   right: 50px;
 }
@@ -272,7 +287,15 @@ div.ui-icon {
   margin-left: 60px;
   margin-right: 50px;
   position: relative;
-  bottom: 8px;
+  top: 10px;
+}
+
+.stops-duration {
+  /*margin-left: 60px;*/
+  position: relative;
+  left: 45px;
+  bottom: 30px;
+  color: darkgray;
 }
 
 .carrier-code {
@@ -302,9 +325,9 @@ a.logo-reload {
   text-decoration: none;
   color: black;
 }
-
+/*
 .ui-datepicker table .ui-state-hover {
   background: #ff5a5f;
 }
-
+*/
 

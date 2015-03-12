@@ -2,20 +2,26 @@
   <div id="parent-container">
   {{#each this}}
     <div class="container results">
+
       <div class="flight-info">
-        <p class="price">$ {{sale_total}}</p>
+        <p class="price">${{sale_total}}</p>
+        <p class="stops-duration"><span id="not-important">{{ifCondition num_of_stop}} | {{durationInHours duration}}h {{durationInMinutes duration}}m</span></p>
       </div>
+
       <div class="flight-info verbose">
-        <p class="carrier">{{carrier}} <span class="carrier-code">( {{carrier_code}} {{flight_number}} )</span></p>
-        <p class="date-time" id="departure">{{depart_time}} {{origin}}</p>
-        <p class="date-time" id="arrival">{{arrival_time}} {{destination}}</p>
+        <p class="carrier"><span id="not-important"><u>{{carrier}} </u><span class="carrier-code">( {{carrier_code}} {{flight_number}} )</span></span></p>
+        <p class="date-time" id="departure">{{depart_time}} <span id="important">{{origin}}</span></p>
+        <p class="date-time" id="arrival">{{arrival_time}} <span id="important">{{destination}}</span></p>
       </div>
+
       <div class="purchase-button">
         <input type="submit" class="button" id="purchase" value="select" data={{@index}}>
       </div>
+
       <div class="email-button">
         <input type="submit" class="button" id="email_{{@index}}" value="track" data={{@index}}>
       </div>
+
     </div>
   {{/each}}
   </div>
