@@ -186,8 +186,10 @@ function addToWishList(context, origin, retDate) {
     var saleTotal = "$ " + currentDiv.sale_total
     var departDate = currentDiv.depart_time.substring(0,10);
     var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+currentDiv.destination_code+";d="+departDate+";r="+returnDate+";sel=*";
-
+// change color when you click button
+    $('.button.wish-button#'+clickedElement).attr('value', 'added!');
     event.preventDefault();
+
       $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
       accumulatedLinks.push(purchaseLink);
       console.log(accumulatedLinks)
