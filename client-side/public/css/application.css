@@ -16,7 +16,7 @@
 
 body {
   background-color: #ececec;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
 
@@ -40,7 +40,6 @@ body {
 }
 
 #hero {
-  /*background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");*/
   position: absolute;
   z-index: -1;
   right: 0;
@@ -88,7 +87,6 @@ input {
   background-color: black;
   border-radius: 5px;
   z-index: 1;
-/*  position: relative;
   top: 500px;*/
 }
 
@@ -135,6 +133,10 @@ div.ui-datepicker {
   font-size: 12.5px;
 }
 
+.ui-datepicker table .ui-state-hover {
+  background: #ff5a5f;
+}
+
 #submit {
   height: 28px;
   width: 66px;
@@ -164,7 +166,6 @@ div.ui-icon {
 }
 
 /* replaces search bar when displaying results to query */
-
 .result-text p {
   position: relative;
   bottom: 610px;
@@ -220,13 +221,11 @@ div.ui-icon {
 }
 
 /* remove autocomplete helper text because it's unnecessary */
-
 .ui-helper-hidden-accessible {
   display: none;
 }
 
 /**** RESULTS TEMPLATE CSS ****/
-
 .results-wrapper {
   position: relative;
   bottom: 420px;
@@ -239,6 +238,16 @@ div.ui-icon {
   box-shadow: 5px 5px 5px #888;
 }
 
+#important {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+#not-important {
+  font-size: .8em;
+  font-weight: 400;
+}
+
 .flight-info {
   display: inline-block;
   font-size: 1.2em;
@@ -248,23 +257,50 @@ div.ui-icon {
   position: absolute;
   margin-right: 50px;
   margin-left: 50px;
-  bottom: -7%;
-  left: 32%;
+  top: 12px;
 }
 
 .purchase-button {
   position: absolute;
-  top: 30px;
-  /*left: 700px;*/
+  top: 65px;
   right: 50px;
 }
 
 .email-button {
   position: absolute;
-  top: 70px;
-  /*left: 700px;*/
+  top: 110px;
   right: 50px;
 }
+
+.wish-list {
+  position: relative;
+  bottom: 2103px;
+  width: 500px;
+  left: 1400px;
+  border: 1px solid gray;
+  position: relative;
+  box-shadow: 5px 5px 5px #888;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.wish-list table {
+  margin-bottom: 20px;
+}
+.wish-list table th {
+  width: 150px;
+}
+
+.wish-list #table-body {
+  text-align: center;
+}
+
+.add-to-wishlist input {
+  position: relative;
+  bottom: 55px;
+  left: 65px;
+ }
 
 .price {
   font-weight: bolder;
@@ -272,7 +308,14 @@ div.ui-icon {
   margin-left: 60px;
   margin-right: 50px;
   position: relative;
-  bottom: 8px;
+  top: -10px;
+}
+
+.stops-duration {
+  position: relative;
+  left: 45px;
+  bottom: 50px;
+  color: darkgray;
 }
 
 .carrier-code {
@@ -301,10 +344,6 @@ div.ui-icon {
 a.logo-reload {
   text-decoration: none;
   color: black;
-}
-
-.ui-datepicker table .ui-state-hover {
-  background: #ff5a5f;
 }
 
 
