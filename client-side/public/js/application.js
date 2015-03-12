@@ -242,29 +242,3 @@ function addToWishList(context, origin, retDate) {
 
   };
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
