@@ -272,7 +272,31 @@ div.ui-icon {
   right: 50px;
 }
 
- .add-to-wishlist input {
+.wish-list {
+  position: relative;
+  bottom: 2103px;
+  width: 500px;
+  left: 1400px;
+  border: 1px solid gray;
+  position: relative;
+  box-shadow: 5px 5px 5px #888;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.wish-list table {
+  margin-bottom: 20px;
+}
+.wish-list table th {
+  width: 150px;
+}
+
+.wish-list #table-body {
+  text-align: center;
+}
+
+.add-to-wishlist input {
   position: relative;
   bottom: 55px;
   left: 65px;

@@ -230,6 +230,7 @@ function addToWishList(context, origin, retDate) {
           }
        }).done(function(response) {
          console.log(response); // if you're into that sorta thing
+         $('.wish-list input').val("")
       }).error(function() {
          console.log("error");
       });
