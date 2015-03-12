@@ -5,20 +5,15 @@ $(document).ready(function() {
   searchBarAutocomplete();
   loadDatePicker();
   eventListeners();
-
 });
+
+accumulatedLinks = []
 
 function eventListeners() {
   console.log("in eventListeners");
 
   $(".button#send-request").on("click", function(event) {
     event.preventDefault();
-
-    // $(".search-bar-wrapper").animate({ opacity:0 });
-    // change button to loading and prevents user from typing in search field while ajax request is still going
-    // $(".search-params#origin").prop("disabled", true);
-    // $(".button#submit").attr("disabled", true).val('......');
-    // $(".load-icon").show();
 
     var origin = $("#origin").val().match(/\(([^)]+)\)/)[1];
     var budget = $("#budget").val();
@@ -68,7 +63,8 @@ function submitRequest(origin, budget, depDate, retDate) {
     console.log("complete");
     $(".load-icon").hide();
   });
-
+    // $submitButton.attr('disabled', false).val('Submit');
+    // $searchField.prop('disabled', false);
 } //end of submitRequest
 
 function sortDataBySaleTotal(data, origin, retDate) {
@@ -105,6 +101,8 @@ function populateResultsTemp(data_array, origin, retDate) {
   // directs on "click" event listener to redirect user to googleflights ticket purchse
   redirectToPurchase(context, origin, retDate);
   trackDataViaEmail(context, origin, retDate);
+  addToWishList(context, origin, retDate);
+  trigger();
 }
 
 function redirectToPurchase(context, origin, retDate) {
@@ -134,7 +132,6 @@ function trackDataViaEmail(context, origin, retDate) {
     // var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+context[index].destination_code+";d="+departDate+";r="+retDate+";sel=*";
     var clickedElement = event.target.id
     event.preventDefault();
-    console.log(context);
     var originalAirportCode = origin
     var returnDate = retDate
     var apiResponseObjects = context
@@ -166,8 +163,6 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
       data: {formData: ($('form').serializeArray()), purchaseLinkForEmail: purchaseLink},
     })
     .done(function(response) {
-      console.log('success');
-      console.log(response);
       $('#dialog').parent().remove();
     })
     .fail(function() {
@@ -175,6 +170,92 @@ function sendEmail(clickedElement, originalAirportCode, returnDate, apiResponseO
     });
   });
 }
+
+// USER WISH LIST TO ACCUMULATE DESIRED RESULTS FOR EMAIL NOTIFICATION
+function addToWishList(context, origin, retDate) {
+    // var accumulatedLinks = [];
+    var originalAirportCode = origin
+    var returnDate = retDate
+    var apiResponseObjects = context
+  $('#parent-container').on('click', '.add-to-wishlist', function(event) {
+    var clickedElement = event.target.id
+    var index = parseInt(clickedElement[9])
+    var currentDiv = apiResponseObjects[index]
+    var destination = currentDiv.destination
+    var carrier = currentDiv.carrier
+    var saleTotal = "$ " + currentDiv.sale_total
+    var departDate = currentDiv.depart_time.substring(0,10);
+    var purchaseLink = "https://www.google.com/flights/#search;f="+origin+";t="+currentDiv.destination_code+";d="+departDate+";r="+returnDate+";sel=*";
+
+    event.preventDefault();
+      $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
+      accumulatedLinks.push(purchaseLink);
+      console.log(accumulatedLinks)
+  });
+}
+  function trigger() {
+    $("#email-me").on('click', function(event) {
+      var currentUserEmailAddress = $('#email-address').val();
+      var currentUserName = $('#user-name').val();
+      event.preventDefault();
+
+      var payload = "";
+      $.each(accumulatedLinks, function(index, value){
+        payload += "<p>"+value+"</p>"
+      })
+      console.log(payload);
+        $.ajax({
+          type: 'POST',
+          url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+          data: {
+            "key": "E5DEVeyAdB1o6K-I_hXa6g",
+            "message": {
+              "from_email": "vineetrastogi@gmail.com",
+              "to": [
+                {
+                  "email": currentUserEmailAddress,
+                  "name": currentUserName,
+                  "type": "to"
+                },
+              ],
+              "inline_css": "true",
+              "autotext": "true",
+              "subject": "Get The Flight Out: Requested Links",
+
+              "html": "<style>#hi{background-color: #DDDDDD; border: 2px solid black; padding: 15px}</style><img src='http://i.imgur.com/I5Wywsw.png'/><p>The prices on our homepage were specifically for one way trips. Prices may vary slightly as well.</p><p><strong>Here are the trips you requested:</strong></p><br><ul><div id='hi'>"+ payload + "</div></ul>",
+              "send_at": "2014-04-29 12:12:12"
+            }
+          }
+       }).done(function(response) {
+         console.log(response); // if you're into that sorta thing
+      }).error(function() {
+         console.log("error");
+      });
+   });
+
+  };
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

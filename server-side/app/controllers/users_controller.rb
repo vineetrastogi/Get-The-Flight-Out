@@ -11,12 +11,12 @@ class UsersController < ApplicationController
     # @name = params['formData']['0']['value']
     @email = params['formData']['1']['value']
     # @link = params['purchaseLinkForEmail']
-    @current_user = User.find_by(email: @email)
+    @current_user = User.where(email: @email).last
 
     begin
       mandrill = Mandrill::API.new "#{ENV['MANDRILL_API']}"
       message = {
-       :subject=> "The trip which you requested from Get the Flight Out",
+       :subject=> "Get The Flight Out: Requested Link",
        :from_name=> "Get The Flight Out",
        :text=>"",
        :to=>[
@@ -25,8 +25,10 @@ class UsersController < ApplicationController
            :name=> "#{@current_user.name}"
          }
          ],
-         :html=>"<html><h1>Hi, <strong>#{@current_user.name.capitalize}</strong>, here is the link you requested! #{@current_user.link}</h1></html>",
-         :from_email=>"vineetrastogi@gmail.com"
+         :inline_css=> true,
+         :html=>"<html><style>#hi{background-color: #DDDDDD; border: 2px solid black; padding: 15px}</style><img src='http://i.imgur.com/I5Wywsw.png'/><br>Hello, <strong>#{@current_user.name.capitalize}</strong><p>The prices on our homepage were specifically for one way trips. Prices may vary slightly as well.</p><h3>Here is the link you requested:</h3><br><ul><div id='hi'>#{@current_user.link}</div></ul></html>",
+         :from_email=>"vineetrastogi@gmail.com",
+         :send_at => "2014-04-29 12:12:12"
        }
        sending = mandrill.messages.send message
        puts sending
