@@ -236,7 +236,7 @@ function addToWishList(context, origin, retDate) {
               "autotext": "true",
               "subject": "Get The Flight Out: Requested Links",
 
-              "html": "<img src='http://i.imgur.com/I5Wywsw.png'/><h3>Here are the trips you requested:</h3><br><p>The prices on our homepage were specifically for one way trips. Prices may vary slightly as well.</p><ul><div>"+ payload + "</div></ul>",
+              "html": "<style>#hi{background-color: #DDDDDD; border: 2px solid black; padding: 15px}</style><img src='http://i.imgur.com/I5Wywsw.png'/><p>The prices on our homepage were specifically for one way trips. Prices may vary slightly as well.</p><p><strong>Here are the trips you requested:</strong></p><br><ul><div id='hi'>"+ payload + "</div></ul>",
               "send_at": "2014-04-29 12:12:12"
             }
           }
