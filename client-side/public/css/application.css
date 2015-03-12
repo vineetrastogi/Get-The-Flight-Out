@@ -17,7 +17,6 @@
 body {
   background-color: #ececec;
   font-family: 'Open Sans', sans-serif;
-  /*font-family: 'Lato', sans-serif;*/
   font-weight: 400;
 }
 
@@ -41,7 +40,6 @@ body {
 }
 
 #hero {
-  /*background-image: url("http://media.rusbase.com/blogs/sunset-plane.png");*/
   position: absolute;
   z-index: -1;
   right: 0;
@@ -89,7 +87,6 @@ input {
   background-color: black;
   border-radius: 5px;
   z-index: 1;
-/*  position: relative;
   top: 500px;*/
 }
 
@@ -169,7 +166,6 @@ div.ui-icon {
 }
 
 /* replaces search bar when displaying results to query */
-
 .result-text p {
   position: relative;
   bottom: 610px;
@@ -225,13 +221,11 @@ div.ui-icon {
 }
 
 /* remove autocomplete helper text because it's unnecessary */
-
 .ui-helper-hidden-accessible {
   display: none;
 }
 
 /**** RESULTS TEMPLATE CSS ****/
-
 .results-wrapper {
   position: relative;
   bottom: 420px;
@@ -263,23 +257,26 @@ div.ui-icon {
   position: absolute;
   margin-right: 50px;
   margin-left: 50px;
-  /*bottom: -7%;*/
-  /*left: 32%;*/
+  top: 12px;
 }
 
 .purchase-button {
   position: absolute;
-  top: 40px;
-  /*left: 700px;*/
+  top: 65px;
   right: 50px;
 }
 
 .email-button {
   position: absolute;
-  top: 85px;
-  /*left: 700px;*/
+  top: 110px;
   right: 50px;
 }
+
+ .add-to-wishlist input {
+  position: relative;
+  bottom: 55px;
+  left: 65px;
+ }
 
 .price {
   font-weight: bolder;
@@ -287,14 +284,13 @@ div.ui-icon {
   margin-left: 60px;
   margin-right: 50px;
   position: relative;
-  top: 10px;
+  top: -10px;
 }
 
 .stops-duration {
-  /*margin-left: 60px;*/
   position: relative;
   left: 45px;
-  bottom: 30px;
+  bottom: 50px;
   color: darkgray;
 }
 
@@ -325,9 +321,5 @@ a.logo-reload {
   text-decoration: none;
   color: black;
 }
-/*
-.ui-datepicker table .ui-state-hover {
-  background: #ff5a5f;
-}
-*/
+
 
