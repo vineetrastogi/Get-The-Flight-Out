@@ -190,7 +190,8 @@ function addToWishList(context, origin, retDate) {
     $('.button.wish-button#'+clickedElement).attr('value', 'added!');
     event.preventDefault();
 
-      $('#table-body').append("<tr><td>"+destination+"</td><td>"+carrier+"</td><td>"+saleTotal+"</td></tr>"+"<td style='display:none'>"+purchaseLink+"</td>");
+      $('#table-body').append("<tr><td>"+destination+"</td></tr><td style='display:none'>"+purchaseLink+"</td>");
+      // <td>"+carrier+"</td><td>"+saleTotal+"</td>
       accumulatedLinks.push(purchaseLink);
       console.log(accumulatedLinks)
   });
